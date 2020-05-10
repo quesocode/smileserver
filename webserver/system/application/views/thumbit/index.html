@@ -1,0 +1,215 @@
+<?php $b = base_url(); ?>
+
+<style type="text/css">
+#menu_wrp
+{
+     display: none;
+}
+.thumb
+{
+     margin-top: 60px;
+     padding-bottom: 60px;
+     border-bottom: 5px solid #f4f4f4;
+}
+.thumb img
+{
+     margin-top: 30px;
+}
+.thumb img:first-child
+{
+     margin-top: 0;
+}
+.thumb img.f
+{
+     margin-top: 0;
+}
+
+.thumb h3
+{
+     font-weight: bold;
+     font-size: 18px;
+     margin-bottom: 5px;
+     
+}
+
+.thumb h5
+{
+     color: #222;
+     font-size: 10px;
+     
+}
+.thumb p
+{
+     color: #aaa;
+     font-size: 11px;
+     
+}
+
+.thumb strong
+{
+     font-weight: normal;
+     color: #555;
+     
+     font-size: 12px;
+     font-family: Courier;
+     display: block;
+     border: 1px solid #ddd;
+     background: #eee;
+     margin-top: 3px;
+     padding: 3px 8px;
+     
+}
+.thumb strong em
+{
+     font-style: normal;
+     margin: 0 3px;
+     font-weight: bold;
+     color: #0098d5;
+}
+h1
+{
+     line-height: 44px;
+     font-size: 44px;
+     font-family: Helvetica, sans-serif;
+     letter-spacing: -3px;
+     margin: 0;
+     padding: 0;
+}
+p
+{
+     margin: 0;
+     padding: 0;
+}
+h3 + p
+{
+     margin-bottom: 20px;
+}
+</style>
+<div class="grid_8 alpha" style="height:150px;">
+<h1>Thumb.it</h1>
+</div>
+ <div class="grid_16 omega">
+<p>A thumbnailing web service by Swamped</p>
+</div>
+<div class="clear"></div>
+<div class="thumb">
+     <div class="grid_8 alpha">
+          <img width="250" height="300" src="<?= $b ?>img/250x300/?src=http://farm4.static.flickr.com/3003/3066857751_13e70f6606.jpg" />
+     </div>
+     <div class="grid_16 omega">
+          <h3>Thumbnail</h3>
+          <p>Resize, Crop a source image into a specified pixel dimension on the fly</p>
+          <h5>URL Syntax</h5>
+          <p><strong><?= $b ?>img/<em>[width]</em>x<em>[height]</em>/?src=<em>[image source url]</em></strong></p>
+          <h5>Example</h5>
+          <p><strong><?= $b ?>img/250x200/?src=http://farm4.static.flickr.com/3003/3066857751_13e70f6606.jpg</strong></p>
+     </div>
+     <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="thumb">
+     <div class="grid_8 alpha">
+          <img src="<?= $b ?>img/250x200/"  width="250" height="200" />
+     </div>
+     <div class="grid_16 omega">
+          <h3>Thumbnail Dimensions</h3>
+          <p>Display pixel dimensions of thumbnail</p>
+          <h5>URL Syntax</h5>
+          <p><strong><?= $b ?>img/<em>[width]</em>x<em>[height]</em>/</strong></p>
+          <h5>Example</h5>
+          <p><strong><?= $b ?>img/250x250/</strong></p>
+     </div>
+     <div class="clear"></div>
+</div>
+<div class="clear"></div>
+
+<div class="thumb">
+     <div class="grid_8 alpha">
+          <img src="<?= $b ?>img/200x400/?bg=bb3931&color=cfa006"  width="200" height="400" />
+     </div>
+     <div class="grid_16 omega">
+          <h3>Thumbnail Dimensions Custom Colors</h3>
+          <p>Display pixel dimensions of thumbnail</p>
+          <h5>URL Syntax</h5>
+          <p><strong><?= $b ?>img/<em>[width]</em>x<em>[height]</em>/&bg=<em>[Hex color for bg]</em>&color=<em>[Hex color for font]</em></strong></p>
+          <h5>Example</h5>
+          <p><strong><?= $b ?>img/250x200/</strong></p>
+     </div>
+     <div class="clear"></div>
+</div>
+<div class="clear"></div>
+
+
+
+<div class="thumb">
+     <div class="grid_8 alpha">
+          
+          <img  width="280" height="280" class="f" src="<?= $b ?>img/280x280/<?= rand() ?>.jpg?q=100&src=http://farm4.static.flickr.com/3003/3982802304_e8ced6e170.jpg&text=PEACE&fontsize=38&color=FF0000&font=arial_black" />
+          
+
+
+     </div>
+     <div class="grid_16 omega">
+          <h3>Thumbnail with Text</h3>
+          <p>Overlay pixel dimensions on custom thumbnail</p>
+          
+          <h5>Example</h5>
+          <p><strong><?= $b ?>img/280x330/filename.jpg?src=<em>[image source url]</em>&text=PEACE&fontsize=38&color=FF0000&font=arial_black</strong></p>
+          <h5>URL Syntax</h5>
+          <p><strong><?= $b ?>img/<em>[width]</em>x<em>[height]</em>/?src=<em>[image source url]</em>&text=<em>[url encoded text here]</em></strong></p>
+     
+
+     </div>
+     <div class="clear"></div>
+</div>
+
+<div class="thumb">
+     <div class="grid_8 alpha">
+
+          
+          
+          <img  width="250" height="250" src="<?= $b ?>img/250x250/<?= rand() ?>.jpg?src=http://farm4.static.flickr.com/3283/3024739057_b775dc9ece.jpg&q=100&text=250w%20x%20250h&bg=111111&fontsize=16&color=cccccc&font=courier_new_bold" />
+
+
+     </div>
+     <div class="grid_16 omega">
+          <h3>Thumbnail with Text, Custom Colors, Box, and Courier New Bold Font</h3>
+          <p>Overlay pixel dimensions on custom thumbnail</p>
+
+          <h5>Example</h5>
+          <p><strong><?= $b ?>img/250x250/filename.jpg?src=<em>[image source url]</em>&text=Example%202&bg=000000&fontsize=16&color=e3ea1c&font=courier_new_bold</strong></p>
+          <h5>URL Syntax</h5>
+          <p><strong><?= $b ?>img/<em>[width]</em>x<em>[height]</em>/<em>[image name (caching)]</em>/?src=<em>[image source url]</em>&q=<em>[quality (1-100)]</em>&text=<em>[url encoded text here]</em>&bg=<em>[Hex color for box around text]</em>&fontsize=<em>[font size in pixels]</em>&color=<em>[Hex color for font]</em>&font=<em>[font name]</em></strong></p>
+
+     </div>
+     <div class="clear"></div>
+</div>
+
+<div class="thumb">
+     <div class="grid_8 alpha">
+          
+
+          
+          
+          <img  width="250" height="150" src="<?= $b ?>img/250x150/<?= rand() ?>.jpg?src=http://farm4.static.flickr.com/3419/3951462086_c295262e9a.jpg&q=100&text=Example%203&bg=FFFFFF&fontsize=16&color=111111&font=arial_rounded_bold&x=left&y=bottom" />
+
+     </div>
+     <div class="grid_16 omega">
+          <h3>Thumbnail with Text, Box, Custom Font, and Custom Position</h3>
+          <p>Overlay pixel dimensions on custom thumbnail</p>
+          
+          
+          <h5>Example</h5>
+          <p><strong><?= $b ?>img/250x150/filename.jpg?src=<em>[image source url]</em>&q=100&text=Example%203&bg=FFFFFF&fontsize=16&color=FF0000&font=courier_new&x=left&y=bottom</strong></p>
+          <h5>URL Syntax</h5>
+          <p><strong><?= $b ?>img/<em>[width]</em>x<em>[height]</em>/<em>[image name (caching)]</em>/?src=<em>[image source url]</em>&q=<em>[quality (1-100)]</em>&text=<em>[url encoded text here]</em>&bg=<em>[Hex color for box around text]</em>&fontsize=<em>[font size in pixels]</em>&color=<em>[Hex color for font]</em>&font=<em>[font name]</em></strong></p>
+     </div>
+     <div class="clear"></div>
+</div>
+
+
+<div class="clear"></div>

@@ -1,0 +1,57 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^(.+)$ - [L]
+
+
+
+RewriteCond $1 !^(index\.php|images|robots\.txt|styles|scripts|test\.php)
+RewriteRule ^(.*)$ /index.php/$1 [L]
+
+# MOD_DEFLATE COMPRESSION
+SetOutputFilter DEFLATE
+
+
+Header append Cache-Control "public"
+
+# PUT YOUR WP SUPER CACHE RULES HERE
+
+# KILL THEM ETAGS
+FileETag none
+
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/x-javascript text/javascript
+
+# Turn on Expires and set default to 0
+ExpiresActive On
+ExpiresDefault A7200
+ 
+# Set up caching on media files for 1 year (forever?)
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav)$">
+ExpiresDefault A29030400
+Header append Cache-Control "public"
+</FilesMatch>
+ 
+# Set up caching on media files for 1 week
+<FilesMatch "\.(gif|jpg|jpeg|png|swf)$">
+ExpiresDefault A604800
+Header append Cache-Control "public"
+</FilesMatch>
+ 
+# Set up 2 Hour caching on commonly updated files
+<FilesMatch "\.(xml|txt|html|js|css)$">
+ExpiresDefault A604800
+Header append Cache-Control "proxy-revalidate"
+</FilesMatch>
+ 
+# Force no caching for dynamic files
+<FilesMatch "\.(php|cgi|pl|htm)$">
+ExpiresActive Off
+Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+Header set Pragma "no-cache"
+</FilesMatch>
+
+
+
+Action php5-script /gs-bin/php-5.2.6-1
+AddHandler php5-script .php

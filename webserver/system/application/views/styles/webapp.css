@@ -1,0 +1,179 @@
+/* CSS RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, hr{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: top;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*---STRUCTURE---*/
+body, html {height: 100%; width: 100%; margin: 0; padding: 0; position: absolute; top: 0;
+left: 0; }
+body {background: url(<?php echo MEDIASERVER;?>images/blubg.jpg); font-family: Helvetica, Arial, sans-serif;}
+
+#wrapper {top: 0; left: 0; position: absolute; width: 100%; height: 100%;}
+
+#overlay {float: left; position:absolute; z-index: 110; background: rgba(15,15,15,.8); width: 100%; height: 100%; display: none;}
+
+header {float: left; display: block; clear: both; width: 100%; height: 180px; background: url(<?php echo MEDIASERVER;?>images/head.png) no-repeat center center; line-height: 200px; text-align: center; color: #fff; font-weight: bold; font-size: 24px; position: fixed; top: 0; z-index: 1000;}
+
+header h1
+{
+	display: none;
+}
+
+
+#refreshBtn { position: absolute; right: 20px; top:20px; width: 35px; height: 35px; text-indent: -9999px; background: url(<?php echo MEDIASERVER;?>images/refresher.png) no-repeat;}
+
+#gallery {margin:0 auto;top:30px; position: relative; display: block; width: 95%; height: auto; padding: 170px 0 0 10px;}
+
+.photoThumb {float: left; position: relative; width: 160px; height: 160px; padding: 10px; margin: 0 10px 20px 0; }
+
+.control {float: left; position: absolute; z-index: 100;   width: 100%; height: 150px; display: none;}
+
+#topControls {top:0;}
+
+	#goBack {float: left; position: relative; width: 150px; height: 54px; text-indent: -9999px; background: url(<?php echo MEDIASERVER;?>images/back.png) no-repeat; margin: 35px 0 0 40px;}
+	
+#bottomControls {bottom: 0; text-align: center;}
+	
+	#controlWrapper {margin: 0 auto; position: relative; width: 600px; height: 150px;}
+	
+	#email {float: left; display: inline; width: 140px; height: 140px; text-indent: -9999px; background: url(<?php echo MEDIASERVER;?>images/email.png) no-repeat; margin: 10px 90px 0 0;}
+	
+	#mms {float: left; position: relative; width: 140px; height: 140px; text-indent: -9999px; background: url(<?php echo MEDIASERVER;?>images/mms.png) no-repeat;margin: 10px 90px 0 0;}
+	
+	#tweet {float: left; position: relative; width: 140px; height: 140px; text-indent: -9999px; background: url(<?php echo MEDIASERVER;?>images/twitter.png) no-repeat;margin: 10px 0 0 0;}
+
+#singlePhoto {position: relative; z-index: 0; width: 100%; height: 100%; text-align: center;}
+
+#singlePhoto img {
+         display: block;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+		border: 10px solid white;
+		background: white;
+		
+      }
+      
+      #singlePhoto
+      {
+        position: absolute;
+        
+        max-height: 100%;
+         max-width: 100%;
+
+      }
+
+.modal {position: absolute; z-index: 9999; margin:0 auto; top: 10px; width: 540px; height: 565px; left:50%; margin-left: -270px; background: #e1e1e1; display: none; border-radius: 10px; color: #fff; text-align: center; font-size: 24px; line-height: 44px;}
+
+#tweetBox.modal {background: #000;}
+
+#messageBox.modal {background: #000; height: 200px !important;}
+
+#messageBox.modal #message { display: block; padding: 25px; margin-top: 50px; line-height: 25px; }
+
+.modalHeader {float: left; position: relative; width: 540px; height: 44px; background: url(<?php echo MEDIASERVER;?>images/header.jpg) repeat-x; border-top-left-radius: 10px; border-top-right-radius: 10px;}
+
+.close {float: left; position: absolute; width:49px; height: 29px; top: 7px; left: 10px}
+	
+#closeBtn {float:left; width: 49px; height: 29px; text-indent: -9999px; background: url(<?php echo MEDIASERVER;?>images/close-btn.png) no-repeat;}
+
+.buttonHolder {margin: 0 auto; position: relative; width: 510px; padding: 10px;}
+
+a.addNumber {background: url(<?php echo MEDIASERVER;?>images/orange_bg_star.png); float: left; position: relative; width: 165px; height: 85px; border-radius: 10px; line-height: 85px; color: #fff; font-weight: bold; font-size: 24px; font-family: Courier New; font-size: 36px; text-shadow: black 0.1em 0.1em 0; text-decoration: none; margin: 0 0 5px 5px;}
+
+a.addExtension {background: url(<?php echo MEDIASERVER;?>images/orange_bg_star.png); float: left; position: relative; width: 165px; height: 85px; border-radius: 10px; line-height: 85px; color: #fff; font-weight: bold; font-family: Courier New; font-size: 18px; text-shadow: black 0.1em 0.1em 0; text-decoration: none; margin: 0 0 5px 5px;}
+
+.dialpad {background: url(<?php echo MEDIASERVER;?>images/yellow_bg_star.png); float: left; position: relative; width: 165px; height: 85px;  line-height: 85px; color: #fff; font-weight: bold; font-size: 24px; font-family: Courier New; font-size: 36px; text-shadow: black 0.1em 0.1em 0; text-decoration: none; margin: 0 0 5px 5px; border: none; border-radius: 10px; }
+
+a.addNumber:active {background: url(<?php echo MEDIASERVER;?>images/green_bg_star.png);}
+
+#mmsSubmit {margin: 0 0 5px 5px; position: relative; width: 165px; height: 85px; padding: 0; text-align: center; background: url(<?php echo MEDIASERVER;?>images/yellow_bg_star.png) repeat-x; line-height: 85px; color: #fff; font-weight: bold; font-family: Courier New; font-size: 36px; text-shadow: black 0.1em 0.1em 0; text-decoration: none; border: none; border-radius: 10px; }
+
+
+/* a.addNumber:first-child {margin: 0 0 10px 0;} */
+
+input#mmsInput {margin: 0 auto; background: none; border: 2px solid #000; border-radius: 15px; width: 510px; height: 90px; margin: 20px 0; line-height: 90px; text-align: center; font-family: Courier New; color: #000; font-size: 48px; font-weight: bold;}
+
+#emailInputWrapper, .twitterInputWrapper {float: left; position: relative; left: 15px; background: none; background: #fff; border-radius: 15px; width: 510px; height: 90px; margin: 20px 0;}
+
+#emailInputWrapper #clearBtn, .twitterInputWrapper #clearBtn {float: right; position: relative; width: 15px; height: 15px; text-indent: -9999px; background: url(<?php echo MEDIASERVER;?>images/cross2x.png) no-repeat; border: 0px; margin: 40px 15px 0px 0; z-index: 110;}
+
+#emailSubmit, #twitterForm1Submit, #twitterForm2Submit {margin: 0 auto; position: relative; width: 510px; height: 90px; padding: 0; text-align: center; background: url(<?php echo MEDIASERVER;?>images/yellow_bg_star.png) repeat-x; line-height: 90px; color: #fff; font-weight: bold; font-family: Courier New; font-size: 36px; text-shadow: black 0.1em 0.1em 0; text-decoration: none; margin: 20px 0; border: none; border-radius: 10px; }
+
+#emailInputWrapper #clearBtn:active {background: url(<?php echo MEDIASERVER;?>images/cross2x-black.png) no-repeat;}
+
+input#destination_email, input.twitterInput {float left; position: relative; width: 430px; height: 40px; margin: 25px 0; line-height: 40px; text-align: center; font-family: Courier New; color: #000; font-size: 36px; font-weight: bold; border: 0px; background: none; z-index: 110;}
+
+input.twitterInput {text-align: left;}
+
+textarea.twitterBigInput { width:450px; height:295px; border: none; background: white; margin-top: 25px; border-radius: 10px; padding: 30px; font-size: 22px; font-family: Courier New; font-weight: bold; }
+
+small {float: left; position: relative; width: 540px; font-size: 14px; color: #ccc; text-align: center}
+
+::-webkit-input-placeholder {
+    color:    #999;
+}
+:-moz-placeholder {
+    color:    #999;
+}
+
+
+/*---TYPOOGRAPHY---*/
+
+
+
+
+/*---NAVIGATION---*/
+
+
+
+
+/*---MISC---*/

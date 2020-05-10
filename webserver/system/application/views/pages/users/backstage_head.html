@@ -1,0 +1,17 @@
+<div class="grid_5 alpha suffix_1">
+  <h6><?php echo isset($user['first']) ? 'Hey ' . ucfirst($user['first']) . '!' : 'Account Menu' ; ?></h6>
+  <ul class="page_menu">
+    <li><a href='/' title='Your updates'>Post An Update</a></li>
+    <li><a href='/updates/' title='Your updates'>My Updates</a></li>
+    <li><a href='/plugs/' title='Who plugged you'>Who Plugged Me?</a></li>
+    <li><a href='/settings/' title='Edit Settings'>Edit Settings</a></li>
+    <li><a href='/profile/' title='Edit Account'>Edit Profile</a></li>
+    <li><a href='/password/' title='Change Password'>Change Password</a></li>
+    
+  </ul>
+  
+  
+  <h6 style='font-size:12px; margin-top: 30px;'>You've made <a href='/updates/'><?php echo $user['updates']; ?> updates</a>, and have been plugged <a href='/plugs/'><?php echo $user['plugs']; ?> times</a>.</h6>
+</div>
+<div class="grid_17 prefix_1 omega">
+

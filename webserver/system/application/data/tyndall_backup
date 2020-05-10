@@ -1,0 +1,776 @@
+SET NAMES latin1;
+SET FOREIGN_KEY_CHECKS = 0;
+
+drop table if exists `AccountUserRoles`;
+
+CREATE TABLE `AccountUserRoles` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `au_id` bigint(20) default NULL,
+  `role_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `au_id_idx` (`au_id`),
+  KEY `role_id_idx` (`role_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `AccountUsers`;
+
+CREATE TABLE `AccountUsers` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `account_id` bigint(20) default NULL,
+  `user_id` bigint(20) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `account_id_idx` (`account_id`),
+  KEY `user_id_idx` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `Accounts`;
+
+CREATE TABLE `Accounts` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `name` varchar(50) default NULL,
+  `description` text,
+  `created_by_id` bigint(20) default NULL,
+  `account_type` varchar(20) default NULL,
+  `account_status` varchar(8) NOT NULL default 'active',
+  `slug` varchar(255) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `sluggable_idx` (`slug`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+insert into `Accounts` (`id`,`name`,`description`,`created_by_id`,`account_type`,`account_status`,`slug`,`date_created`,`date_updated`)values('1','Disney',null,'1','test','active','disney','2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('2','Mischer Investments',null,'1','test','active','mischer','2009-12-30 14:17:00','2009-12-30 14:17:00'),
+ ('3','Blackpulp','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget urna felis, ac posuere elit. Vivamus sed facilisis nisi. Duis dolor dolor, viverra at porta vel, laoreet id lacus. Donec vel interdum libero. Praesent at magna nec eros lobortis volutpat et non lorem. Nunc vel diam eros, in pretium libero. Aenean ultrices purus non magna facilisis facilisis. Aliquam erat volutpat. Etiam venenatis euismod ultrices. Nulla semper, elit in tincidunt bibendum, ipsum nulla tincidunt metus, vitae ultricies turpis nisl quis neque. Donec venenatis ullamcorper mi id pretium. Proin volutpat vestibulum lectus, a fringilla libero dapibus at. Nunc dui augue, pharetra vitae pretium cursus, gravida vel lacus. In congue, dolor at eleifend aliquam, lorem leo aliquam arcu, in lacinia purus enim ut elit. \n\nDonec imperdiet vulputate dui, id rhoncus quam lobortis at. Aliquam in arcu nulla, ac porta ligula. Aliquam condimentum metus et odio consequat tristique. Proin ut pretium elit. Mauris blandit, tellus sit amet placerat tincidunt, eros ipsum ornare arcu, non sagittis enim ipsum ut orci. Nulla accumsan dapibus auctor. Nam euismod sapien et magna mattis in faucibus lacus pretium. Vivamus at justo id risus feugiat aliquam vitae in metus. Cras felis lorem, consequat ac aliquet nec, semper a nulla. Fusce a lorem nec eros volutpat accumsan. Proin purus mauris, ultricies et vulputate vel, tempor adipiscing quam. Ut eget quam nulla. Vestibulum eget ligula sit amet lacus facilisis elementum id eget diam. Proin in augue lectus, sit amet vehicula velit. Curabitur placerat volutpat sodales. Pellentesque eleifend enim nec purus eleifend eget bibendum dui ultrices. Mauris vulputate sapien sed sapien pretium adipiscing. Nulla cursus tellus sed massa condimentum luctus. \n\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin at leo nec mauris faucibus sollicitudin. Duis ac dui eu ipsum vestibulum ornare id tempor ante. Nullam vitae metus sit amet dui pellentesque tempor. Etiam at diam risus, id venenatis quam. Curabitur ac commodo leo. Sed hendrerit pretium congue. Donec diam sapien, auctor ut luctus in, tempus laoreet lorem. Aliquam erat volutpat. Curabitur ornare ante et tortor pretium nec dapibus dui eleifend. Maecenas fermentum orci at mauris tempus lobortis. Pellentesque nec mi non nibh pharetra viverra et a elit. Nullam laoreet lacinia ullamcorper. Nullam condimentum pharetra vestibulum. \n\nSed leo lectus, ultricies vitae dignissim eu, ornare eu orci. Vestibulum ut laoreet nisi. Nullam feugiat, magna in euismod ornare, nulla lectus pharetra tellus, id elementum orci justo nec lacus. Duis sit amet justo enim. Aenean viverra lacinia nunc vel euismod. Duis a magna turpis, nec cursus mauris. Nunc gravida pretium faucibus. In aliquet dictum orci, eu volutpat quam elementum at. Nulla dignissim viverra venenatis. Ut rutrum mattis arcu pretium lacinia. Morbi mollis ornare nibh, sed tristique massa tincidunt ultricies. Donec facilisis, dui eget tincidunt volutpat, enim risus scelerisque orci, lacinia lacinia diam dolor et felis. Mauris in erat nisi. Quisque rutrum, quam non elementum lobortis, sem lorem condimentum urna, et elementum eros leo ut quam. Nullam aliquet mauris nec tellus rhoncus auctor. Sed lacus mi, vulputate sed pellentesque at, tristique non lectus. Donec porttitor pulvinar tincidunt. Morbi sit amet nisi sem, nec tempus felis. Donec bibendum odio ut metus luctus quis viverra urna consectetur. Vivamus convallis semper augue et posuere. \n\nSed nibh lectus, posuere a euismod ac, porttitor vitae metus. Aliquam erat volutpat. Nullam mollis enim at ligula iaculis gravida. Duis a vehicula neque. Duis a vestibulum sem. Nam euismod cursus quam, non porttitor magna iaculis eget. Sed dapibus dictum faucibus. Aenean libero urna, consectetur eleifend vestibulum ac, pulvinar sit amet sem. Nulla nec nulla enim. Praesent eu ipsum eu metus tincidunt consequat et a justo. Duis tellus ligula, tempor ac consequat id, dignissim et leo. Nunc gravida varius pulvinar. Nam semper quam non nunc porta aliquam. Phasellus porta tincidunt posuere. Nulla at viverra purus. Aenean luctus, est id tristique iaculis, erat quam sollicitudin purus, a dapibus diam arcu et neque.','1','bp','inactive','blackpulp','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+ ('4','Woodlands Corp.',null,'2','test','pending','woodlands-corp','2010-01-06 10:00:00','2010-01-06 10:00:00');
+
+drop table if exists `ApiKeys`;
+
+CREATE TABLE `ApiKeys` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `apikey` text,
+  `domain` text,
+  `key_type` varchar(255) default 'public',
+  `account_id` bigint(20) default NULL,
+  `user_id` bigint(20) default NULL,
+  `created_by` bigint(20) NOT NULL,
+  `updated_by` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `apikeyindex_idx` (`apikey`(90)),
+  KEY `account_id_idx` (`account_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+insert into `ApiKeys` (`id`,`apikey`,`domain`,`key_type`,`account_id`,`user_id`,`created_by`,`updated_by`,`created_at`,`updated_at`)values('1','ABQIAAAAHGQpHZz2GTgedy6m63bA1hS1A0F59suh0Tr_PFnkPq1WDdJrjBTcXfFdV4j19SorChKy3ot0pEva7w','columbusapp.com','private','2','4','1','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
+ ('2','ABQIAAAAHGQpHZz2GTgedy6m63bA1hTrxzj34SBuwmyldSk9jxRmVgNcRhQVcxCwSBnhSPGUsF1BfHlwpRPugQ','eatseed.com','public','1','1','1','1','2009-11-11 11:11:11','2009-11-16 14:43:47');
+
+drop table if exists `ApiLogs`;
+
+CREATE TABLE `ApiLogs` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `description` text,
+  `method_id` bigint(20) default NULL,
+  `created_by` bigint(20) NOT NULL,
+  `updated_by` bigint(20) NOT NULL,
+  `executed_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `method_id_idx` (`method_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `ApiMethodRoles`;
+
+CREATE TABLE `ApiMethodRoles` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `role_id` bigint(20) default NULL,
+  `method_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `role_id_idx` (`role_id`),
+  KEY `method_id_idx` (`method_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+
+insert into `ApiMethodRoles` (`id`,`role_id`,`method_id`)values('1','1','1'),
+ ('2','1','2'),
+ ('3','1','3'),
+ ('4','1','4'),
+ ('5','1','5'),
+ ('6','1','6'),
+ ('7','1','7'),
+ ('8','1','8'),
+ ('9','1','9'),
+ ('10','1','10'),
+ ('11','1','11'),
+ ('12','1','12'),
+ ('13','1','13'),
+ ('14','1','14'),
+ ('15','1','15'),
+ ('16','1','16'),
+ ('17','1','17'),
+ ('18','2','1'),
+ ('19','2','2'),
+ ('20','2','3'),
+ ('21','2','4'),
+ ('22','2','5'),
+ ('23','2','6'),
+ ('24','2','7'),
+ ('25','2','8'),
+ ('26','2','9'),
+ ('27','2','10'),
+ ('28','2','11'),
+ ('29','2','12'),
+ ('30','2','13'),
+ ('31','2','14'),
+ ('32','2','15'),
+ ('33','2','16'),
+ ('34','2','17'),
+ ('35','5','1'),
+ ('36','5','2'),
+ ('37','5','3'),
+ ('38','5','4'),
+ ('39','5','11'),
+ ('40','5','12'),
+ ('41','5','15'),
+ ('42','6','2'),
+ ('43','6','3'),
+ ('44','6','11'),
+ ('45','7','2'),
+ ('46','7','3'),
+ ('47','3','3'),
+ ('48','4','3');
+
+drop table if exists `ApiMethods`;
+
+CREATE TABLE `ApiMethods` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `name` text,
+  `class_name` text,
+  `description` text,
+  `example` text,
+  `function_type` varchar(255) default 'retrieve',
+  `doc_type` varchar(255) default 'method',
+  `created_by` bigint(20) NOT NULL,
+  `updated_by` bigint(20) NOT NULL,
+  `lft` int(11) default NULL,
+  `rgt` int(11) default NULL,
+  `level` smallint(6) default NULL,
+  `slug` varchar(255) default NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `version` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `sluggable_idx` (`slug`),
+  KEY `created_by_idx` (`created_by`),
+  KEY `updated_by_idx` (`updated_by`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+insert into `ApiMethods` (`id`,`name`,`class_name`,`description`,`example`,`function_type`,`doc_type`,`created_by`,`updated_by`,`lft`,`rgt`,`level`,`slug`,`created_at`,`updated_at`,`version`)values('1','getUser','Users',null,null,'retrieve','method','1','1',null,null,null,'getuser','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('2','getInventory','Users',null,null,'retrieve','method','1','1',null,null,null,'getinventory','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('3','validate','Users',null,null,'action','method','1','1',null,null,null,'validate','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('4','getUserInventory','Users',null,null,'retrieve','method','1','1',null,null,null,'getuserinventory','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('5','putUser','Users',null,null,'update','method','1','1',null,null,null,'putuser','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('6','postUser','Users',null,null,'create','method','1','1',null,null,null,'postuser','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('7','deleteUser','Users',null,null,'delete','method','1','1',null,null,null,'deleteuser','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('8','putRole','Users',null,null,'update','method','1','1',null,null,null,'putrole','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('9','postRole','Users',null,null,'create','method','1','1',null,null,null,'postrole','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('10','deleteRole','Users',null,null,'delete','method','1','1',null,null,null,'deleterole','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('11','inviteUser','Users',null,null,'action','method','1','1',null,null,null,'inviteuser','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('12','updatePassword','Users',null,null,'update','method','1','1',null,null,null,'updatePassword','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('13','assignRole','Users',null,null,'action','method','1','1',null,null,null,'assignRole','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('14','removeRole','Users',null,null,'action','method','1','1',null,null,null,'removeRole','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('15','getRole','Roles',null,null,'retrieve','method','1','1',null,null,null,'getrole','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('16','postUserRole','Users',null,null,'create','method','1','1',null,null,null,'postuserrole','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('17','deleteUserRole','Users',null,null,'delete','method','1','1',null,null,null,'deleteuserrole','2009-11-11 11:11:11','2009-11-11 11:11:11','1'),
+ ('18','getNeighborhoods','Neighborhoods',null,null,'retrieve','method','2','2',null,null,null,'getneighborhoods','2010-01-05 11:11:00','2010-01-05 11:11:00','1'),
+ ('19','getApiKeys','ApiKeys',null,null,'retrieve','method','2','2',null,null,null,'getapikeys','2010-01-05 11:11:00','2010-01-05 11:11:00','1'),
+ ('20','getAccounts','Accounts',null,null,'retrieve','method','2','2',null,null,null,'getaccounts','2010-01-05 11:11:00','2010-01-05 11:11:00','1');
+
+drop table if exists `ApiVersionMethods`;
+
+CREATE TABLE `ApiVersionMethods` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `version_id` bigint(20) default NULL,
+  `method_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `version_id_idx` (`version_id`),
+  KEY `method_id_idx` (`method_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `ApiVersions`;
+
+CREATE TABLE `ApiVersions` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `display_name` text,
+  `description` text,
+  `slug` varchar(255) default NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `version` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `sluggable_idx` (`slug`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `Communities`;
+
+CREATE TABLE `Communities` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `name` varchar(100) default NULL,
+  `short_name` varchar(50) default NULL,
+  `description` text,
+  `account_id` bigint(20) default NULL,
+  `slug` varchar(255) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `map_tiles_folder` varchar(255) default NULL,
+  `map_center_lat` varchar(50) default NULL,
+  `map_center_lon` varchar(50) default NULL,
+  `status` varchar(8) NOT NULL default 'active',
+  `logo_id` bigint(20) default NULL,
+  `thumb_id` bigint(20) default NULL,
+  `icon_id` bigint(20) default NULL,
+  `amenities` text,
+  `schools` text,
+  `hoa_info` text,
+  `tax_rate` text,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `sluggable_idx` (`slug`),
+  KEY `account_id_idx` (`account_id`),
+  KEY `logo_id_idx` (`logo_id`),
+  KEY `thumb_id_idx` (`thumb_id`),
+  KEY `icon_id_idx` (`icon_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+insert into `Communities` (`id`,`name`,`short_name`,`description`,`account_id`,`slug`,`date_created`,`date_updated`,`map_tiles_folder`,`map_center_lat`,`map_center_lon`,`status`,`logo_id`,`thumb_id`,`icon_id`,`amenities`,`schools`,`hoa_info`,`tax_rate`)values('1','Mountain Top',null,'An awesome community','1','mountaintop','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,'',null,null,null,null,null,null,null),
+ ('2','Magic Kingdom',null,null,'1','magickingdom','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,'',null,null,null,null,null,null,null),
+ ('3','Cypress Creek Lakes',null,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget urna felis, ac posuere elit. Vivamus sed facilisis nisi. Duis dolor dolor, viverra at porta vel, laoreet id lacus. Donec vel interdum libero. Praesent at magna nec eros lobortis volutpat et non lorem. Nunc vel diam eros, in pretium libero. Aenean ultrices purus non magna facilisis facilisis. Aliquam erat volutpat. Etiam venenatis euismod ultrices. Nulla semper, elit in tincidunt bibendum, ipsum nulla tincidunt metus, vitae ultricies turpis nisl quis neque. Donec venenatis ullamcorper mi id pretium. Proin volutpat vestibulum lectus, a fringilla libero dapibus at. Nunc dui augue, pharetra vitae pretium cursus, gravida vel lacus. In congue, dolor at eleifend aliquam, lorem leo aliquam arcu, in lacinia purus enim ut elit. \n\nDonec imperdiet vulputate dui, id rhoncus quam lobortis at. Aliquam in arcu nulla, ac porta ligula. Aliquam condimentum metus et odio consequat tristique. Proin ut pretium elit. Mauris blandit, tellus sit amet placerat tincidunt, eros ipsum ornare arcu, non sagittis enim ipsum ut orci. Nulla accumsan dapibus auctor. Nam euismod sapien et magna mattis in faucibus lacus pretium. Vivamus at justo id risus feugiat aliquam vitae in metus. Cras felis lorem, consequat ac aliquet nec, semper a nulla. Fusce a lorem nec eros volutpat accumsan. Proin purus mauris, ultricies et vulputate vel, tempor adipiscing quam. Ut eget quam nulla. Vestibulum eget ligula sit amet lacus facilisis elementum id eget diam. Proin in augue lectus, sit amet vehicula velit. Curabitur placerat volutpat sodales. Pellentesque eleifend enim nec purus eleifend eget bibendum dui ultrices. Mauris vulputate sapien sed sapien pretium adipiscing. Nulla cursus tellus sed massa condimentum luctus. \n\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin at leo nec mauris faucibus sollicitudin. Duis ac dui eu ipsum vestibulum ornare id tempor ante. Nullam vitae metus sit amet dui pellentesque tempor. Etiam at diam risus, id venenatis quam. Curabitur ac commodo leo. Sed hendrerit pretium congue. Donec diam sapien, auctor ut luctus in, tempus laoreet lorem. Aliquam erat volutpat. Curabitur ornare ante et tortor pretium nec dapibus dui eleifend. Maecenas fermentum orci at mauris tempus lobortis. Pellentesque nec mi non nibh pharetra viverra et a elit. Nullam laoreet lacinia ullamcorper. Nullam condimentum pharetra vestibulum. \n\nSed leo lectus, ultricies vitae dignissim eu, ornare eu orci. Vestibulum ut laoreet nisi. Nullam feugiat, magna in euismod ornare, nulla lectus pharetra tellus, id elementum orci justo nec lacus. Duis sit amet justo enim. Aenean viverra lacinia nunc vel euismod. Duis a magna turpis, nec cursus mauris. Nunc gravida pretium faucibus. In aliquet dictum orci, eu volutpat quam elementum at. Nulla dignissim viverra venenatis. Ut rutrum mattis arcu pretium lacinia. Morbi mollis ornare nibh, sed tristique massa tincidunt ultricies. Donec facilisis, dui eget tincidunt volutpat, enim risus scelerisque orci, lacinia lacinia diam dolor et felis. Mauris in erat nisi. Quisque rutrum, quam non elementum lobortis, sem lorem condimentum urna, et elementum eros leo ut quam. Nullam aliquet mauris nec tellus rhoncus auctor. Sed lacus mi, vulputate sed pellentesque at, tristique non lectus. Donec porttitor pulvinar tincidunt. Morbi sit amet nisi sem, nec tempus felis. Donec bibendum odio ut metus luctus quis viverra urna consectetur. Vivamus convallis semper augue et posuere. \n\nSed nibh lectus, posuere a euismod ac, porttitor vitae metus. Aliquam erat volutpat. Nullam mollis enim at ligula iaculis gravida. Duis a vehicula neque. Duis a vestibulum sem. Nam euismod cursus quam, non porttitor magna iaculis eget. Sed dapibus dictum faucibus. Aenean libero urna, consectetur eleifend vestibulum ac, pulvinar sit amet sem. Nulla nec nulla enim. Praesent eu ipsum eu metus tincidunt consequat et a justo. Duis tellus ligula, tempor ac consequat id, dignissim et leo. Nunc gravida varius pulvinar. Nam semper quam non nunc porta aliquam. Phasellus porta tincidunt posuere. Nulla at viverra purus. Aenean luctus, est id tristique iaculis, erat quam sollicitudin purus, a dapibus diam arcu et neque.','2','cypresscreeklakes','2009-12-30 14:17:00','2009-12-30 14:17:00',null,null,null,'',null,null,null,null,null,null,null);
+
+drop table if exists `CommunityMedia`;
+
+CREATE TABLE `CommunityMedia` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `community_id` bigint(20) default NULL,
+  `media_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `community_id_idx` (`community_id`),
+  KEY `media_id_idx` (`media_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `CommunityRoles`;
+
+CREATE TABLE `CommunityRoles` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `community_id` bigint(20) default NULL,
+  `role_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `community_id_idx` (`community_id`),
+  KEY `role_id_idx` (`role_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `CommunityUserRoles`;
+
+CREATE TABLE `CommunityUserRoles` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `cu_id` bigint(20) default NULL,
+  `role_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `cu_id_idx` (`cu_id`),
+  KEY `role_id_idx` (`role_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `CommunityUsers`;
+
+CREATE TABLE `CommunityUsers` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `community_id` bigint(20) default NULL,
+  `user_id` bigint(20) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `community_id_idx` (`community_id`),
+  KEY `user_id_idx` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+insert into `CommunityUsers` (`id`,`community_id`,`user_id`,`date_created`,`date_updated`)values('1','1','1','2009-11-11 11:11:11','0000-00-00 00:00:00'),
+ ('2','2','1','2009-11-11 11:11:11','0000-00-00 00:00:00'),
+ ('3','3','1','2009-11-11 11:11:11','0000-00-00 00:00:00'),
+ ('4','1','2','2009-11-11 11:11:11','0000-00-00 00:00:00'),
+ ('5','1','3','2009-11-11 11:11:11','0000-00-00 00:00:00'),
+ ('6','2','5','2009-11-11 11:11:11','0000-00-00 00:00:00');
+
+drop table if exists `Customers`;
+
+CREATE TABLE `Customers` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `username` varchar(50) default NULL,
+  `password` varchar(255) default NULL,
+  `first` varchar(50) default NULL,
+  `last` varchar(50) default NULL,
+  `email` varchar(255) default NULL,
+  `address` varchar(50) default NULL,
+  `address_line2` varchar(50) default NULL,
+  `city` varchar(50) default NULL,
+  `state` varchar(2) default NULL,
+  `country` varchar(2) default NULL,
+  `zip` varchar(10) default NULL,
+  `phone` varchar(50) default NULL,
+  `alt_phone` varchar(50) default NULL,
+  `login_count` bigint(20) default '0',
+  `title` varchar(10) default NULL,
+  `login_attempts` smallint(6) default NULL,
+  `last_login` datetime default NULL,
+  `confirmation_code` varchar(255) default NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `price_range_low` double default NULL,
+  `price_range_high` double default NULL,
+  `walkthroughs` bigint(20) default NULL,
+  `timeframe` text,
+  `amenity_location` varchar(10) default 'no',
+  `amenity_schools` varchar(10) default 'no',
+  `amenity_pool` varchar(10) default 'no',
+  `amenity_park` varchar(10) default 'no',
+  `amenity_recreation_center` varchar(10) default 'no',
+  `amenity_community_center` varchar(10) default 'no',
+  `amenity_trails` varchar(10) default 'no',
+  `amenity_lakes` varchar(10) default 'no',
+  `amenity_lake_lot` varchar(10) default 'no',
+  `amenity_shopping` varchar(10) default 'no',
+  `referred_by` text,
+  `sales_person_id` bigint(20) default NULL,
+  `referer_application` varchar(255) default NULL,
+  `referer_url` varchar(255) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `sales_person_id_idx` (`sales_person_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `EmailTemplates`;
+
+CREATE TABLE `EmailTemplates` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `title` varchar(255) default NULL,
+  `raw_html` text,
+  `community_id` bigint(20) default NULL,
+  `author_id` bigint(20) default NULL,
+  `editor_id` bigint(20) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `slug` varchar(255) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `sluggable_idx` (`slug`),
+  KEY `author_id_idx` (`author_id`),
+  KEY `editor_id_idx` (`editor_id`),
+  KEY `community_id_idx` (`community_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `EmailVariables`;
+
+CREATE TABLE `EmailVariables` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `name` varchar(100) default NULL,
+  `description` text,
+  `code_example` text,
+  `syntax` varchar(255) default NULL,
+  `author_id` bigint(20) default NULL,
+  `editor_id` bigint(20) default NULL,
+  `slug` varchar(255) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `sluggable_idx` (`slug`),
+  KEY `author_id_idx` (`author_id`),
+  KEY `editor_id_idx` (`editor_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `LotCustomers`;
+
+CREATE TABLE `LotCustomers` (
+  `id` bigint(11) NOT NULL auto_increment,
+  `lot_id` bigint(20) default NULL,
+  `customer_id` bigint(20) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `lot_id_idx` (`lot_id`),
+  KEY `customer_id_idx` (`customer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `LotMedia`;
+
+CREATE TABLE `LotMedia` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `lot_id` bigint(20) default NULL,
+  `media_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `lot_id_idx` (`lot_id`),
+  KEY `media_id_idx` (`media_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `LotUserRoles`;
+
+CREATE TABLE `LotUserRoles` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `lu_id` bigint(20) default NULL,
+  `role_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `lu_id_idx` (`lu_id`),
+  KEY `role_id_idx` (`role_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `LotUsers`;
+
+CREATE TABLE `LotUsers` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `lot_id` bigint(20) default NULL,
+  `user_id` bigint(20) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `lot_id_idx` (`lot_id`),
+  KEY `user_id_idx` (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+insert into `LotUsers` (`id`,`lot_id`,`user_id`,`date_created`,`date_updated`)values('1','1','1','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('2','2','1','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('3','2','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('5','1','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('6','3','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('7','4','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('8','5','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('9','6','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('10','8','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('11','9','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('12','10','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('13','11','2','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('14','7','1','2009-11-11 11:11:11','2009-11-11 11:11:11'),
+ ('15','1','5','0000-00-00 00:00:00','0000-00-00 00:00:00');
+
+drop table if exists `Lots`;
+
+CREATE TABLE `Lots` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `account_id` bigint(20) default NULL,
+  `community_id` bigint(20) default NULL,
+  `phase` varchar(255) default NULL,
+  `section` varchar(255) default NULL,
+  `block` varchar(255) default NULL,
+  `model_name` varchar(100) default NULL,
+  `lot_number` varchar(100) default NULL,
+  `lot_size` varchar(255) default NULL,
+  `lot_type` varchar(255) default 'interior',
+  `construction_startdate` datetime default NULL,
+  `completion_date` datetime default NULL,
+  `close_date` datetime default NULL,
+  `address` varchar(100) default NULL,
+  `address_line2` varchar(100) default NULL,
+  `city` varchar(50) default NULL,
+  `state` varchar(2) default NULL,
+  `zip` varchar(20) default NULL,
+  `price` double default NULL,
+  `description` text,
+  `square_footage` bigint(20) default NULL,
+  `stories` int(11) default NULL,
+  `bedrooms` int(11) default NULL,
+  `bathrooms` int(11) default NULL,
+  `garages` int(11) default NULL,
+  `standard_features` text,
+  `unique_features` text,
+  `mls_number` varchar(255) default NULL,
+  `lot_status` varchar(255) default 'for sale',
+  `latitude` varchar(100) default NULL,
+  `longitude` varchar(100) default NULL,
+  `contact_company` varchar(100) default NULL,
+  `contact_name` varchar(100) default NULL,
+  `contact_phone` varchar(100) default NULL,
+  `contact_email` varchar(100) default NULL,
+  `contact_url` varchar(100) default NULL,
+  `contact_company_url` varchar(100) default NULL,
+  `contact_other` text,
+  `contact_address_type` varchar(255) default 'office',
+  `contact_address` varchar(100) default NULL,
+  `contact_address_line2` varchar(100) default NULL,
+  `contact_city` varchar(50) default NULL,
+  `contact_state` varchar(2) default NULL,
+  `contact_zip` varchar(20) default NULL,
+  `contact_office_hours` text,
+  `lot_price_to_builder` double default NULL,
+  `builder_take_down_date` datetime default NULL,
+  `realtor_incentives` text,
+  `buyer_incentives` text,
+  `slug` varchar(255) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `sluggable_idx` (`slug`),
+  KEY `account_id_idx` (`account_id`),
+  KEY `community_id_idx` (`community_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+insert into `Lots` (`id`,`account_id`,`community_id`,`phase`,`section`,`block`,`model_name`,`lot_number`,`lot_size`,`lot_type`,`construction_startdate`,`completion_date`,`close_date`,`address`,`address_line2`,`city`,`state`,`zip`,`price`,`description`,`square_footage`,`stories`,`bedrooms`,`bathrooms`,`garages`,`standard_features`,`unique_features`,`mls_number`,`lot_status`,`latitude`,`longitude`,`contact_company`,`contact_name`,`contact_phone`,`contact_email`,`contact_url`,`contact_company_url`,`contact_other`,`contact_address_type`,`contact_address`,`contact_address_line2`,`contact_city`,`contact_state`,`contact_zip`,`contact_office_hours`,`lot_price_to_builder`,`builder_take_down_date`,`realtor_incentives`,`buyer_incentives`,`slug`,`date_created`,`date_updated`)values('1','1','1',null,null,null,'Rock Palace','00113',null,'interior','2009-10-09 00:00:00','2009-10-09 00:00:00','2009-10-09 00:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,null,'2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('2','1','2',null,null,null,'Castle','234234',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,'castle','2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('3','1','1',null,null,null,'3 Bdrm Ranch House','00114',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,'','2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('4','1','1',null,null,null,'4 Bdrm Ranch House','00115',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,null,'2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('5','1','1',null,null,null,'3 Bdrm Ranch House','00116',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,null,'2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('6','1','1',null,null,null,'3 Bdrm Ranch House - style 2','00117',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,null,'2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('7','1','1',null,null,null,'4 Bdrm Ranch House - style 2','00118',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,null,'2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('8','1','1',null,null,null,'2 Bdrm Cottage','00119',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,null,'2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('9','1','1',null,null,null,'2 Bdrm Cottage','00120',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,null,'2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('10','1','1',null,null,null,'10 Bdrm Mansion','00121',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,null,'2009-10-09 12:00:00','2009-10-09 12:00:00'),
+ ('11','1','1',null,null,null,'2 Story House','00122',null,'interior','2009-10-09 12:00:00','2009-10-09 12:00:00','2009-10-09 12:00:00',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,'active',null,null,null,null,null,null,null,null,null,'office',null,null,null,null,null,null,null,null,null,null,null,'2009-10-09 12:00:00','2009-10-09 12:00:00');
+
+drop table if exists `MapStates`;
+
+CREATE TABLE `MapStates` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `token` varchar(255) default NULL,
+  `variables` text,
+  `author_id` bigint(20) default NULL,
+  `slug` varchar(255) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `author_id_idx` (`author_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `Media`;
+
+CREATE TABLE `Media` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `title` varchar(100) default NULL,
+  `file_info` text,
+  `media_type` varchar(255) default 'photo',
+  `raw_html` text,
+  `file_url` text,
+  `owner_id` bigint(20) default NULL,
+  `slug` varchar(255) default NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `sluggable_idx` (`slug`),
+  KEY `owner_id_idx` (`owner_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `Roles`;
+
+CREATE TABLE `Roles` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `title` varchar(50) default NULL,
+  `slug` varchar(255) default NULL,
+  `lft` int(11) default NULL,
+  `rgt` int(11) default NULL,
+  `level` smallint(6) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `sluggable_idx` (`slug`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+insert into `Roles` (`id`,`title`,`slug`,`lft`,`rgt`,`level`)values('1','coder','coder',null,null,null),
+ ('2','admin','admin',null,null,null),
+ ('3','customer','customer',null,null,null),
+ ('4','Account User','account_user',null,null,null),
+ ('5','Sales Manager','sales_manager',null,null,null),
+ ('6','Sales Account Manager','acct_manager',null,null,null),
+ ('7','Invited','invited',null,null,null);
+
+drop table if exists `UserMethods`;
+
+CREATE TABLE `UserMethods` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `user_id` bigint(20) default NULL,
+  `method_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+
+insert into `UserMethods` (`id`,`user_id`,`method_id`)values('1','2','1'),
+ ('2','2','2'),
+ ('3','2','3'),
+ ('4','2','4'),
+ ('5','2','5'),
+ ('6','2','6'),
+ ('7','2','7'),
+ ('8','2','8'),
+ ('9','2','9'),
+ ('10','2','10'),
+ ('11','2','11'),
+ ('12','2','12'),
+ ('13','2','13'),
+ ('14','2','14'),
+ ('15','2','15'),
+ ('16','2','16'),
+ ('17','2','17'),
+ ('18','5','2'),
+ ('19','5','3'),
+ ('20','5','11'),
+ ('21','2','18'),
+ ('22','2','19'),
+ ('23','2','20');
+
+drop table if exists `UserRoles`;
+
+CREATE TABLE `UserRoles` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `user_id` bigint(20) default NULL,
+  `role_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `user_id_idx` (`user_id`),
+  KEY `role_id_idx` (`role_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+insert into `UserRoles` (`id`,`user_id`,`role_id`)values('1','1','1'),
+ ('2','1','2'),
+ ('3','2','1'),
+ ('14','6','7'),
+ ('13','5','6'),
+ ('12','4','5'),
+ ('11','3','4'),
+ ('10','2','2');
+
+drop table if exists `Users`;
+
+CREATE TABLE `Users` (
+  `id` bigint(20) NOT NULL auto_increment,
+  `username` varchar(50) default NULL,
+  `password` varchar(255) default NULL,
+  `first` varchar(50) default NULL,
+  `last` varchar(50) default NULL,
+  `email` varchar(255) default NULL,
+  `api_key` varchar(255) default NULL,
+  `api_domain` varchar(255) default NULL,
+  `address` varchar(50) default NULL,
+  `address_line2` varchar(50) default NULL,
+  `city` varchar(50) default NULL,
+  `state` varchar(2) default NULL,
+  `country` varchar(2) default NULL,
+  `zip` varchar(10) default NULL,
+  `phone` varchar(50) default NULL,
+  `alt_phone` varchar(50) default NULL,
+  `login_count` bigint(20) default '0',
+  `is_pending` varchar(255) default 'yes',
+  `mugshot_id` bigint(20) default NULL,
+  `title` varchar(10) default NULL,
+  `web_address` varchar(96) default NULL,
+  `login_attempts` smallint(6) default NULL,
+  `last_login` datetime default NULL,
+  `confirmation_code` varchar(255) default NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `role_id` bigint(20) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+insert into `Users` (`id`,`username`,`password`,`first`,`last`,`email`,`api_key`,`api_domain`,`address`,`address_line2`,`city`,`state`,`country`,`zip`,`phone`,`alt_phone`,`login_count`,`is_pending`,`mugshot_id`,`title`,`web_address`,`login_attempts`,`last_login`,`confirmation_code`,`created_at`,`updated_at`,`role_id`)values('1','travis','68d9f462b91f2d4fbe2e1e0f72851f08','Travis','Weerts','travis@blackpulp.com','apikey1','blackpulp.com','5222 Slashwood','','Spring','TX','US','','','','0','no',null,null,null,null,null,null,'2009-11-11 11:11:11','2009-11-16 11:26:39','2'),
+ ('2','tyndall','68d9f462b91f2d4fbe2e1e0f72851f08','Tyndall','Wakeham','tyndall@blackpulp.com','apikey23423423333','blackpulp.com',null,null,null,null,null,null,null,null,'0','no',null,null,null,null,null,null,'2009-11-11 11:11:11','2009-11-11 11:11:11','2'),
+ ('3','matt','347df0709872ccbfe15f581298c36cc2','Matt','Hager','matt@poeticsystems.com','apikey1','blackpulp.com','555 Street Ln','5222 Slashwood','Baton Rouge','LA','US','77379','','','0','no',null,'','',null,'0000-00-00 00:00:00',null,'2009-11-11 11:11:11','2009-11-16 14:43:47','5'),
+ ('4','isaiah','68d9f462b91f2d4fbe2e1e0f72851f08','Isaiah','Wakeham','isaiah@thewakehams.com','apikey1','blackpulp.com','16211 Waiting Spring Circle','Suite 2','Indianapolis','IN','US','77095','713-545-8989','832-593-0909','0','no',null,'Master','http://www.isaiahwakeham.com/',null,null,null,'2009-11-11 11:11:11','2009-11-16 11:11:11','5'),
+ ('5','isabella','68d9f462b91f2d4fbe2e1e0f72851f08','Isabella','Wakeham','isabella@thewakehams.com','apikey1','blackpulp.com','16211 Waiting Spring Circle','Suite 3','Birmingham','AL','US','77095','713-545-8989','832-593-0909','0','no',null,'Master','http://www.isaiahwakeham.com/',null,null,null,'2009-11-11 11:11:11','2009-11-16 11:11:11','6'),
+ ('6','justus','68d9f462b91f2d4fbe2e1e0f72851f08','Justus','Wakeham','justus@thewakehams.com','apikey1','blackpulp.com','16211 Waiting Spring Circle','Suite 4','Gainesville','FL','US','77095','713-545-8989','832-593-0909','0','no',null,'Master','http://www.isaiahwakeham.com/',null,null,null,'2009-11-11 11:11:11','2009-11-16 11:11:11','7');
+
+drop table if exists `account_index`;
+
+CREATE TABLE `account_index` (
+  `id` bigint(20) NOT NULL default '0',
+  `keyword` varchar(200) NOT NULL default '',
+  `field` varchar(50) NOT NULL default '',
+  `position` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`keyword`,`field`,`position`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `api_method_index`;
+
+CREATE TABLE `api_method_index` (
+  `id` bigint(20) NOT NULL default '0',
+  `keyword` varchar(200) NOT NULL default '',
+  `field` varchar(50) NOT NULL default '',
+  `position` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`keyword`,`field`,`position`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `api_method_version`;
+
+CREATE TABLE `api_method_version` (
+  `id` bigint(20) NOT NULL default '0',
+  `name` text,
+  `class_name` text,
+  `description` text,
+  `example` text,
+  `function_type` varchar(255) default 'retrieve',
+  `doc_type` varchar(255) default 'method',
+  `created_by` bigint(20) NOT NULL,
+  `updated_by` bigint(20) NOT NULL,
+  `lft` int(11) default NULL,
+  `rgt` int(11) default NULL,
+  `level` smallint(6) default NULL,
+  `slug` varchar(255) default NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `version` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `api_version_version`;
+
+CREATE TABLE `api_version_version` (
+  `id` bigint(20) NOT NULL default '0',
+  `display_name` text,
+  `description` text,
+  `slug` varchar(255) default NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `version` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`version`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `community_index`;
+
+CREATE TABLE `community_index` (
+  `id` bigint(20) NOT NULL default '0',
+  `keyword` varchar(200) NOT NULL default '',
+  `field` varchar(50) NOT NULL default '',
+  `position` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`keyword`,`field`,`position`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `lot_index`;
+
+CREATE TABLE `lot_index` (
+  `id` bigint(20) NOT NULL default '0',
+  `keyword` varchar(200) NOT NULL default '',
+  `field` varchar(50) NOT NULL default '',
+  `position` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`keyword`,`field`,`position`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+drop table if exists `media_index`;
+
+CREATE TABLE `media_index` (
+  `id` bigint(20) NOT NULL default '0',
+  `keyword` varchar(200) NOT NULL default '',
+  `field` varchar(50) NOT NULL default '',
+  `position` bigint(20) NOT NULL default '0',
+  PRIMARY KEY  (`id`,`keyword`,`field`,`position`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+SET FOREIGN_KEY_CHECKS = 1;

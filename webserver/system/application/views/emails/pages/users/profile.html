@@ -1,0 +1,87 @@
+<div id=profile>
+     <h3>Profile</h3>
+
+
+     
+
+     <form action="/profile/" method="post" name="profile_frm" id="profile_frm">
+         <div class="fields">
+             <div class="grid_8 suffix_1 alpha">
+                  <div id="email_field" class="field">
+                      <label for="user_slug">Profile Name</label>
+          
+                      <fieldset>
+                          
+                              <input type="text" name='user[slug]' id='user_slug' value="<?php echo isset($user['slug']) ? $user['slug'] : null; ?>" />
+                          
+                      </fieldset>
+                  </div>
+                  <div id="firstname_field" class="field">
+                      <label for="user_firstname">First Name</label>
+          
+                      <fieldset>
+                          
+                              <input type="text" name='user[first]' id='user_firstname' value="<?php echo isset($user['first']) ? $user['first'] : null; ?>" />
+                          
+                      </fieldset>
+                  </div>
+          
+                  <div id="lastname_field" class="field">
+                      <label for="user_lastname">Last Name</label>
+          
+                      <fieldset>
+                          
+                              <input type="text" name='user[last]' id='user_lastname' value="<?php echo isset($user['last']) ? $user['last'] : null; ?>" />
+                          
+                      </fieldset>
+                  </div>
+          
+                  
+          
+                  <div id="dob_field" class="field">
+                      <label for="user_dob">Birthday</label>
+          
+                      <fieldset>
+                          
+                              <?php echo isset($dob_html) ? $dob_html : NULL; ?>
+                         
+          
+                         
+                      </fieldset>
+                  </div>
+                  
+                  <div id="gender_field" class="field">
+                      <label for="user_gender">Gender</label>
+          
+                      <fieldset>
+                          
+                               <?php echo isset($gender_html) ? $gender_html : NULL; ?>
+                          
+                      </fieldset>
+                  </div>
+             </div>
+             <div class="grid_8 omega">
+                  <div id="email_field" class="field">
+                      <label for="user_email">Email</label>
+          
+                      <fieldset>
+                          
+                              <input type="text" name='user[email]' id='user_email' class='email' value="<?php echo isset($user['email']) ? $user['email'] : null; ?>" />
+                          
+                      </fieldset>
+                  </div>
+                  
+             </div>
+     
+             
+     
+             
+         </div>
+          
+         <div class="submit grid_17 alpha omega">
+             <fieldset>
+                 <button type=submit><span>Save</span></button>
+             </fieldset>
+         </div>
+     </form>
+</div>

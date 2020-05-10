@@ -1,0 +1,4429 @@
+Account:
+  connection: main
+  tableName: Accounts
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    account_status:
+      type: enum(8)
+      values:
+        - active
+        - inactive
+        - pending
+        - banned
+      default: active
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(50)
+    description: string()
+    created_by_id: integer(8)
+    account_type: string(20)
+    slug: string(255)
+  relations:
+    Contacts:
+      refClass: AccountUser
+      class: User
+      local: account_id
+      foreign: user_id
+      type: many
+    AccountApp:
+      local: id
+      foreign: account_id
+      type: many
+    AccountCreditCard:
+      local: id
+      foreign: account_id
+      type: many
+    AccountSubscriptionService:
+      local: id
+      foreign: account_id
+      type: many
+    AccountUser:
+      local: id
+      foreign: account_id
+      type: many
+    AccountWebsite:
+      local: id
+      foreign: account_id
+      type: many
+    Banner:
+      local: id
+      foreign: account_id
+      type: many
+    Domain:
+      local: id
+      foreign: account_id
+      type: many
+    Gallery:
+      local: id
+      foreign: account_id
+      type: many
+    Invoice:
+      local: id
+      foreign: account_id
+      type: many
+    Menu:
+      local: id
+      foreign: account_id
+      type: many
+    Page:
+      local: id
+      foreign: account_id
+      type: many
+    Sale:
+      local: id
+      foreign: account_id
+      type: many
+    Subscriber:
+      local: id
+      foreign: account_id
+      type: many
+    Subscription:
+      local: id
+      foreign: issuer_id
+      type: many
+    Ticket:
+      local: id
+      foreign: account_id
+      type: many
+    AccountIndex:
+      local: id
+      foreign: id
+      type: many
+AccountApp:
+  connection: main
+  tableName: AccountApps
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    account_id: integer(8)
+    app_id: integer(8)
+    domain_id: integer(8)
+    title: string()
+    slug: string()
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    App:
+      local: app_id
+      foreign: id
+      type: one
+    Domain:
+      local: domain_id
+      foreign: id
+      type: one
+AccountCreditCard:
+  connection: main
+  tableName: AccountCreditCards
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    account_id: integer(8)
+    cc_id: integer(8)
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    CreditCard:
+      local: cc_id
+      foreign: id
+      type: one
+AccountServiceProduct:
+  connection: main
+  tableName: AccountServiceProducts
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    account_id:
+      type: integer(8)
+      notnull: true
+    service_id:
+      type: integer(8)
+      notnull: true
+    title: string(100)
+    description: string()
+AccountSubscriptionService:
+  connection: main
+  tableName: AccountSubscriptionServices
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    account_id:
+      type: integer(8)
+      notnull: true
+    subscription_id:
+      type: integer(8)
+      notnull: false
+    service_id:
+      type: integer(8)
+      notnull: false
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    Subscription:
+      local: subscription_id
+      foreign: id
+      type: one
+    ServiceProduct:
+      local: service_id
+      foreign: id
+      type: one
+AccountUser:
+  connection: main
+  tableName: AccountUsers
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    account_id: integer(8)
+    user_id: integer(8)
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Credentials:
+      refClass: AccountUserCredential
+      class: Credential
+      local: au_id
+      foreign: credential_id
+      type: many
+    AccountUserCredential:
+      local: id
+      foreign: au_id
+      type: many
+AccountUserCredential:
+  connection: main
+  tableName: AccountUserCredentials
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    au_id: integer(8)
+    credential_id: integer(8)
+  relations:
+    AccountUser:
+      local: au_id
+      foreign: id
+      type: one
+    Credential:
+      local: credential_id
+      foreign: id
+      type: one
+AccountUserRole:
+  connection: main
+  tableName: AccountUserRoles
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    au_id: integer(8)
+    role_id: integer(8)
+  relations:
+    AccountUser:
+      local: au_id
+      foreign: id
+      type: one
+    Role:
+      local: role_id
+      foreign: id
+      type: one
+AccountWebsite:
+  connection: main
+  tableName: AccountWebsites
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    domain_id:
+      type: integer(8)
+      notnull: true
+    account_id:
+      type: integer(8)
+      notnull: true
+    title: string(255)
+    keywords: string()
+  relations:
+    Configs:
+      class: WebsiteConfig
+      local: id
+      foreign: website_id
+      type: many
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    Domain:
+      local: id
+      foreign: website_id
+      type: many
+Activity:
+  connection: main
+  tableName: Activity
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    sticky:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: no
+    created_by:
+      type: integer(8)
+      notnull: false
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    user_id: integer(8)
+    type: string(50)
+    reference_id: integer(8)
+    title: string(255)
+    category_id: integer(8)
+    slug: string(255)
+    description: string()
+  relations:
+    Category:
+      local: category_id
+      foreign: id
+      type: one
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Author:
+      class: User
+      local: created_by
+      foreign: id
+      type: one
+ApiKey:
+  connection: main
+  tableName: ApiKeys
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    created_at:
+      notnull: true
+      type: timestamp(25)
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+    apikey: string()
+    domain: string(255)
+    key_type: string(255)
+    account_id: integer(8)
+    user_id: integer(8)
+    created_by: integer(8)
+    updated_by: integer(8)
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    Owner:
+      class: User
+      local: user_id
+      foreign: id
+      type: one
+    Creator:
+      class: User
+      local: created_by
+      foreign: id
+      type: one
+    Editor:
+      class: User
+      local: updated_by
+      foreign: id
+      type: one
+ApiLog:
+  connection: main
+  tableName: ApiLogs
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    created_by:
+      notnull: true
+      type: integer(8)
+    updated_by:
+      notnull: true
+      type: integer(8)
+    executed_at:
+      notnull: true
+      type: timestamp(25)
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+    description: string()
+    method_id: integer(8)
+  relations:
+    Method:
+      class: ApiMethod
+      local: method_id
+      foreign: id
+      type: one
+ApiMethod:
+  connection: main
+  tableName: ApiMethods
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    function_type:
+      type: enum()
+      values:
+        - action
+        - create
+        - delete
+        - update
+        - get
+        - other
+      default: retrieve
+    doc_type:
+      type: enum()
+      values:
+        - object
+        - group
+        - method
+        - function
+        - parameter
+        - return
+      default: method
+    created_at:
+      notnull: true
+      type: timestamp(25)
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+    name: string()
+    thread: string()
+    class_name: string()
+    description: string()
+    example: string()
+    root_id: integer(8)
+    lft: integer(4)
+    rgt: integer(4)
+    level: integer(2)
+    slug: string(255)
+    version: integer(8)
+  relations:
+    Roles:
+      refClass: ApiMethodRole
+      class: Role
+      local: method_id
+      foreign: role_id
+      type: many
+    Users:
+      refClass: UserMethod
+      class: User
+      local: method_id
+      foreign: user_id
+      type: many
+    ApiVersions:
+      refClass: ApiVersionMethod
+      class: ApiVersion
+      local: method_id
+      foreign: version_id
+      type: many
+    Owner:
+      class: User
+      local: created_by
+      foreign: id
+      type: one
+    Editor:
+      class: User
+      local: updated_by
+      foreign: id
+      type: one
+    ApiLog:
+      local: id
+      foreign: method_id
+      type: many
+    ApiMethodRole:
+      local: id
+      foreign: method_id
+      type: many
+    ApiVersionMethod:
+      local: id
+      foreign: method_id
+      type: many
+    ApiMethodVersion:
+      local: id
+      foreign: id
+      type: many
+    ApiMethodIndex:
+      local: id
+      foreign: id
+      type: many
+    UserMethod:
+      local: id
+      foreign: method_id
+      type: many
+ApiMethodRole:
+  connection: main
+  tableName: ApiMethodRoles
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    role_id: integer(8)
+    method_id: integer(8)
+  relations:
+    Role:
+      local: role_id
+      foreign: id
+      type: one
+    Method:
+      class: ApiMethod
+      local: method_id
+      foreign: id
+      type: one
+ApiVersion:
+  connection: main
+  tableName: ApiVersions
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    created_at:
+      notnull: true
+      type: timestamp(25)
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+    display_name: string()
+    description: string()
+    slug: string(255)
+    version: integer(8)
+  relations:
+    ApiMethod:
+      refClass: ApiVersionMethod
+      local: version_id
+      foreign: method_id
+      type: many
+    ApiVersionMethod:
+      local: id
+      foreign: version_id
+      type: many
+    ApiVersionVersion:
+      local: id
+      foreign: id
+      type: many
+ApiVersionMethod:
+  connection: main
+  tableName: ApiVersionMethods
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    version_id: integer(8)
+    method_id: integer(8)
+  relations:
+    Version:
+      class: ApiVersion
+      local: version_id
+      foreign: id
+      type: one
+    Method:
+      class: ApiMethod
+      local: method_id
+      foreign: id
+      type: one
+App:
+  connection: main
+  tableName: Apps
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    created_by_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    status:
+      type: enum(8)
+      values:
+        - active
+        - inactive
+        - dev
+        - pending
+      default: pending
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(50)
+    shortname: string(4)
+    description: string()
+    slug: string(255)
+  relations:
+    Contacts:
+      refClass: AppUser
+      class: User
+      local: app_id
+      foreign: user_id
+      type: many
+    AccountApp:
+      local: id
+      foreign: app_id
+      type: many
+    AppServiceProduct:
+      local: id
+      foreign: app_id
+      type: many
+    AppUser:
+      local: id
+      foreign: app_id
+      type: many
+    PageType:
+      local: id
+      foreign: app_id
+      type: many
+    Subscriber:
+      local: id
+      foreign: app_id
+      type: many
+    Ticket:
+      local: id
+      foreign: app_id
+      type: many
+    AppIndex:
+      local: id
+      foreign: id
+      type: many
+AppServiceProduct:
+  connection: main
+  tableName: AppServiceProducts
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    app_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    service_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+  relations:
+    ServiceProduct:
+      local: service_id
+      foreign: id
+      type: one
+    App:
+      local: app_id
+      foreign: id
+      type: one
+AppUser:
+  connection: main
+  tableName: AppUsers
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    app_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    user_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    App:
+      local: app_id
+      foreign: id
+      type: one
+AttendeeStatus:
+  connection: main
+  tableName: AttendeeStatus
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    title:
+      type: string(50)
+      default: ''
+      notnull: true
+  relations:
+    EventAttendee:
+      local: id
+      foreign: attendee_status_id
+      type: many
+Banner:
+  connection: main
+  tableName: Banners
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    enabled:
+      type: enum(3)
+      values:
+        - yes
+        - no
+      default: no
+      notnull: true
+    graphic_id:
+      type: integer(8)
+      notnull: false
+    account_id:
+      type: integer(8)
+      notnull: false
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(100)
+    subtitle: string(200)
+    description: string()
+    link_url: string()
+    link_text: string(50)
+    on_page: string(200)
+    banner_html: string()
+    position: integer(8)
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    File:
+      local: graphic_id
+      foreign: id
+      type: one
+    BannerMenu:
+      local: id
+      foreign: banner_id
+      type: many
+BannerMenu:
+  connection: main
+  tableName: BannerMenus
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    banner_id: integer(8)
+    menu_id: integer(8)
+  relations:
+    Banner:
+      local: banner_id
+      foreign: id
+      type: one
+    Menu:
+      local: menu_id
+      foreign: id
+      type: one
+Blog:
+  connection: main
+  tableName: Blog
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    author_id:
+      type: integer(8)
+      notnull: true
+      default: ''
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(100)
+    subtitle: string(100)
+    entry: string(2147483647)
+    pubdate: timestamp(25)
+    slug: string(255)
+  relations:
+    Categories:
+      refClass: BlogCategory
+      class: Category
+      local: blog_id
+      foreign: category_id
+      type: many
+    Author:
+      class: User
+      local: author_id
+      foreign: id
+      type: one
+    BlogCategory:
+      local: id
+      foreign: blog_id
+      type: many
+    BlogIndex:
+      local: id
+      foreign: id
+      type: many
+BlogCategory:
+  connection: main
+  tableName: BlogCategories
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    blog_id: integer(8)
+    category_id: integer(8)
+  relations:
+    Category:
+      local: category_id
+      foreign: id
+      type: one
+    Blog:
+      local: blog_id
+      foreign: id
+      type: one
+Cart:
+  connection: main
+  tableName: Carts
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    status:
+      type: enum(14)
+      values:
+        - shopping
+        - checkedout
+        - error
+      default: shopping
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    session_id: string(40)
+    ip_address: string(20)
+    amount: float()
+    item_count: integer(3)
+  relations:
+    Products:
+      refClass: CartProduct
+      class: Product
+      local: cart_id
+      foreign: product_id
+      type: many
+    CartProduct:
+      local: id
+      foreign: cart_id
+      type: many
+CartProduct:
+  connection: main
+  tableName: CartProducts
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    quantity:
+      type: integer(4)
+      default: '1'
+      notnull: true
+    time_added:
+      notnull: true
+      type: timestamp(25)
+    time_updated:
+      notnull: true
+      type: timestamp(25)
+    cart_id: integer(8)
+    product_id: integer(8)
+  relations:
+    Cart:
+      local: cart_id
+      foreign: id
+      type: one
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+    Options:
+      class: CartProductChoice
+      local: id
+      foreign: cart_product_id
+      type: many
+CartProductChoice:
+  connection: main
+  tableName: CartProductChoices
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    cart_product_id:
+      type: integer(8)
+      notnull: true
+    option_id:
+      type: integer(8)
+      notnull: true
+    option_choice_id:
+      type: integer(8)
+      notnull: true
+  relations:
+    CartProduct:
+      local: cart_product_id
+      foreign: id
+      type: one
+    Option:
+      local: option_id
+      foreign: id
+      type: one
+    Choice:
+      class: OptionChoice
+      local: option_choice_id
+      foreign: id
+      type: one
+Category:
+  connection: main
+  tableName: Categories
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+    name: string(255)
+    slug: string(255)
+    type: string(50)
+    position: integer(8)
+    root_id: integer(8)
+    lft: integer(4)
+    rgt: integer(4)
+    level: integer(2)
+  relations:
+    Activity:
+      local: id
+      foreign: category_id
+      type: many
+    Blog:
+      refClass: BlogCategory
+      local: category_id
+      foreign: blog_id
+      type: many
+    BlogCategory:
+      local: id
+      foreign: category_id
+      type: many
+    CouponProduct:
+      local: id
+      foreign: category_id
+      type: many
+    Faq:
+      refClass: FaqCategory
+      local: category_id
+      foreign: faq_id
+      type: many
+    FaqCategory:
+      local: id
+      foreign: category_id
+      type: many
+    Product:
+      refClass: ProductCategory
+      local: category_id
+      foreign: product_id
+      type: many
+    ProductCategory:
+      local: id
+      foreign: category_id
+      type: many
+    Ticket:
+      local: id
+      foreign: category_id
+      type: many
+    VideoCategory:
+      local: id
+      foreign: category_id
+      type: many
+Channel:
+  connection: main
+  tableName: Channels
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    creator_id:
+      type: integer(8)
+      notnull: false
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(255)
+    description: string()
+    slug: string(255)
+    primary_model: string(100)
+    link: string(500)
+  relations:
+    User:
+      local: creator_id
+      foreign: id
+      type: one
+    Authors:
+      refClass: ChannelUser
+      class: User
+      local: channel_id
+      foreign: user_id
+      type: many
+    ChannelUser:
+      local: id
+      foreign: channel_id
+      type: many
+ChannelUser:
+  connection: main
+  tableName: ChannelUsers
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+    user_id: integer(8)
+    channel_id: integer(8)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Channel:
+      local: channel_id
+      foreign: id
+      type: one
+Chunk:
+  connection: main
+  tableName: Chunks
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(50)
+    code: string()
+    slug: string(255)
+  relations:
+    Page:
+      refClass: PageChunk
+      local: chunk_id
+      foreign: page_id
+      type: many
+    PageChunk:
+      local: id
+      foreign: chunk_id
+      type: many
+Comment:
+  connection: main
+  tableName: Comments
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    user_id:
+      type: integer(8)
+      notnull: false
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    comment: string()
+    comment_key: string(25)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    CommentIndex:
+      local: id
+      foreign: id
+      type: many
+CompletedTask:
+  connection: main
+  tableName: CompletedTasks
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    task_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    user_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    date_completed:
+      notnull: true
+      type: timestamp(25)
+    status:
+      type: enum()
+      values:
+        - Pending
+        - Approved
+      default: -
+      notnull: true
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+  relations:
+    Task:
+      local: task_id
+      foreign: id
+      type: one
+    User:
+      local: user_id
+      foreign: id
+      type: one
+ConfigNode:
+  connection: main
+  tableName: ConfigNodes
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    node_type:
+      type: enum()
+      values:
+        - string
+        - number
+        - true/false
+        - array
+      default: string
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(50)
+    description: string()
+    node_order: integer(8)
+    node_choices: string()
+    root_id: integer(8)
+    lft: integer(4)
+    rgt: integer(4)
+    level: integer(2)
+Coupon:
+  connection: main
+  tableName: Coupons
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    applies_to_all:
+      type: enum()
+      values:
+        - 0
+        - '1'
+      default: '1'
+    include_shipping:
+      type: enum()
+      values:
+        - 0
+        - '1'
+      default: 0
+    discount_type:
+      type: enum(7)
+      values:
+        - percent
+        - price
+      default: percent
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(50)
+    description: string()
+    code: string(50)
+    usage_count: integer(8)
+    usage_per_user: integer(8)
+    usage_allowance: integer(8)
+    min_allowed_purchase: float()
+    max_allowed_purchase: float()
+    discount_value: float()
+    new_absolute_price: float()
+    start_date: timestamp(25)
+    expiration_date: timestamp(25)
+    slug: string(255)
+  relations:
+    CouponProduct:
+      local: id
+      foreign: coupon_id
+      type: many
+    Invoice:
+      local: id
+      foreign: coupon_id
+      type: many
+    CouponIndex:
+      local: id
+      foreign: id
+      type: many
+CouponProduct:
+  connection: main
+  tableName: CouponProducts
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    product_id: integer(8)
+    coupon_id: integer(8)
+    category_id: integer(8)
+  relations:
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+    Category:
+      local: category_id
+      foreign: id
+      type: one
+    Coupon:
+      local: coupon_id
+      foreign: id
+      type: one
+Credential:
+  connection: main
+  tableName: Credentials
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    admin:
+      type: string(1)
+      default: '0'
+      notnull: true
+    name: string(50)
+  relations:
+    AccountUser:
+      refClass: AccountUserCredential
+      local: credential_id
+      foreign: au_id
+      type: many
+    AccountUserCredential:
+      local: id
+      foreign: credential_id
+      type: many
+    MenuCredential:
+      local: id
+      foreign: credential_id
+      type: many
+    Menu:
+      refClass: MenuCredential
+      local: credential_id
+      foreign: menu_id
+      type: many
+    Message:
+      refClass: MessageCredential
+      local: credential_id
+      foreign: message_id
+      type: many
+    MessageCredential:
+      local: id
+      foreign: credential_id
+      type: many
+    PageType:
+      refClass: PageTypeCredential
+      local: credential_id
+      foreign: pagetype_id
+      type: many
+    PageTypeCredential:
+      local: id
+      foreign: credential_id
+      type: many
+    User:
+      refClass: UserCredential
+      local: credential_id
+      foreign: user_id
+      type: many
+    UserCredential:
+      local: id
+      foreign: credential_id
+      type: many
+CreditCard:
+  connection: main
+  tableName: CreditCards
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    user_id:
+      type: integer(8)
+      default: ''
+      notnull: false
+    address:
+      type: string(50)
+      default: ''
+      notnull: true
+    state:
+      type: string(2)
+      default: ''
+      notnull: true
+    country:
+      type: string(2)
+      default: ''
+      notnull: true
+    zip:
+      type: string(10)
+      default: ''
+      notnull: true
+    cctype:
+      type: enum(10)
+      values:
+        - MasterCard
+        - Visa
+        - AMEX
+        - Discover
+        - Other
+      notnull: true
+      default: NA
+    primary_card:
+      type: enum(3)
+      values:
+        - yes
+        - no
+      default: no
+      notnull: true
+    card_status:
+      type: enum(8)
+      values:
+        - active
+        - inactive
+        - failing
+        - expired
+      default: active
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(50)
+    firstname: string(50)
+    lastname: string(50)
+    address2: string(50)
+    city: string(50)
+    phone: string(50)
+    ccnum: string(50)
+    ccexpmon: integer(2)
+    ccexpyr: integer(4)
+    security: integer(4)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    AccountCreditCard:
+      local: id
+      foreign: cc_id
+      type: many
+    Receipt:
+      local: id
+      foreign: credit_card_id
+      type: many
+Customer:
+  connection: main
+  tableName: Customers
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    amenity_location:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    amenity_schools:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    amenity_pool:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    amenity_park:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    amenity_recreation_center:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    amenity_community_center:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    amenity_trails:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    amenity_lakes:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    amenity_lake_lot:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    amenity_shopping:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    login_count:
+      type: integer(8)
+      default: '0'
+    created_at:
+      notnull: true
+      type: timestamp(25)
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+    username: string(50)
+    password: string(255)
+    title: string(10)
+    first: string(50)
+    last: string(50)
+    email: string(255)
+    address: string(50)
+    address_line2: string(50)
+    city: string(50)
+    state: string(2)
+    country: string(2)
+    zip: string(10)
+    phone: string(50)
+    alt_phone: string(50)
+    price_range_low: float()
+    price_range_high: float()
+    walkthroughs: integer(8)
+    timeframe: string()
+    referred_by: string()
+    sales_person_id: integer(8)
+    referer_application: string(255)
+    referer_url: string(255)
+    login_attempts: integer(2)
+    last_login: timestamp(25)
+    confirmation_code: string(255)
+  relations:
+    SalesPerson:
+      class: User
+      local: sales_person_id
+      foreign: id
+      type: one
+Domain:
+  connection: main
+  tableName: Domains
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    website_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    account_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    tld: string(10)
+    sld: string(255)
+    full: string(255)
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    Website:
+      class: AccountWebsite
+      local: website_id
+      foreign: id
+      type: one
+    AccountApp:
+      local: id
+      foreign: domain_id
+      type: many
+    Subscriber:
+      local: id
+      foreign: domain_id
+      type: many
+    DomainIndex:
+      local: id
+      foreign: id
+      type: many
+Download:
+  connection: main
+  tableName: Downloads
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    file_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    is_approved:
+      type: integer(8)
+      default: '0'
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    expiration: timestamp(25)
+    download_limit: integer(10)
+    downloads: integer(10)
+  relations:
+    File:
+      local: file_id
+      foreign: id
+      type: one
+EmailRecord:
+  connection: main
+  tableName: EmailRecords
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    to_user_id: integer(8)
+    to_email: string()
+    cc_email: string()
+    bcc_email: string()
+    from_email: string(255)
+    date_sent: timestamp(25)
+    subject: string(255)
+    message: string()
+    email_type: string(255)
+    id_no: string(255)
+    sent_from_url: string(255)
+  relations:
+    User:
+      local: to_user_id
+      foreign: id
+      type: one
+    EmailRecordIndex:
+      local: id
+      foreign: id
+      type: many
+EmailTemplate:
+  connection: main
+  tableName: EmailTemplates
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(50)
+    raw_html: string(Array)
+    community_id: integer(8)
+    author_id: integer(8)
+    editor_id: integer(8)
+    slug: string(255)
+  relations:
+    Author:
+      class: User
+      local: author_id
+      foreign: id
+      type: one
+    Editor:
+      class: User
+      local: editor_id
+      foreign: id
+      type: one
+EmailVariable:
+  connection: main
+  tableName: EmailVariables
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(100)
+    description: string()
+    code_example: string()
+    syntax: string(255)
+    author_id: integer(8)
+    editor_id: integer(8)
+    slug: string(255)
+  relations:
+    Author:
+      class: User
+      local: author_id
+      foreign: id
+      type: one
+    Editor:
+      class: User
+      local: editor_id
+      foreign: id
+      type: one
+Event:
+  connection: main
+  tableName: Events
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    title:
+      type: string(100)
+      default: ''
+      notnull: true
+    description:
+      type: string(2147483647)
+      default: ''
+      notnull: true
+    eventdatestart:
+      type: date(25)
+      default: '0000-00-00'
+      notnull: true
+    weeklyday:
+      type: integer(8)
+      unsigned: '1'
+    eventtimestart:
+      type: time(25)
+      default: '00:00:00'
+      notnull: true
+    eventtimeend:
+      type: time(25)
+      default: '00:00:00'
+    isapproved:
+      type: integer(8)
+      default: '0'
+      notnull: true
+    generalcalendar:
+      type: integer(8)
+      default: '0'
+      notnull: true
+    newsletter:
+      type: integer(8)
+      default: '0'
+      notnull: true
+    mandatory:
+      type: enum()
+      values:
+        - '1'
+        - '0'
+      default: '0'
+      notnull: true
+    slug:
+      type: string(255)
+      default: ''
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    eventdateend: date(25)
+    monday: integer(1)
+    tuesday: integer(1)
+    wednesday: integer(1)
+    thursday: integer(1)
+    friday: integer(1)
+    saturday: integer(1)
+    sunday: integer(1)
+    eventtype: integer(8)
+    cost: string(50)
+    location: string(2147483647)
+    location_map_link: string(255)
+    notes: string(2147483647)
+    tags: string(255)
+  relations:
+    EventAttendee:
+      local: id
+      foreign: event_id
+      type: many
+    EventIndex:
+      local: id
+      foreign: id
+      type: many
+EventAttendee:
+  connection: main
+  tableName: EventAttendees
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    event_id: integer(8)
+    user_id: integer(8)
+    attendee_status_id: integer(8)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Event:
+      local: event_id
+      foreign: id
+      type: one
+    AttendeeStatus:
+      local: attendee_status_id
+      foreign: id
+      type: one
+Faq:
+  connection: main
+  tableName: Faq
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    pubdate:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(255)
+    description: string(2147483647)
+    slug: string(255)
+    subtitle: string(255)
+  relations:
+    Categories:
+      refClass: FaqCategory
+      class: Category
+      local: faq_id
+      foreign: category_id
+      type: many
+    FaqCategory:
+      local: id
+      foreign: faq_id
+      type: many
+    FaqIndex:
+      local: id
+      foreign: id
+      type: many
+FaqCategory:
+  connection: main
+  tableName: FaqCategories
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    faq_id: integer(8)
+    category_id: integer(8)
+  relations:
+    Category:
+      local: category_id
+      foreign: id
+      type: one
+    Faq:
+      local: faq_id
+      foreign: id
+      type: one
+Feature:
+  connection: main
+  tableName: Features
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    enabled:
+      type: enum(3)
+      values:
+        - yes
+        - no
+      default: no
+      notnull: true
+    graphic_id:
+      type: integer(8)
+      notnull: false
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    heading: string(60)
+    title: string(100)
+    description: string()
+    link_url: string()
+    link_text: string(50)
+    on_page: string(200)
+    position: integer(8)
+  relations:
+    Menu:
+      refClass: FeatureMenu
+      local: feature_id
+      foreign: menu_id
+      type: many
+    File:
+      local: graphic_id
+      foreign: id
+      type: one
+    FeatureMenu:
+      local: id
+      foreign: feature_id
+      type: many
+FeatureMenu:
+  connection: main
+  tableName: FeatureMenus
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    feature_id: integer(8)
+    menu_id: integer(8)
+  relations:
+    Feature:
+      local: feature_id
+      foreign: id
+      type: one
+    Menu:
+      local: menu_id
+      foreign: id
+      type: one
+File:
+  connection: main
+  tableName: Files
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(255)
+    path: string(255)
+    mime: string(50)
+    url: string(255)
+    user_id: integer(8)
+    type: string(20)
+  relations:
+    Banner:
+      local: id
+      foreign: graphic_id
+      type: many
+    Download:
+      local: id
+      foreign: file_id
+      type: many
+    Feature:
+      local: id
+      foreign: graphic_id
+      type: many
+    Menu:
+      local: id
+      foreign: thumb_id
+      type: many
+    Page:
+      local: id
+      foreign: thumb_id
+      type: many
+    PageType:
+      local: id
+      foreign: preview_image_id
+      type: many
+    Photo:
+      local: id
+      foreign: file_id
+      type: many
+    ProductPhoto:
+      local: id
+      foreign: image_id
+      type: many
+    User:
+      local: id
+      foreign: mugshot_id
+      type: many
+    Video:
+      local: id
+      foreign: file_id
+      type: many
+Gallery:
+  connection: main
+  tableName: Galleries
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(255)
+    slug: string(255)
+    description: string()
+    user_id: integer(8)
+    account_id: integer(8)
+  relations:
+    Photos:
+      refClass: GalleryPhoto
+      class: Photo
+      local: gallery_id
+      foreign: photo_id
+      type: many
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    GalleryPhoto:
+      local: id
+      foreign: gallery_id
+      type: many
+    GalleryIndex:
+      local: id
+      foreign: id
+      type: many
+GalleryPhoto:
+  connection: main
+  tableName: GalleryPhotos
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    gallery_id:
+      type: integer(8)
+      notnull: true
+    photo_id:
+      type: integer(8)
+      notnull: true
+  relations:
+    Photo:
+      local: photo_id
+      foreign: id
+      type: one
+    Gallery:
+      local: gallery_id
+      foreign: id
+      type: one
+Gateway:
+  connection: main
+  tableName: Gateways
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    account_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    vendor:
+      type: enum(9)
+      values:
+        - Authorize
+        - Paypal
+      default: Authorize
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+Group:
+  connection: main
+  tableName: Groups
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    group_type:
+      type: enum(25)
+      values:
+        - Staff
+        - Customer
+        - Other
+      default: -
+      notnull: true
+    title: string(255)
+    journey_id: integer(8)
+    city_id: integer(8)
+    slug: string(255)
+  relations:
+    Task:
+      local: id
+      foreign: group_id
+      type: many
+    UserGroup:
+      refClass: UserGroup
+      class: User
+      local: group_id
+      foreign: user_id
+      type: many
+Invoice:
+  connection: main
+  tableName: Invoices
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    coupon_id:
+      type: integer(8)
+      notnull: false
+    invoice_term:
+      type: enum(16)
+      values:
+        - 'due upon receipt'
+        - net15
+        - net30
+        - net60
+        - net90
+      default: 'due upon receipt'
+    author_id:
+      type: integer(8)
+      notnull: true
+    payee_id:
+      type: integer(8)
+      notnull: false
+    account_id:
+      type: integer(8)
+      notnull: true
+    status:
+      type: enum(14)
+      values:
+        - unpaid
+        - paid
+        - refunded
+        - problem
+        - compt
+      default: unpaid
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(255)
+    ip_address: string(20)
+    original_amount: float()
+    amount: float()
+    description: string()
+    due_date: timestamp(25)
+    shipping_company: string(100)
+    shipping_name: string(100)
+    shipping_address: string(50)
+    shipping_address2: string(50)
+    shipping_city: string(50)
+    shipping_state: string(2)
+    shipping_country: string(2)
+    shipping_zip: string(10)
+    phone: string(50)
+  relations:
+    Coupon:
+      local: coupon_id
+      foreign: id
+      type: one
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    Payee:
+      class: User
+      local: payee_id
+      foreign: id
+      type: one
+    Author:
+      class: User
+      local: author_id
+      foreign: id
+      type: one
+    InvoiceItem:
+      local: id
+      foreign: invoice_id
+      type: many
+    InvoiceIndex:
+      local: id
+      foreign: id
+      type: many
+InvoiceItem:
+  connection: main
+  tableName: invoice_item
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    invoice_id:
+      type: integer(8)
+      notnull: true
+    taxable:
+      type: enum(1)
+      values:
+        - '1'
+        - 0
+      default: '1'
+    title: string(255)
+    description: string()
+    original_amount: float()
+    amount: float()
+  relations:
+    Invoice:
+      local: invoice_id
+      foreign: id
+      type: one
+Media:
+  connection: main
+  tableName: Media
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    media_type:
+      type: enum()
+      values:
+        - photo
+        - video
+        - rendering
+        - blueprints
+        - virtualtour
+        - flash
+        - embed
+        - html
+        - doc
+        - other
+      default: photo
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(100)
+    name: string(100)
+    type: string(100)
+    size: integer(8)
+    file_info: string()
+    path: string(255)
+    raw_html: string()
+    url: string()
+    uri: string()
+    owner_id: integer(8)
+    accessed: integer(8)
+  relations:
+    User:
+      local: owner_id
+      foreign: id
+      type: one
+    MediaIndex:
+      local: id
+      foreign: id
+      type: many
+Menu:
+  connection: main
+  tableName: Menus
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    status:
+      type: string(50)
+      default: generated
+    show_menu:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    is_home:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: no
+    page_id:
+      type: integer(8)
+      notnull: false
+    account_id:
+      type: integer(8)
+      notnull: false
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+    name: string(255)
+    type: string(50)
+    slug: string(255)
+    page_title: string(200)
+    page_description: string()
+    page_html: string()
+    created_by_id: integer(8)
+    thumb_id: integer(8)
+    link: string()
+    linked_model: string(255)
+    linked_record: string(255)
+    position: integer(8)
+    root_id: integer(8)
+    lft: integer(4)
+    rgt: integer(4)
+    level: integer(2)
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    Feature:
+      refClass: FeatureMenu
+      local: menu_id
+      foreign: feature_id
+      type: many
+    Preview:
+      class: File
+      local: thumb_id
+      foreign: id
+      type: one
+    Owner:
+      class: User
+      local: created_by_id
+      foreign: id
+      type: one
+    Page:
+      local: page_id
+      foreign: id
+      type: one
+    Credentials:
+      refClass: MenuCredential
+      class: Credential
+      local: menu_id
+      foreign: credential_id
+      type: many
+    BannerMenu:
+      local: id
+      foreign: menu_id
+      type: many
+    FeatureMenu:
+      local: id
+      foreign: menu_id
+      type: many
+    MenuCredential:
+      local: id
+      foreign: menu_id
+      type: many
+MenuCredential:
+  connection: main
+  tableName: MenuCredentials
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    menu_id: integer(8)
+    credential_id: integer(8)
+  relations:
+    Menu:
+      local: menu_id
+      foreign: id
+      type: one
+    Credential:
+      local: credential_id
+      foreign: id
+      type: one
+Message:
+  connection: main
+  tableName: Messages
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    user_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    recipient_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    status:
+      type: enum(8)
+      values:
+        - approved
+        - pending
+        - rejected
+        - received
+      default: pending
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    subject: string()
+    message: string(1000000)
+    date_received: timestamp(25)
+  relations:
+    Sender:
+      class: User
+      local: user_id
+      foreign: id
+      type: one
+    Recipient:
+      class: User
+      local: recipient_id
+      foreign: id
+      type: one
+    Ticket:
+      refClass: TicketMessage
+      local: message_id
+      foreign: ticket_id
+      type: many
+    Credential:
+      refClass: MessageCredential
+      local: message_id
+      foreign: credential_id
+      type: many
+    MessageCredential:
+      local: id
+      foreign: message_id
+      type: many
+    TicketMessage:
+      local: id
+      foreign: message_id
+      type: many
+    MessageIndex:
+      local: id
+      foreign: id
+      type: many
+MessageCredential:
+  connection: main
+  tableName: MessageCredentials
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    message_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    credential_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+  relations:
+    Message:
+      local: message_id
+      foreign: id
+      type: one
+    Credential:
+      local: credential_id
+      foreign: id
+      type: one
+Option:
+  connection: main
+  tableName: Options
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    active:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+      notnull: true
+    option_type:
+      type: enum()
+      values:
+        - size
+        - color
+        - image
+        - customization
+        - flavor
+        - misc
+      default: misc
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(255)
+    description: string()
+    option_limit: integer(8)
+  relations:
+    Choices:
+      class: OptionChoice
+      local: id
+      foreign: option_id
+      type: many
+    CartProductChoice:
+      local: id
+      foreign: option_id
+      type: many
+    Product:
+      refClass: ProductOption
+      local: option_id
+      foreign: product_id
+      type: many
+    ProductOption:
+      local: id
+      foreign: option_id
+      type: many
+    SaleProductChoice:
+      local: id
+      foreign: option_id
+      type: many
+OptionChoice:
+  connection: main
+  tableName: OptionChoices
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    active:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+      notnull: true
+    option_id:
+      type: integer(8)
+      notnull: true
+    title: string(255)
+    price_change: float()
+    color: string(20)
+    position: integer(8)
+  relations:
+    CartProductChoice:
+      local: id
+      foreign: option_choice_id
+      type: many
+    Option:
+      local: option_id
+      foreign: id
+      type: one
+    SaleProductChoice:
+      local: id
+      foreign: option_choice_id
+      type: many
+Package:
+  connection: main
+  tableName: Packages
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    term_id:
+      type: integer(8)
+      notnull: false
+    is_recurring:
+      type: enum(1)
+      values:
+        - '1'
+        - 0
+      default: '1'
+      notnull: true
+    status:
+      type: enum(8)
+      values:
+        - active
+        - inactive
+      default: active
+      notnull: true
+    is_featured:
+      type: enum(1)
+      values:
+        - '0'
+        - '1'
+      default: '0'
+      notnull: true
+    on_sale:
+      type: enum(1)
+      values:
+        - '0'
+        - '1'
+      default: '0'
+      notnull: true
+    title: string(255)
+    description: string()
+    setup_price: float()
+    price: float()
+    sale_price: float()
+  relations:
+    Term:
+      local: term_id
+      foreign: id
+      type: one
+    ServiceProductPackage:
+      local: id
+      foreign: package_id
+      type: many
+    Subscription:
+      local: id
+      foreign: package_id
+      type: many
+Page:
+  connection: main
+  tableName: Pages
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(50)
+    title: string(50)
+    description: string()
+    slug: string(255)
+    created_by_id: integer(8)
+    thumb_id: integer(8)
+    account_id: integer(8)
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    User:
+      local: created_by_id
+      foreign: id
+      type: one
+    File:
+      local: thumb_id
+      foreign: id
+      type: one
+    Chunks:
+      refClass: PageChunk
+      class: Chunk
+      local: page_id
+      foreign: chunk_id
+      type: many
+    Menu:
+      local: id
+      foreign: page_id
+      type: many
+    PageChunk:
+      local: id
+      foreign: page_id
+      type: many
+    PageUri:
+      local: id
+      foreign: page_id
+      type: many
+    PageIndex:
+      local: id
+      foreign: id
+      type: many
+PageChunk:
+  connection: main
+  tableName: PageChunks
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    page_id:
+      type: integer(8)
+      notnull: true
+    chunk_id:
+      type: integer(8)
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+  relations:
+    Page:
+      local: page_id
+      foreign: id
+      type: one
+    Chunk:
+      local: chunk_id
+      foreign: id
+      type: one
+PageMenu:
+  connection: main
+  tableName: PageMenus
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    page_id:
+      type: integer(8)
+      notnull: true
+    menu_id:
+      type: integer(8)
+      notnull: true
+  relations:
+    Page:
+      local: page_id
+      foreign: id
+      type: one
+    Menu:
+      local: menu_id
+      foreign: id
+      type: one
+PageSection:
+  connection: main
+  tableName: PageSections
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    page_id:
+      type: integer(8)
+      notnull: true
+    section_id:
+      type: integer(8)
+      notnull: true
+  relations:
+    Page:
+      local: page_id
+      foreign: id
+      type: one
+    Section:
+      local: section_id
+      foreign: id
+      type: one
+PageType:
+  connection: main
+  tableName: PageTypes
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    preview_image_id:
+      type: integer(8)
+      notnull: false
+    app_id:
+      type: integer(8)
+      notnull: false
+    show_entries:
+      type: enum()
+      values:
+        - '0'
+        - '1'
+      default: '1'
+    channelable:
+      type: enum()
+      values:
+        - '0'
+        - '1'
+      default: '1'
+    name: string(100)
+    menu_option_title: string(100)
+    display_title: string(100)
+    new_channel_title: string(100)
+    description: string()
+    custom_manage_url: string(255)
+    primary_model: string(255)
+    custom_admin_url: string(255)
+  relations:
+    App:
+      local: app_id
+      foreign: id
+      type: one
+    Thumbnail:
+      class: File
+      local: preview_image_id
+      foreign: id
+      type: one
+    Credentials:
+      refClass: PageTypeCredential
+      class: Credential
+      local: pagetype_id
+      foreign: credential_id
+      type: many
+    PageTypeCredential:
+      local: id
+      foreign: pagetype_id
+      type: many
+PageTypeCredential:
+  connection: main
+  tableName: PageTypeCredentials
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    pagetype_id: integer(8)
+    credential_id: integer(8)
+  relations:
+    PageType:
+      local: pagetype_id
+      foreign: id
+      type: one
+    Credential:
+      local: credential_id
+      foreign: id
+      type: one
+PageUri:
+  connection: main
+  tableName: PageUris
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    uri: string(255)
+    page_id: integer(8)
+  relations:
+    Page:
+      local: page_id
+      foreign: id
+      type: one
+Photo:
+  connection: main
+  tableName: Photos
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    file_id: integer(8)
+    title: string(50)
+    description: string()
+    photo_credits: string()
+    photo_credits_url: string(255)
+    slug: string(255)
+    views: integer(8)
+    position: integer(8)
+  relations:
+    File:
+      local: file_id
+      foreign: id
+      type: one
+    Gallery:
+      refClass: GalleryPhoto
+      local: photo_id
+      foreign: gallery_id
+      type: many
+    GalleryPhoto:
+      local: id
+      foreign: photo_id
+      type: many
+    PhotoIndex:
+      local: id
+      foreign: id
+      type: many
+Product:
+  connection: main
+  tableName: Products
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    active:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+      notnull: true
+    is_backorderable:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: no
+      notnull: true
+    on_sale:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: no
+      notnull: true
+    shipping_weight:
+      type: float()
+      default: '0.4'
+    shipping_length:
+      type: float()
+      default: '2'
+    shipping_width:
+      type: float()
+      default: '6'
+    shipping_height:
+      type: float()
+      default: '8'
+    display_out_stock:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: no
+      notnull: true
+    out_of_stock_text:
+      type: string(255)
+      default: 'Out of Stock'
+    online_only:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+      notnull: true
+    stock_quantity:
+      type: integer(8)
+      notnull: true
+      default: '100'
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    price: float()
+    sale_price: float()
+    sale_starts_on: timestamp(25)
+    sale_ends_on: timestamp(25)
+    views: integer(8)
+    num_of_purchases: integer(8)
+    created_by_user_id: integer(8)
+    last_purchased_on: timestamp(25)
+    restock_date: timestamp(25)
+    max_order_quantity: integer(8)
+    slug: string(255)
+    upc: string(255)
+    item_no: string(255)
+    expires_on: timestamp(25)
+    starts_on: timestamp(25)
+    title: string(255)
+    subtitle: string(255)
+    description: string()
+    extra_details: string()
+    custom_purchase_code: string()
+    position: integer(8)
+    link: string(500)
+  relations:
+    Prices:
+      class: ProductPrice
+      local: id
+      foreign: product_id
+      type: many
+    User:
+      local: created_by_user_id
+      foreign: id
+      type: one
+    ProductOptions:
+      class: ProductOption
+      local: id
+      foreign: product_id
+      type: many
+    Options:
+      refClass: ProductOption
+      class: Option
+      local: product_id
+      foreign: option_id
+      type: many
+    Categories:
+      refClass: ProductCategory
+      class: Category
+      local: product_id
+      foreign: category_id
+      type: many
+    Methods:
+      class: ProductShippingMethod
+      local: id
+      foreign: product_id
+      type: many
+    ShippingMethods:
+      refClass: ProductShippingMethod
+      class: ShippingMethod
+      local: product_id
+      foreign: shipping_method_id
+      type: many
+    Cart:
+      refClass: CartProduct
+      local: product_id
+      foreign: cart_id
+      type: many
+    CartProduct:
+      local: id
+      foreign: product_id
+      type: many
+    CouponProduct:
+      local: id
+      foreign: product_id
+      type: many
+    ProductCategory:
+      local: id
+      foreign: product_id
+      type: many
+    ProductPhoto:
+      local: id
+      foreign: product_id
+      type: many
+    ProductSuggestion:
+      local: id
+      foreign: product_id
+      type: many
+    Sale:
+      refClass: SaleProduct
+      local: product_id
+      foreign: sale_id
+      type: many
+    SaleProduct:
+      local: id
+      foreign: product_id
+      type: many
+    WishlistItem:
+      local: id
+      foreign: product_id
+      type: many
+    ProductIndex:
+      local: id
+      foreign: id
+      type: many
+    ProductOption:
+      local: id
+      foreign: product_id
+      type: many
+    ProductShippingMethod:
+      local: id
+      foreign: product_id
+      type: many
+ProductBulkPricing:
+  connection: main
+  tableName: ProductBulkPricings
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    product_id: integer(8)
+    min_range: integer(8)
+    max_range: integer(8)
+    price_per_product: float()
+  relations:
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+ProductCategory:
+  connection: main
+  tableName: ProductCategories
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    product_id: integer(8)
+    category_id: integer(8)
+  relations:
+    Category:
+      local: category_id
+      foreign: id
+      type: one
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+ProductOption:
+  connection: main
+  tableName: ProductOptions
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    product_id:
+      type: integer(8)
+      notnull: true
+    option_id:
+      type: integer(8)
+      notnull: true
+  relations:
+    Option:
+      local: option_id
+      foreign: id
+      type: one
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+ProductPhoto:
+  connection: main
+  tableName: ProductPhotos
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    is_primary:
+      type: enum(3)
+      values:
+        - yes
+        - no
+      default: yes
+      notnull: true
+    product_id: integer(8)
+    image_id: integer(8)
+    position: integer(8)
+  relations:
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+    File:
+      local: image_id
+      foreign: id
+      type: one
+ProductPrice:
+  connection: main
+  tableName: ProductPrices
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    product_id: integer(8)
+    min_range: integer(8)
+    max_range: integer(8)
+    price: float()
+    sale_price: float()
+  relations:
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+ProductShippingMethod:
+  connection: main
+  tableName: ProductShippingMethods
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    product_id:
+      type: integer(8)
+      notnull: true
+    shipping_method_id:
+      type: integer(8)
+      notnull: true
+    price: float()
+    position: integer(8)
+  relations:
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+    Method:
+      class: ShippingMethod
+      local: shipping_method_id
+      foreign: id
+      type: one
+ProductSuggestion:
+  connection: main
+  tableName: ProductSuggestions
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    product_id: integer(8)
+    suggestion_id: integer(8)
+    position: integer(8)
+  relations:
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+    Suggestion:
+      class: Product
+      local: suggestion_id
+      foreign: id
+      type: one
+Receipt:
+  connection: main
+  tableName: Receipts
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    credit_card_id:
+      type: integer(8)
+      notnull: false
+    sale_id:
+      type: integer(8)
+      notnull: false
+    status:
+      type: enum(14)
+      values:
+        - paid
+        - unpaid
+      default: unpaid
+      notnull: true
+    refund_status:
+      type: enum(14)
+      values:
+        - none
+        - total
+        - partial
+      default: none
+      notnull: true
+    notification_attempts:
+      type: integer(8)
+      default: '0'
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    amount: 'decimal(10, 2)'
+    refund_amount: 'decimal(18, 2)'
+    date_refunded: timestamp(25)
+    refunded_by_id: integer(8)
+    last_notified: timestamp(25)
+  relations:
+    User:
+      local: refunded_by_id
+      foreign: id
+      type: one
+    Sale:
+      local: sale_id
+      foreign: id
+      type: one
+    CreditCard:
+      local: credit_card_id
+      foreign: id
+      type: one
+Role:
+  connection: main
+  tableName: Roles
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    title: string(50)
+    slug: string(255)
+    lft: integer(4)
+    rgt: integer(4)
+    level: integer(2)
+  relations:
+    Methods:
+      refClass: ApiMethodRole
+      class: ApiMethod
+      local: role_id
+      foreign: method_id
+      type: many
+    AccountUser:
+      refClass: AccountUserRole
+      local: role_id
+      foreign: au_id
+      type: many
+    AccountUserRole:
+      local: id
+      foreign: role_id
+      type: many
+    ApiMethodRole:
+      local: id
+      foreign: role_id
+      type: many
+    User:
+      refClass: UserRole
+      local: role_id
+      foreign: user_id
+      type: many
+    UserRole:
+      local: id
+      foreign: role_id
+      type: many
+Sale:
+  connection: main
+  tableName: Sales
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    user_id:
+      type: integer(8)
+      notnull: true
+    status:
+      type: enum(14)
+      values:
+        - 'checking out'
+        - ordered
+        - shipped
+        - returned
+        - problem
+      default: 'checking out'
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    account_id: integer(8)
+    coupon_id: integer(8)
+    ip_address: string(20)
+    original_amount: float()
+    amount: float()
+    tax: float()
+    shipping: float()
+    discount: float()
+    item_count: integer(3)
+    shipping_name: string(100)
+    shipping_address: string(50)
+    shipping_address2: string(50)
+    shipping_city: string(50)
+    shipping_state: string(2)
+    shipping_country: string(2)
+    shipping_zip: string(10)
+    phone: string()
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    Products:
+      refClass: SaleProduct
+      class: Product
+      local: sale_id
+      foreign: product_id
+      type: many
+    SaleProduct:
+      local: id
+      foreign: sale_id
+      type: one
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Receipt:
+      local: id
+      foreign: sale_id
+      type: many
+    SaleNote:
+      local: id
+      foreign: sale_id
+      type: many
+SaleNote:
+  connection: main
+  tableName: SaleNotes
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    sticky:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: no
+      notnull: true
+    sale_id:
+      type: integer(8)
+      notnull: true
+    by_user_id:
+      type: integer(8)
+      notnull: true
+    time_added:
+      notnull: true
+      type: timestamp(25)
+    time_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(255)
+    slug: string(255)
+    note: string()
+  relations:
+    User:
+      local: by_user_id
+      foreign: id
+      type: one
+    Sale:
+      local: sale_id
+      foreign: id
+      type: one
+SaleProduct:
+  connection: main
+  tableName: SaleProducts
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    time_added:
+      notnull: true
+      type: timestamp(25)
+    time_updated:
+      notnull: true
+      type: timestamp(25)
+    sale_id: integer(8)
+    product_id: integer(8)
+    quantity: integer(3)
+  relations:
+    Sale:
+      local: sale_id
+      foreign: id
+      type: one
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+    SaleProductChoice:
+      local: id
+      foreign: order_product_id
+      type: many
+SaleProductChoice:
+  connection: main
+  tableName: SaleProductChoices
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    order_product_id:
+      type: integer(8)
+      notnull: true
+    option_id:
+      type: integer(8)
+      notnull: true
+    option_choice_id:
+      type: integer(8)
+      notnull: true
+  relations:
+    SaleProduct:
+      local: order_product_id
+      foreign: id
+      type: one
+    Option:
+      local: option_id
+      foreign: id
+      type: one
+    Choice:
+      class: OptionChoice
+      local: option_choice_id
+      foreign: id
+      type: one
+Section:
+  connection: main
+  tableName: Sections
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(50)
+ServiceProduct:
+  connection: main
+  tableName: ServiceProducts
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(100)
+    description: string(100000)
+    slug: string(255)
+  relations:
+    Packages:
+      class: ServiceProductPackage
+      local: id
+      foreign: service_id
+      type: many
+    AccountSubscriptionService:
+      local: id
+      foreign: service_id
+      type: many
+    AppServiceProduct:
+      local: id
+      foreign: service_id
+      type: many
+    Subscription:
+      local: id
+      foreign: service_id
+      type: many
+    Ticket:
+      local: id
+      foreign: service_id
+      type: many
+ServiceProductPackage:
+  connection: main
+  tableName: ServiceProductPackages
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    service_id:
+      type: integer(8)
+      notnull: true
+    package_id:
+      type: integer(8)
+      notnull: true
+  relations:
+    ServiceProduct:
+      local: service_id
+      foreign: id
+      type: one
+    Package:
+      local: package_id
+      foreign: id
+      type: one
+ShippingMethod:
+  connection: main
+  tableName: ShippingMethods
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    name: string(255)
+    description: string()
+  relations:
+    Product:
+      refClass: ProductShippingMethod
+      local: shipping_method_id
+      foreign: product_id
+      type: many
+    ProductShippingMethod:
+      local: id
+      foreign: shipping_method_id
+      type: many
+Submenu:
+  connection: main
+  tableName: SubMenus
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    menu_id:
+      type: integer(8)
+      notnull: true
+    name: string(50)
+    link: string(255)
+    slug: string(255)
+    root_id: integer(8)
+    lft: integer(4)
+    rgt: integer(4)
+    level: integer(2)
+  relations:
+    Menu:
+      local: menu_id
+      foreign: id
+      type: one
+Subscriber:
+  connection: main
+  tableName: Subscribers
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    firstname: string(50)
+    lastname: string(50)
+    email: string(60)
+    zip: string(20)
+    state: string(2)
+    country: string(2)
+    ip: string(60)
+    account_id: integer(8)
+    app_id: integer(8)
+    domain_id: integer(8)
+  relations:
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    App:
+      local: app_id
+      foreign: id
+      type: one
+    Domain:
+      local: domain_id
+      foreign: id
+      type: one
+Subscription:
+  connection: main
+  tableName: Subscriptions
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    account_id:
+      type: integer(8)
+      notnull: true
+    package_id:
+      type: integer(8)
+      notnull: true
+    service_id:
+      type: integer(8)
+      notnull: true
+    modified_by_id:
+      type: integer(8)
+      notnull: false
+    status:
+      type: enum(13)
+      values:
+        - active
+        - inactive
+        - paused
+        - canceled
+        - extended
+      default: active
+      notnull: true
+    issuer_id:
+      type: integer(8)
+      notnull: false
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(255)
+    description: string()
+    price: float()
+    next_price: float()
+    expiration_date: timestamp(25)
+    resume_date: timestamp(25)
+    price_change_date: timestamp(25)
+    iterations: integer(8)
+    date_last_paid: timestamp(25)
+    date_due: timestamp(25)
+    date_last_attempt: timestamp(25)
+    failed_attempts: integer(8)
+    failure_response: string(100000)
+    failure_raw_response: string(1000000)
+  relations:
+    Issuer:
+      class: Account
+      local: issuer_id
+      foreign: id
+      type: one
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    Staff:
+      class: User
+      local: modified_by_id
+      foreign: id
+      type: one
+    Package:
+      local: package_id
+      foreign: id
+      type: one
+    ServiceProduct:
+      local: service_id
+      foreign: id
+      type: one
+    AccountSubscriptionService:
+      local: id
+      foreign: subscription_id
+      type: many
+    SubscriptionIndex:
+      local: id
+      foreign: id
+      type: many
+Task:
+  connection: main
+  tableName: Tasks
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    optional:
+      type: enum(10)
+      values:
+        - Yes
+        - No
+      default: -
+      notnull: true
+    title: string(255)
+    description: string(2147483647)
+    date_due: timestamp(25)
+    user_id: integer(8)
+    group_id: integer(8)
+    slug: string(255)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Group:
+      local: group_id
+      foreign: id
+      type: one
+    CompletedTask:
+      local: id
+      foreign: task_id
+      type: many
+    TaskIndex:
+      local: id
+      foreign: id
+      type: many
+Template:
+  connection: main
+  tableName: Templates
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    html: string(12341234)
+    name: string(50)
+Term:
+  connection: main
+  tableName: Terms
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(50)
+    description: string(10000)
+    interval_time: integer(100)
+  relations:
+    Package:
+      local: id
+      foreign: term_id
+      type: many
+Ticket:
+  connection: main
+  tableName: Tickets
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    account_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    app_id:
+      type: integer(8)
+      notnull: false
+    owner_id:
+      type: integer(8)
+      notnull: true
+    category_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    service_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    last_staff_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    last_user_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    priority:
+      type: enum(2)
+      values:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+        - '6'
+        - '7'
+        - '8'
+        - '9'
+        - '10'
+      default: '5'
+      notnull: true
+    status:
+      type: enum(13)
+      values:
+        - open
+        - closed
+        - pending
+        - replied
+        - investigating
+        - unresolved
+      default: open
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(255)
+    date_staff_updated: timestamp(25)
+    slug: string(255)
+  relations:
+    Message:
+      refClass: TicketMessage
+      local: ticket_id
+      foreign: message_id
+      type: many
+    Account:
+      local: account_id
+      foreign: id
+      type: one
+    App:
+      local: app_id
+      foreign: id
+      type: one
+    User:
+      local: owner_id
+      foreign: id
+      type: one
+    Department:
+      class: Category
+      local: category_id
+      foreign: id
+      type: one
+    ServiceProduct:
+      local: service_id
+      foreign: id
+      type: one
+    Staff:
+      class: User
+      local: last_staff_id
+      foreign: id
+      type: one
+    Customer:
+      class: User
+      local: last_user_id
+      foreign: id
+      type: one
+    TicketMessage:
+      local: id
+      foreign: ticket_id
+      type: many
+TicketMessage:
+  connection: main
+  tableName: TicketMessages
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    message_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    ticket_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+  relations:
+    Message:
+      local: message_id
+      foreign: id
+      type: one
+    Ticket:
+      local: ticket_id
+      foreign: id
+      type: one
+User:
+  connection: main
+  tableName: Users
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    gender:
+      type: string(1)
+      default: m
+      notnull: true
+    login_count:
+      type: integer(8)
+      default: '0'
+    is_listed:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: no
+    is_pending:
+      type: enum()
+      values:
+        - yes
+        - no
+      default: yes
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    email: string(50)
+    password: string(100)
+    firstname: string(50)
+    middlename: string(50)
+    lastname: string(50)
+    dob: timestamp(25)
+    address: string(50)
+    address2: string(50)
+    city: string(50)
+    state: string(2)
+    country: string(2)
+    zip: string(10)
+    shipping_name: string(100)
+    shipping_address: string(50)
+    shipping_address2: string(50)
+    shipping_city: string(50)
+    shipping_state: string(2)
+    shipping_country: string(2)
+    shipping_zip: string(10)
+    phone: string(50)
+    alt_phone: string(50)
+    mugshot_id: integer(8)
+    title: string(10)
+    description: string(2147483647)
+    web_address: string(96)
+    login_attempts: integer(2)
+    last_login: timestamp(25)
+    slug: string(255)
+    confirmation_code: string(255)
+  relations:
+    Credentials:
+      refClass: UserCredential
+      class: Credential
+      local: user_id
+      foreign: credential_id
+      type: many
+    Mugshot:
+      class: File
+      local: mugshot_id
+      foreign: id
+      type: one
+    Account:
+      refClass: AccountUser
+      local: user_id
+      foreign: account_id
+      type: many
+    AccountUser:
+      local: id
+      foreign: user_id
+      type: many
+    Activity:
+      local: id
+      foreign: user_id
+      type: many
+    App:
+      refClass: AppUser
+      local: user_id
+      foreign: app_id
+      type: many
+    AppUser:
+      local: id
+      foreign: user_id
+      type: many
+    Blog:
+      local: id
+      foreign: author_id
+      type: many
+    Channel:
+      local: id
+      foreign: creator_id
+      type: many
+    ChannelUser:
+      local: id
+      foreign: user_id
+      type: many
+    Comment:
+      local: id
+      foreign: user_id
+      type: many
+    CreditCard:
+      local: id
+      foreign: user_id
+      type: many
+    EmailRecord:
+      local: id
+      foreign: to_user_id
+      type: many
+    EventAttendee:
+      local: id
+      foreign: user_id
+      type: many
+    Gallery:
+      local: id
+      foreign: user_id
+      type: many
+    Invoice:
+      local: id
+      foreign: payee_id
+      type: many
+    Menu:
+      local: id
+      foreign: created_by_id
+      type: many
+    Message:
+      local: id
+      foreign: user_id
+      type: many
+    Page:
+      local: id
+      foreign: created_by_id
+      type: many
+    Product:
+      local: id
+      foreign: created_by_user_id
+      type: many
+    Receipt:
+      local: id
+      foreign: refunded_by_id
+      type: many
+    Sale:
+      local: id
+      foreign: user_id
+      type: many
+    SaleNote:
+      local: id
+      foreign: by_user_id
+      type: many
+    Subscription:
+      local: id
+      foreign: modified_by_id
+      type: many
+    Group:
+      refClass: UserGroup
+      local: user_id
+      foreign: group_id
+      type: many
+    UserGroup:
+      local: id
+      foreign: user_id
+      type: many
+    Task:
+      local: id
+      foreign: user_id
+      type: many
+    CompletedTask:
+      local: id
+      foreign: user_id
+      type: many
+    Ticket:
+      local: id
+      foreign: owner_id
+      type: many
+    UserPhone:
+      local: id
+      foreign: user_id
+      type: many
+    UserCredential:
+      local: id
+      foreign: user_id
+      type: many
+    Video:
+      local: id
+      foreign: user_id
+      type: many
+    WishlistItem:
+      local: id
+      foreign: user_id
+      type: many
+    UserIndex:
+      local: id
+      foreign: id
+      type: many
+UserCredential:
+  connection: main
+  tableName: UserCredentials
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    user_id:
+      type: integer(8)
+      notnull: true
+      default: ''
+    credential_id:
+      type: integer(8)
+      notnull: true
+      default: ''
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Credential:
+      local: credential_id
+      foreign: id
+      type: one
+UserGroup:
+  connection: main
+  tableName: UserGroup
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    user_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+    group_id:
+      type: integer(8)
+      default: ''
+      notnull: true
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Group:
+      local: group_id
+      foreign: id
+      type: one
+UserMethod:
+  connection: main
+  tableName: UserMethods
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    user_id: integer(8)
+    method_id: integer(8)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    ApiMethod:
+      local: method_id
+      foreign: id
+      type: one
+UserPhone:
+  connection: main
+  tableName: UserPhones
+  columns:
+    phone_id:
+      type: integer(8)
+      unsigned: '1'
+      primary: true
+      autoincrement: true
+    number:
+      type: string(20)
+      default: ''
+      notnull: true
+    listed:
+      type: integer(8)
+      default: '0'
+    user_id:
+      type: integer(8)
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    UserPhoneIndex:
+      local: phone_id
+      foreign: phone_id
+      type: many
+UserRole:
+  connection: main
+  tableName: UserRoles
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    user_id: integer(8)
+    role_id: integer(8)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    Role:
+      local: role_id
+      foreign: id
+      type: one
+UserUser:
+  connection: main
+  tableName: UserUsers
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    updated_at:
+      notnull: true
+      type: timestamp(25)
+    parent_user_id: integer(8)
+    child_user_id: integer(8)
+  relations:
+    Boss:
+      class: User
+      local: parent_user_id
+      foreign: id
+      type: one
+    Team:
+      class: User
+      local: child_user_id
+      foreign: id
+      type: one
+Video:
+  connection: main
+  tableName: Videos
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    featured:
+      type: enum(3)
+      values:
+        - Yes
+        - No
+      default: No
+      notnull: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(255)
+    description: string()
+    user_id: integer(8)
+    city_id: integer(8)
+    journey_id: integer(8)
+    video_type_id: integer(8)
+    file_id: integer(8)
+    swf_url: string(255)
+    external_id: integer(8)
+    thumb_id: integer(8)
+    thumb_url: string(255)
+    slug: string(255)
+  relations:
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    File:
+      local: file_id
+      foreign: id
+      type: one
+    VideoCategory:
+      local: id
+      foreign: video_id
+      type: many
+    VideoIndex:
+      local: id
+      foreign: id
+      type: many
+VideoCategory:
+  connection: main
+  tableName: VideoCategories
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    video_id: integer(8)
+    category_id: integer(8)
+  relations:
+    Category:
+      local: category_id
+      foreign: id
+      type: one
+    Video:
+      local: video_id
+      foreign: id
+      type: one
+WebsiteConfig:
+  connection: main
+  tableName: WebsiteConfigs
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    website_id:
+      type: integer(8)
+      notnull: false
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    title: string(100)
+    value: string()
+    name: string(255)
+  relations:
+    Website:
+      class: AccountWebsite
+      local: website_id
+      foreign: id
+      type: one
+    WebsiteConfigIndex:
+      local: id
+      foreign: id
+      type: many
+WishlistItem:
+  connection: main
+  tableName: WishlistItems
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    date_created:
+      notnull: true
+      type: timestamp(25)
+    date_updated:
+      notnull: true
+      type: timestamp(25)
+    product_id: integer(8)
+    user_id: integer(8)
+    wish_order: integer(3)
+  relations:
+    Product:
+      local: product_id
+      foreign: id
+      type: one
+    User:
+      local: user_id
+      foreign: id
+      type: one

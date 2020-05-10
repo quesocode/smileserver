@@ -1,0 +1,18 @@
+<div id="author">
+     <img src='<?php echo isset($author_mug) && $author_mug ? $author_mug : '/images/nomug.png'; ?>' width=30 height=30 title='<?php echo $update['Author']['slug']; ?>' class=mug />
+     <p><a href='/user/<?php echo $update['Author']['slug']; ?>/' title='<?php echo $update['Author']['slug']; ?>'><?php echo $update['Author']['slug']; ?></a> said <span><?php echo $update['friendly_date']; ?></span></p>
+</div>
+<div class=clear></div>
+<div id="short">
+     <div class="bigtitle text">You just made this link: <a href="http://swmp.it/<?php echo $update['hash']; ?>" target="_blank">http://swmp.it/<?php echo $update['hash']; ?></a></div>
+     
+     
+     <div style='margin-top: 15px;'>
+         and it links to: <a href="<?php echo $update['link']; ?>" target="_blank"><?php echo $update['link']; ?></a>
+     </div>
+     
+     
+     
+     
+     
+</div>

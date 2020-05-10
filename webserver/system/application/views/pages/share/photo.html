@@ -1,0 +1,26 @@
+<div id="author">
+     <img src='<?php echo isset($author_mug) && $author_mug ? $author_mug : '/images/nomug.png'; ?>' width=30 height=30 title='<?php echo $update['Author']['slug']; ?>' class=mug />
+     <p><a href='/user/<?php echo $update['Author']['slug']; ?>/' title='<?php echo $update['Author']['slug']; ?>' class='username'><?php echo $update['Author']['slug']; ?></a> shared this photo <span class=date><em><?php echo $update['friendly_date']; ?></em></span></p>
+</div>
+<div class=clear></div>
+<div id="photo">
+     <div class='photo_container'>
+          <img src='<?php echo $update['photo']; ?>' title='<?php echo $update['title']; ?>' />
+          <input type=hidden name=photo value='<?php echo $update['photo']; ?>' />
+     </div>
+     <div class="littletitle text"><?php echo $update['title_links']; ?></div>
+     <input type=hidden name=short value='<?php echo urlencode($update['title']); ?>' />
+     <div id=photoextras>
+     <?php if ($update['name']) { ?>
+     <div class="img_name text"><strong><?php echo $update['name']; ?></strong></div>
+     <?php } ?>
+     <?php if ($update['caption']) { ?>
+     <div class="img_caption text"><em><?php echo $update['caption']; ?></em></div>
+     <?php } ?>
+     
+
+     <?php if ($update['img_cname'] || $update['img_curl']) { ?>
+     <div class="img_cname text">credit: <?php if ($update['img_curl']) { ?><a href='<?php echo $update['img_curl']; ?>'><?php } ?><?php echo $update['img_cname'] ? $update['img_cname'] : $update['img_curl']; ?><?php if ($update['img_curl']) { ?></a><?php } ?></div>
+     <?php } ?>
+     </div>
+</div>

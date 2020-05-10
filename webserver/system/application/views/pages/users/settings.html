@@ -1,0 +1,156 @@
+<div id=settings>
+     <h3>Settings</h3>
+</div>
+
+
+
+<div id="social_settings" class="setting">
+     <div class="setting_desc">
+          <h4>Social Sync</h4>
+          <p>These are the various websites you are affiliated with and your account credentials for each website. By providing this information you can keep your social presence in sync. Each time you make an update, the Swamped system will then login to each of your accounts and post the update for you. Now, you can actually do what you need to in one place!</p>
+     </div>
+     
+     <div class="fields">
+             
+     
+             <?php 
+             $twitter = $facebook = $flickr = $myspace = new UserConnection();
+             
+             
+             foreach($user->Connections as $name=>$connection) { 
+             
+               $$name = $connection;
+             
+             }
+             $types = array('twitter'=>$twitter,'facebook'=>$facebook,'flickr'=>$flickr,'myspace'=>$myspace);
+             
+             $odd = false;
+             foreach($types as $type=>$connection) {
+             
+               $odd = !$odd;
+               $connection->account_type = $type;
+             ?>
+             <!-- <?php echo $type; ?> -->
+             <div class="grid_8 <?php echo $odd ? 'suffix_1 alpha' : 'omega'; ?>suffix_1 alpha">
+                  <div class="account_type<?php echo $connection->isActive() ? ' active' : ' inactive' ; ?>" id="<?php echo $type; ?>">
+                    <form action="/account/<?php echo $type; ?>/" method="post" name="<?php echo $type; ?>_frm" id="<?php echo $type; ?>_frm" class="account_type_form">
+                    <h3><?php echo $type; ?></h3>
+                    <div class="clear"></div>
+                    <div class="account_settings">
+                         <?php
+                         if($connection->is('myspace,flickr'))
+                         {
+                         ?>
+                         <div class="comingsoon"><em>coming soon</em></div>
+                         
+                         <?php
+                         } else {
+                         ?>
+                         <div class="mugshot">
+                         
+                              <?php if($connection->isActive() && $connection->mugshot_url) { ?>
+                              <img src="<?php echo $connection->mugshot_url; ?>" width=50 height=50 title="Profile Image" />
+                              <?php } ?>
+                         
+                         </div>                              
+                        
+                         <fieldset>
+                              <label for="<?php echo $type; ?>_user"><?php echo $connection->isActive() ? 'User' : "Not activated"; ?></label>
+                              <div class=username><?php echo $connection->isActive() ? $connection->displayname : NULL; ?></div>
+                              
+                            
+            
+                           
+                        </fieldset>
+                         
+                         
+                              
+                              
+                         
+                         <fieldset>     
+                              
+                              <?php if( $connection->isActive()) { ?>
+                                   <a href="/reactivate/<?php echo $type; ?>/" class="connection_change" title="Change"><span>Reconnect</span></a>
+                              <?php } else { 
+                                   
+                                   if($connection->is('facebook'))
+                                   {
+                                   ?>
+                                   <a href="#" onclick="FB.Connect.requireSession(function (){
+                                   
+                                        facebook_onlogin();
+                                   
+                                   }); return false;" class="fbconnect_login_button FBConnectButton FBConnectButton_Small">
+    <span id="RES_ID_fb_login_text" class="FBConnectButton_Text">Connect with Facebook</span>
+</a>
+                                   
+                                   <script type="text/javascript">
+                                        FB.init("9d8c34034fd0943d45d01c3e3c5750c7", "xd_receiver.htm");
+                                   </script>
+                                   
+                                   <?php
+                                   }
+                                   else
+                                   {
+                                   
+                                   
+                                   
+                              ?>
+                                   
+                                   <a href="/activate/<?php echo $type; ?>/" class="connection_change" title="Activate"><span>Connect</span></a>
+                                   <?php }  ?>
+                              <?php }  ?>
+                         </fieldset>
+                         <?php
+                         } 
+                         ?>
+                         <div class=clear></div>
+                    </div>
+                    
+                    </form>
+                  </div>
+             </div>
+             <?php } ?>
+             
+             
+         </div>
+         
+         
+     
+     <div class="clear"></div>
+</div>
+
+<div id="domain_settings" class="setting">
+     <div class="setting_desc">
+          <h4>Custom Domain</h4>
+          <p>You can further brand your Swamped Account by implementing your very own "short url". Just provide us with an alternative domain thats registered to you. </p><p style="font-weight:bold;"><em>After doing that, email <a href="mailto:support@swamped.com" title="Email Support">support</a> and let us know about your custom domain so we can setup our servers.</em><br /></p>
+     </div>
+     
+     <div class="fields">
+          <form action="/settings/" method="post" name="domain_frm" id="domain_frm" class="domain_form">
+               <div class="grid_5 alpha">
+                    <fieldset>
+                              <label for="user_custom_domain">Custom Domain</label>
+                              
+                           <input type="text" name='user[custom_domain]' autocomplete=off id='user_custom_domain' class='domain' value="<?php echo isset($user['custom_domain']) ? $user['custom_domain'] : NULL ; ?>" />
+                       
+                   </fieldset>
+                   <fieldset>
+                              
+                         <button type=submit><span>Save</span></button>
+                    </fieldset>
+              </div>
+              <div class="grid_12 omega">
+              
+                    <p style="font-size: 10px;"><br /><span style="color:red; font-weight: bold;">IMPORTANT:</span> Setting up a custom domain may cost you some money. <br />When you email us, we'll let you know if it does and how much. Thanks!</p>
+              
+              </div>
+              
+          </form>
+     
+     </div>
+         
+         
+     
+
+</div>

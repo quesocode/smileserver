@@ -1,0 +1,44 @@
+<?php if(!empty($plugs)) { ?>
+     <?php if(isset($plugs_title)) { ?>
+     <?php echo $plugs_title; ?>
+     <?php } ?>
+  <table class="data" summary='<?php echo isset($plugs_title) ? $plugs_title : NULL; ?>' >
+    <thead>
+      <tr>
+        <td>Plugger</td>
+        <td align=center></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+  <?php 
+  
+  $odd = false; 
+  foreach($plugs as $plug) { 
+  
+    $odd = $odd ? false : true;
+    $class = $odd ? 'odd' : 'even';  
+  
+  ?>
+    <tr class="<?php echo $class; echo isset($plug['type']) ? ' ' . $plug['type'] : '' ?>">
+    <td><a href="/<?php echo $plug['id']; ?>" title="Visit plug"><?php echo isset($plug['Plugger']['slug']) ? $plug['Plugger']['slug'] : 'Plug #' . $plug['id']; ?></a> plugged <a href="/<?php echo $plug['Update']['hash']; ?>" title="View Update"><?php echo isset($plug['Update']['title']) ? $plug['Update']['title'] : 'Update #' . $plug['Update']['id']; ?></a> on <?php echo $plug['type']; ?><br /><span class=date><?php echo $plug['friendly_date']; ?></span></td>
+    <td align=center></strong></td>
+    
+    <td align=right><a href="/<?php echo $plug['id']; ?>" title="Visit plug">More</a></td>
+    </tr>
+  <?php } ?>
+    </tbody>
+    <?php if(isset($plugs_pagination)) { ?>
+    <tfoot>
+     <tr>
+          <td colspan=3><div class="pages"><?php echo isset($plugs_pagination) ? $plugs_pagination : NULL; ?></div><div class="clear"></div></td>
+     </tr>
+    </tfoot>
+    <?php } ?> 
+  </table>
+  
+  <?php if(isset($plugs_link)) { ?>
+     <?php echo $plugs_link; ?>
+     <?php } ?>
+  
+<?php } ?>

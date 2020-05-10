@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title><?php echo isset($title) ? $title : 'SmileBooth Server - Status'; ?></title>
+	<link REL="SHORTCUT ICON" HREF="/favicon.ico">
+	<?php if(isset($links) && count($links)) {
+	   foreach($links as $link) { ?>
+	
+	<link rel="<?php echo isset($link['rel']) ? $link['rel'] : 'stylesheet'; ?>" href="<?php echo $link['href']; ?>" type='<?php echo isset($link['type']) ? $link['type'] : 'text/css'; ?>' media='<?php echo isset($link['media']) ? $link['media'] : 'screen'; ?>' />
+	  
+	<?php } } ?>
+	
+	<?php if(isset($script_src) && count($script_src)) {
+	   foreach($script_src as $src) { ?>
+	
+	<script type='<?php echo isset($src['type']) ? $src['type'] : 'text/javascript'; ?>' src='<?php echo $src['src']; ?>'></script>
+	  
+	<?php } } ?>
+	
+	
+	
+	<?php if(isset($script)) { ?>
+	<script type='text/javascript'>
+	   <?php echo $script; ?>
+	</script>
+	<?php } ?>
+	
+	<?php if(isset($css)) { ?>
+	<style type='text/css'>
+     <?php echo $css; ?>
+  </style>
+  <?php } ?>
+  
+	</head>
+	<body>
+	<div id=page_wrp>
+  	  <div id=page>
+  
+  

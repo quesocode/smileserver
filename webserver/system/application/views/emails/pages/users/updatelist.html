@@ -1,0 +1,45 @@
+<?php if(!empty($updates)) { ?>
+     <?php if(isset($updates_title)) { ?>
+     <?php echo $updates_title; ?>
+     <?php } ?>
+  <table class="data" summary='<?php echo isset($updates_title) ? $updates_title : NULL; ?>' >
+    <thead>
+      <tr>
+        <td>Update</td>
+        <td align=center>Plugs / Views</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+  <?php 
+  
+  $odd = false; 
+  
+  foreach($updates as $update) { 
+  
+    $odd = $odd ? false : true;
+    $class = $odd ? 'odd' : 'even';  
+  
+  ?>
+    <tr class="<?php echo $class; echo isset($update['type']) ? ' ' . $update['type'] : '' ?>">
+    <td><a href="/<?php echo $update['hash']; ?>" title="Edit Update"><?php echo isset($update['title']) ? $update['title'] : 'Update #' . $update['id']; ?></a> <br /><span class=date><?php echo $update['friendly_date']; ?></span></td>
+    <td align=center><?php echo $update['plugs']; ?> / <strong><?php echo $update['visits']; ?></strong></td>
+    
+    <td align=right><!-- <a href="/<?php echo $update['hash']; ?>" title="Edit Update">Manage</a> --></td>
+    </tr>
+  <?php } ?>
+    </tbody>
+    <?php if(isset($updates_pagination)) { ?>
+    <tfoot>
+     <tr>
+          <td colspan=3><div class="pages"><?php echo isset($updates_pagination) ? $updates_pagination : NULL; ?></div><div class="clear"></div></td>
+     </tr>
+    </tfoot>
+    <?php } ?> 
+  </table>
+  
+  <?php if(isset($updates_link)) { ?>
+     <?php echo $updates_link; ?>
+     <?php } ?>
+  
+<?php } ?>

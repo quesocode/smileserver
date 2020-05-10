@@ -1,0 +1,313 @@
+a
+{
+     color: #0098d5;
+}
+.loggedout
+{
+     display: none;
+}
+#plug
+{
+     display: block;
+     width: 104px;
+     height: 40px;
+     background: url(/images/plug.png) no-repeat top left;
+}
+#plug span
+{
+     display: none;
+}
+#plug:hover
+{
+     background: url(/images/plug.png) no-repeat bottom left;
+}
+#login h4
+{
+     
+     font-weight: normal;
+     margin-bottom: 5px;
+}
+#login h4 a
+{
+     
+}
+#login h4 a.active
+{
+     color: #252525;
+     text-decoration: none;
+     font-weight: bold;
+}
+form
+{
+     margin: 0px 0 0 0;
+     padding: 0;
+}
+fieldset
+{
+     position: relative;
+     border: none;
+     padding: 0; margin: 0;
+     height: 37px;
+}
+label
+{
+     position: absolute;
+     left: 0px;
+     display: block;
+     width: 201px;
+     padding: 7px 7px 7px 12px;
+     height: 18px;
+     color: #aaa;
+     background: url(/images/input.png) no-repeat top left;
+     -moz-border-radius: 5px;
+     -webkit-border-radius: 5px;
+}
+input[type=text], input[type=password]
+{
+     padding: 7px;
+     color: #252525;
+     font-weight: bold;
+     position: absolute;
+     left: 0px;
+     background: none;
+     margin: 0;
+     border: 0;
+     width: 206px;
+     outline: none;
+     height: 18px;
+     
+}
+.d
+{
+     margin: 0;
+     border-top: 1px solid #fff;
+     border-bottom: 1px solid #ccc;
+     padding: 15px 0;
+}
+.d:first-child
+{
+     margin: 0;
+     padding: 0 0 15px 0;
+     border-top: none;
+}
+.d.l
+{
+  border-bottom: none;   
+}
+.d h4
+{
+     font-size: 14px;
+     margin: 0;
+     padding: 0;
+     line-height: 24px;
+     text-shadow: 1px 1px white;
+}
+.d p
+{
+     margin: 5px 0 30px 0; padding: 0;
+     line-height: 16px;
+     font-size: 11px;
+     color: #666;
+}
+.d p:first-child
+{
+     margin: 5px 0 0px 0; padding: 0;
+     line-height: 16px;
+     font-size: 11px;
+     color: #666;
+}
+
+
+.connections form
+{
+     margin: 0; padding: 0;
+}
+.connection
+{
+     position: relative;
+     padding: 10px 0;
+     border-top: 1px solid #fff;
+     border-bottom: 1px solid #ccc;
+}
+.connection:first-child
+{
+     padding: 0 0 10px 0;
+     border-top: none;
+}
+.connection.cl
+{
+     border-bottom: none;
+     padding: 10px 0 0 0;
+}
+.connection img
+{
+     float: left;
+     margin: 0 10px 0 0;
+}
+.connection strong
+{
+     color: #111;
+}
+.connection em
+{
+     display: block;
+}
+.connection input[type=checkbox]
+{
+     position: relative;
+     float: right;
+     top: 5px;
+     z-index: 20;
+     right: 0px;
+     margin: 0; padding: 0;
+}
+.connections .connection p
+{
+     margin: 0; padding: 0;
+}
+#instructions
+{
+     
+}
+
+#instructions ul
+{
+     padding: 0;
+     margin: 0;
+}
+#instructions ul li
+{
+     margin: 8px 0;
+}
+
+
+.bigtitle
+{
+     font-size: 30pt;
+     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     letter-spacing: -1px;
+     line-height: 30pt;
+}
+
+.littletitle
+{
+     font-size: 21px;
+     letter-spacing: -1px;
+     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     margin-top: 5px;
+     line-height: 30pt;
+}
+.username
+{
+     font-weight: bold;
+}
+#photoextras
+{
+     color: #999;
+}
+.img_cname
+{
+     font-size: 11px;
+}
+
+.date
+{
+     color: #ccc;
+}
+
+.insidecontent img
+{
+     -moz-border-radius: 5px;
+       -webkit-border-radius: 5px;
+}
+
+#photo img
+{
+     max-width: 600px;
+     -moz-border-radius: 10px;
+       -webkit-border-radius: 10px;
+     
+}
+
+#author .mug
+{
+     float: left;
+     margin: 0 15px 0 0;
+     padding: 0;
+}
+#author
+{
+     line-height: 30px;
+     margin-bottom: 20px;
+}
+#author p
+{
+     
+     margin: 0;
+     padding: 0;
+}
+.clear {display: block; clear: both; }
+body
+{
+     overflow-x: hidden;
+     margin: 0 0 0 0;
+     font-family: Helvetica, Arial, sans-serif;
+     line-height: 18px;
+     font-size: 12px;
+     color: #252525;
+     background: #e8e8e8;
+}
+#page_wrp
+{
+    
+}
+#page
+{
+     
+}
+#drawer
+{
+     height: 100%;
+     position: absolute;
+     left: 700px;
+     width: 50%;
+     top: 0px;
+}
+#drawer .inside
+{
+     position: absolute;
+     left: 0px;
+     width:300px;
+     height: 100%;
+     border-left: 1px solid #c8c8c8;
+     
+}
+
+#drawer .inside .insidecontent
+{
+     padding: 30px 40px;
+}
+#cntbg
+{
+     background: white;
+     width: 700px;
+     height: 100%;
+     position: absolute;
+     z-index: -1;
+}
+#sharedcontent
+{
+     background: white;
+     width: 700px;
+}
+
+#sharedcontent .inside
+{
+     
+     
+}
+
+#sharedcontent .inside .insidecontent
+{
+     padding: 30px 40px;
+}

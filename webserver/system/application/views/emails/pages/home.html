@@ -1,0 +1,187 @@
+
+        <div class=" row" id="shopping_cart">
+            <div class="grid_14 alpha">
+                 <div class="grid_7 alpha  column" id="login">
+                     <div id="login_title" class="section_title">
+                         
+                       <h3 style='font-size:24px; font-weight: normal; line-height:30px;letter-spacing:-1px;'><span>Sign In</span></h3>
+                         
+                     </div>
+     
+                     <div id="the_form_container">
+                         <div class=" row" id="the_form">
+                             
+     
+                             <div id="login_form" class="form">
+                                 <?php if (isset($login_form_error) && $login_form_error) { ?>
+     
+                                 <div id="login_error_message" class="error_message form_error_message"></div>
+     
+                                 <div class="clear"></div><?php } ?>
+     
+                                 <form action="/login/json/" method="post" name="login" id="login_frm">
+                                     <div class="fields">
+                                         <div id="email_field" class="field">
+                                             <label for="login_email">Email</label>
+     
+                                             <fieldset>
+                                                 <div class="input ">
+                                                     <input type="text" name="email" id="login_email" />
+                                                 </div>
+     
+                                                 <div class="error_container text_error"></div>
+     
+                                                 <div class="form_clear"></div>
+                                             </fieldset>
+                                         </div>
+     
+                                         <div id="password_field" class="field">
+                                             <label for="login_password">Password</label>
+     
+                                             <fieldset>
+                                                 <div class="input ">
+                                                     <input type="password" name="password" id='login_password' />
+                                                 </div>
+     
+                                                 <div class="error_container password_error"></div>
+     
+                                                 <div class="form_clear"></div>
+                                             </fieldset>
+                                         </div>
+     
+                                         <div id="remember_field" class="field">
+                                             <fieldset>
+                                                 <div class="input ">
+                                                     <input type="checkbox" name='remember' /> remember
+                                                 </div>
+     
+                                                 <div class="error_container checkbox_error"></div>
+     
+                                                 <div class="form_clear"></div>
+                                             </fieldset>
+                                         </div>
+                                     </div>
+     
+                                     <div class="submit">
+                                         <fieldset>
+                                             <button id="login_submit"><span>Sign In</span></button>
+                                         </fieldset>
+                                     </div>
+                                 </form>
+                             </div>
+                             
+                             
+                             
+                         </div>
+                     </div>
+                     
+                     
+                 </div>
+                 <!-- end grid column -->
+                 
+                 
+                 <div class="right grid_7 omega  column" id="register">
+                     <div id="register_title" class="section_title">
+                         
+                       <h3 style='font-size:24px; font-weight: normal; line-height:30px;letter-spacing:-1px;'><span>or Sign Up</span></h3>
+                         
+                     </div>
+     
+                     <div id="register_form_container">
+                         <div class="users  row" id="register_form">
+                             
+     
+                             <div id="register_form" class="form">
+                                 <?php if (isset($register_form_error) && $register_form_error) { ?>
+     
+                                 <div id="register_error_message" class="error_message form_error_message"></div>
+     
+                                 <div class="clear"></div><?php } ?>
+     
+                                 <form action="/register/" method="post" name="register" id="register_frm">
+                                     <div class="fields">
+                                         <div id="email_field" class="field">
+                                             <label for="register_email">Email</label>
+     
+                                             <fieldset>
+                                                 <div class="input ">
+                                                     <input type="text" name='user_email' id='register_email' class='email'  autocomplete=off />
+                                                 </div>
+     
+                                                 <div class="error_container text_error"></div>
+     
+                                                 <div class="form_clear"></div>
+                                             </fieldset>
+                                         </div>
+     
+                                         <div id="password_field" class="field">
+                                             <label for="register_password">Password</label>
+     
+                                             <fieldset>
+                                                 <div class="input ">
+                                                     <input type="password" name='user_password' id='register_password'  autocomplete=off />
+                                                 </div>
+     
+                                                 <div class="error_container password_error"></div>
+     
+                                                 <div class="form_clear"></div>
+                                             </fieldset>
+                                         </div>
+                                         <div id="cpassword_field" class="field">
+                                             <label for="register_cpassword">Confirm Password</label>
+     
+                                             <fieldset>
+                                                 <div class="input ">
+                                                     <input type="password" name='cpassword' id='register_cpassword'  autocomplete=off />
+                                                 </div>
+     
+                                                 <div class="error_container cpassword_error"></div>
+     
+                                                 <div class="form_clear"></div>
+                                             </fieldset>
+                                         </div>
+     
+                                         
+                                     </div>
+     
+                                     <div class="submit">
+                                         <fieldset>
+                                             <button id="register_submit"><span>Sign Up</span></button>
+                                         </fieldset>
+                                     </div>
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- end grid -->
+                 
+                 <div class="clear"></div>
+                 <div class="grid_13 suffix_1 alpha omega">
+                 
+                    <div style="border-top: 3px solid #eee; margin-top: 30px; padding-top:30px;">
+                         <img src='/images/overview.jpg' />
+                         <h3><strong>When you sign up for Swamped,</strong> you won't be signing in to Facebook, Twitter, MySpace, Blogger, and Flickr just to post the same thing ever again ... Swamped will plug your stuff on all your networks... with one little click. Magic. </h3>
+                    </div>
+                 
+                 </div>
+                 
+            </div>
+            <div class='grid_10 omega'>
+               <div><img src="/images/cheetah2.jpg" width=300 height=300 style="-moz-border-radius: 15px;
+                 -webkit-border-radius: 15px;" /> </div>
+                 <div style='margin-top:8px;'>
+            <span style='font-size:21px;line-height:24px;letter-spacing:0px;'>Swamped is like riding the<br /> web on a cheetah.</span><div style='margin-top:5px;'></div><a href='#' >How fast can you plug?</a></div>
+                    
+            </div>
+            
+            
+            
+            
+            
+
+            <div class="clear"></div>
+        </div>
+
+
+

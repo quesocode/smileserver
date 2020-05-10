@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name = "viewport" content = "width = device-width,
+       initial-scale = 1.0, user-scalable = no">
+		<title>Smilebooth</title>
+    <style type="text/css">
+      <?php echo isset($css) ? $css : NULL; ?>
+      
+      body
+      {
+        overflow-x: hidden;
+        text-align: center;
+      }
+      .box
+      {
+        height: 680px;
+        margin-top: 44px;
+        padding: 30px;
+        line-height: 28px;
+      }
+      
+      input
+      {
+        font-size: 24px;
+        width: 280px !important;
+      }
+      
+      button
+      {
+        font-size: 24px;
+        width: 280px;
+      }
+      
+    </style>
+    <script type="text/javascript">
+
+
+    </script>
+    
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(
+hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+	</head>
+	<body onload="setTimeout(function() { window.scrollTo(0, 1) }, 100);">
+	
+	<div id="wrapper">
+  	<div id="overlay">
+		
+		</div>
+		<header>
+			<h1>Smilebooth</h1>
+				
+		
+		</header>
+		<div class="box"><div>
+		  <form action="/webserver/index.php/smilebooth/">
+		    <fieldset>
+		      <label>Use folder:</label>
+		      <br />
+		      <input type="text" name="path" value="/smilebooth/" />
+		      <p>Note: Must have a slash on the end</p>
+		    </fieldset>
+		    <fieldset>
+		    <br />
+		      <button type="submit">Start</button>
+		    </fieldset>
+		  </form></div>
+		</div>
+		
+	</div><!--end #wrapper-->
+	<div id="messageBox" class="modal">
+		<div class="modalHeader">
+			<div class="close">
+				<a href="#" id="closeBtn">Close</a>
+			</div>
+			<h2>Thank You</h2>
+		</div>
+		<div class="modalBody">
+			<div class="modalInput">
+				<center>
+				  <h1 id="message">You will receive your message<br />within 24 hours.</h1>
+				</center>
+			</div>
+		</div>
+	</div><!--end #messageBox-->
+	</body>
+</html>

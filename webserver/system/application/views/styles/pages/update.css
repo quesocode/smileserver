@@ -1,0 +1,99 @@
+#menu .fields
+{
+     
+}
+#menu .fields fieldset
+{
+     position: absolute;
+     
+}
+
+#topemail
+{
+     top: 0px;
+     right: 175px;
+}
+#toppw
+{
+     top: 0px;
+     right: 57px;
+}
+#topbtn
+{
+     top: 0px;
+     right: 0px;
+}
+
+#menu .omega button[type=submit]
+{
+     margin: 0 0 0 0;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 57px;
+  padding: 5px 6px;
+  line-height: 12px;
+  
+  font-size: 10px;
+  color: #fff;
+  display: block;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: #00658B;
+  
+}
+#menu .omega button[type=submit] span
+{
+     height: 13px;
+     display: block;
+}
+#menu .omega button[type=submit]:hover
+{
+     background: black;
+}
+
+#menu label
+{
+     margin: 0 0 0 0;
+     background: #fff;
+     border: none;
+     outline: none;
+     color: #00658B;
+     -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-right: 5px;
+    width: 98px;
+    padding: 5px 6px 5px 8px;
+    height: 13px;
+    font-size: 10px;
+    vertical-align: middle;
+    line-height: 12px;
+    
+}
+
+#menu input[type=text], #menu input[type=password]
+{
+     margin: 0 0 0 0;
+     width: 98px;
+     padding: 5px 6px;
+     margin-right: 5px;
+     border: none;
+     background: none;
+     color: #000;
+     position: absolute;
+     top: 0px;
+     height: 13px;
+     font-weight: bold;
+    font-size: 10px;
+    line-height: 12px !important;
+    vertical-align: middle;
+}
+#menu input[type=text]
+{
+     
+     
+}
+#menu input[type=password]
+{
+     
+}

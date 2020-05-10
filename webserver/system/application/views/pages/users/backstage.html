@@ -1,0 +1,107 @@
+<div class='section'>
+  
+  <form id="update_frm" action='/up/' method='post' >
+  
+     <h4>Post An <fieldset style='display:inline;'>
+      
+      <select name='update[type]' id="type"  style='display:inline;'>
+        <option>update</option>
+        <option>link</option>
+        <option>blog</option>
+        <option>video</option>
+        <option>photo</option>
+        <option>music</option>
+        <option>podcast</option>
+        <option>download</option>
+        <option>other</option>
+      </select>
+    </fieldset>
+  
+         <div class='grid_17 alpha omega'>
+          <div class='grid_8 suffix_1 alpha'>
+          
+          <fieldset class="">
+           <label>Page Title</label>
+           <input type=text name='page' id="pagetitle" style='width:300px;padding:5px;' />
+         </fieldset>
+    
+    <fieldset>
+      <label>The Short Story</label>
+      
+      <textarea name='short' id="title"></textarea>
+    </fieldset>
+     <p style='font-size: 11px; color: #888'>For the short URL, type the tag <strong style='color:#0098d5;margin-left:3px;'>{swurl}</strong></p>
+    <fieldset class="advanced">
+      <label>The Long Story</label>
+      <textarea name='long' id="story"></textarea>
+    </fieldset>
+   
+    <!--
+<fieldset class="advanced">
+      <label>Link</label>
+      <input type=text name='update[link]' id="link" />
+    </fieldset>
+-->
+
+               <fieldset class="link">
+                <label>Link</label>
+                <input type=text name='link' id="link" style='width:300px;padding:5px;' />
+              </fieldset>
+          
+          
+              <fieldset class="update">
+                <label>Tweet</label>
+                <textarea name='tweet' id="tweet" style='width:320px;padding:5px;'></textarea>
+              </fieldset>
+              
+              
+              <p style='font-size: 11px; color: #888'>For the short URL, type the tag <strong style='color:#0098d5;margin-left:3px;'>{swurl}</strong></p>
+              
+              <fieldset class="update other video">
+                <label>HTML</label>
+                <textarea name='html' id="html" style='width:320px;padding:5px;'></textarea>
+              </fieldset>
+              
+              <p style='font-size: 11px; color: #888'>Use this to post videos, embed scripts, etc... here's a video sample: <a href='/hebrew'>http://swmp.it/hebrew</a></p>
+         
+         </div>
+         
+         <div class='grid_8 omega'>
+    
+              <fieldset class="photo">
+                <label>Photo URL</label>
+                <input type=text name='photo' id="photourl" />
+              </fieldset>
+              <fieldset class="photo">
+                <label>Photo Name</label>
+                <input type=text name='name' id="photoname" />
+              </fieldset>
+              <fieldset class="photo">
+                <label>Caption</label>
+                <input type=text name='caption' id="photocaption" />
+              </fieldset>
+              <fieldset class="photo">
+                <label>Photo Credit URL</label>
+                <input type=text name='img_curl' id="photocurl" />
+              </fieldset>
+              <fieldset class="photo">
+                <label>Photographer</label>
+                <input type=text name='img_cname' id="photocname" />
+              </fieldset>
+          </div>
+     </div>
+    <div class='grid_17 alpha omega'>
+         <fieldset>
+           
+               <input type=hidden name=author value='<?php echo $user['id']; ?>' />
+               <button type=submit id=publish>post</button>
+         </fieldset>
+    </div>
+  </form>
+</div>
+<div class=clear></div>
+<div class='section' id='updatelist'>
+  
+  <div class='spinner'>&nbsp;</div>
+  
+</div>

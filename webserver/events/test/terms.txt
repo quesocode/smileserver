@@ -1,0 +1,278 @@
+Tiny Studios Terms of Service
+
+The effective date of these Tiny Studios, Inc. Terms of Service is November 11, 2010.
+
+1. ACCEPTANCE OF TERMS
+
+Thank you for using Tiny Studios’s innovative platform for building mobile applications. Tiny Studios provides the Tiny Studios service to you, subject to acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies, and procedures that may be published from time to time on www.TinyStudios.com or any other websites launched by Tiny Studios (collectively, the “Tiny Studios Site”) by Tiny Studios (collectively, these “Terms”).
+
+IF YOU DO NOT AGREE TO ALL OF THESE TERMS, THEN DO NOT ACCESS THE TINY STUDIOS SITE OR USE THE SERVICE (AS DEFINED BELOW). BY VIEWING OR USING ALL OR ANY PART OF THE SERVICE OR THE TINY STUDIOS SITE, OR DOWNLOADING ANY MATERIALS OR BY COMPLETING THE REGISTRATION PROCESS, YOU AGREE TO BE BOUND BY ALL OF THESE TERMS.
+
+We reserve the right to modify these Terms at any time by posting a notice on the Tiny Studios Site, or by sending you a notice via email or postal mail. Your viewing or using all or any part of the Service or the Tiny Studios Site constitutes your assent to such modifications. You shall be responsible for reviewing and becoming familiar with any such modifications. Such modifications are effective immediately upon first posting or notification.
+
+2. THE TINY STUDIOS SERVICE
+
+Tiny Studios provides users with a powerful, easy, and cost-effective way to build a high quality native application for mobile devices (collectively, the “Service”). Unless explicitly stated otherwise, any new features that enhance the current Service shall be subject to these Terms. In order to use the Service, you must obtain access to the World Wide Web, either directly or through devices that access web-based content, and pay any service fees associated with such access. In addition, you must provide all equipment necessary to make such connection to the World Wide Web, including a computer and modem or other access device. For purposes of these Terms, the term “User” means a user of the Service or the Tiny Studios Site.
+
+Subject to the restrictions on use and on posting set forth in this Agreement, you may: use the Tiny Studios Site to build, test, and publish your mobile application and upload certain content for use in your mobile application (“Content”). Tiny Studios reserves all rights with respect to the Service and the Tiny Studios Site not expressly specified herein.
+
+You must be 18 years of age or over, or the legal age to form a binding contract in your jurisdiction if that age is greater than 18 years of age, to register as a member of Tiny Studios or use the Tiny Studios Site and the Service. If you are under the age of 18 or the applicable legal age in your jurisdiction, you can use the Service only in conjunction with, and under the supervision of, your parent or guardian who has agreed to the Terms. If you do not so qualify, do not use the Service or the Tiny Studios Site. Membership in the Service is void where prohibited by applicable law, and the right to access the Tiny Studios Site is revoked in such jurisdictions. You must be 13 years of age or older to use the Tiny Studios Site, in compliance with the Children’s Online Privacy Protection Act (COPPA). By using the Tiny Studios Site and/or the Service, you represent and warrant that you have the right, authority, and capacity to enter into these Terms and to abide by all of the terms and conditions set forth herein. The Tiny Studios Site is administered in the US and intended for US users; any use outside of the US is at the user’s own risk and users are responsible for compliance with any local laws applicable to their use of the Service or the Tiny Studios Site.
+
+3. REGISTRATION OBLIGATIONS
+
+In consideration of use of the Service and the Tiny Studios Site, you agree to: (a) provide true, accurate, current, and complete information about yourself as prompted by the Service’s registration form (such information being the “Registration Data”), and (b) maintain and promptly update the Registration Data to keep it true, accurate, current, and complete. If you provide any information that is untrue, inaccurate, not current, or incomplete, or Tiny Studios has reasonable grounds to suspect that such information is untrue, inaccurate, not current, or incomplete, Tiny Studios has the right to suspend or terminate your account and refuse any and all current or future use of the Service (or any portion thereof). Additionally, you agree that if you provide false information to obtain access to a Tiny Studios business site that you are not legally entitled to claim, Tiny Studios will be entitled to collect liquidated damages of $1,000 per violation or actual damages incurred by Tiny Studios from you. You understand and agree that the Service may include certain communications from Tiny Studios, such as service announcements, administrative messages, and the Tiny Studios Newsletter, and that these communications are considered part of Tiny Studios membership and (except as prohibited by applicable law) you will not be able to opt out of receiving them.
+
+4. TINY STUDIOS PRIVACY POLICY
+
+For information regarding how we treat personal information of our Users, please see Tiny Studios’s current, full privacy policy at http://tinystudios.com/privacy-policy, which is incorporated in its entirety into these Terms by this reference.
+
+5. USER CONDUCT
+
+You understand that all Content, whether publicly posted or privately transmitted, is the sole responsibility of the person from which such Content originated. This means that you, and not Tiny Studios, are entirely responsible for all Content that you upload or otherwise transmit via the Service. This also means that you are entirely responsible for, among other things, (a) ensuring that you have all obtained all necessary legal rights to upload, post, or otherwise transmit Content via the Service (and to grant Tiny Studios the license to such Content set forth in Section 6 below), and (b) that any Content that you upload, post, or otherwise transmit via the Service complies in all respects with the Terms. Tiny Studios does not control the Content uploaded via the Service and, as such, does not guarantee the accuracy, integrity, or quality of such Content, including but not limited to business endorsements and commentary.
+
+In your use of the Service or the Tiny Studios Site, you agree not to:
+
+1.	Upload, post, or otherwise transmit any Content that is unlawful, harmful, threatening, abusive, harassing, tortious, defamatory, vulgar, obscene, libelous, invasive of another’s privacy, hateful, or racially, ethnically, or otherwise objectionable;
+
+2.	Harm minors in any way, or seek or recommend providers of material that exploits people under the age of 18 in a sexual or violent manner, or seek or recommend providers that solicit personal information from anyone under 18;
+
+3.	Upload information that is pornographic or sexually explicit in nature;
+
+4.	Upload false or intentionally misleading information;
+
+5.	Provide any Content that falsely expresses or implies that such Content or material is sponsored or endorsed by Tiny Studios;
+
+6.	Provide any Content that is unlawful or that promotes or encourages illegal activity;
+
+7.	Impersonate any person or entity, including, but not limited to, a Tiny Studios official, forum leader, guide, or host, or falsely state or otherwise misrepresent your affiliation with a person or entity;
+
+8.	Forge headers or otherwise manipulate identifiers in order to disguise the origin of any Content transmitted through the Service or develop restricted or password-only access pages, or hidden pages or images (those not linked to from another accessible page);
+
+9.	Upload, post, or otherwise transmit any Content that you do not have a legal right to transmit under any law or under contractual or fiduciary relationships (such as inside information, proprietary and confidential information learned or disclosed as part of employment relationships or under nondisclosure agreements);
+
+10.	Upload, post, or otherwise transmit any Content that infringes any patent, trademark, trade secret, copyright, trade secret, or other proprietary rights of any party, or remove any copyright, trademark, or other proprietary rights notice contained in the Tiny Studios Site, the Service, or in any Content;
+
+11.	Upload, post, or otherwise transmit any material that contains software viruses, worms, defects, Trojan Horses or any other computer code, files, or programs of a destructive nature designed to interrupt, destroy, or limit the functionality of any computer software or hardware or telecommunications equipment;
+
+12.	Interfere with or disrupt the Service or the Tiny Studios Site or servers or networks connected to the Service, use any device, software, or routine that interferes with the proper working of the Service or the Tiny Studios Site, or disobey any requirements, procedures, policies, or regulations of networks connected to the Service;
+
+13.	Intentionally or unintentionally violate any applicable local, state, national, or international law, including, but not limited to, regulations promulgated by the U.S. Securities and Exchange Commission, any rules of any national or other securities exchange, including, without limitation, the New York Stock Exchange, the American Stock Exchange or the NASDAQ, and any regulations having the force of law;
+
+14.	“Stalk” or otherwise harass another User or individual;
+
+15.	Collect, harvest, or store personal data about Users, or members for any reason;
+
+16.	Use any robot, spider, site search/retrieval application, or other automated device, process or means to access, retrieve or index any portion of the Tiny Studios Site and/or Service;
+
+17.	Create or submit unwanted email or messaging (“Spam”) to any other Tiny Studios User or otherwise interfere with the enjoyment of other Users of the Tiny Studios Site or the Service;
+
+18.	Modify, adapt, sublicense, translate, sell, decompile, disassemble, or reverse engineer any portion of the Tiny Studios Site and/or the Service;
+
+19.	Access, retrieve, or index any portion of the Tiny Studios Site and/or Service for purposes of constructing or populating a searchable database of business reviews;
+
+20.	Reformat or frame any portion of the web pages that are part of the Tiny Studios Site and/or Service;
+
+21.	Create user accounts by automated means or under false or fraudulent pretenses;
+
+22.	Use of the Tiny Studios Site or Services to violate the security of any computer network, crack passwords or security encryption codes, transfer or store illegal material, or take any action that imposes or may impose, in Tiny Studios’s sole discretion, an unreasonable or disproportionately large load on Tiny Studios’s IT infrastructure;
+
+23.	Violate any rules or regulations of the Apple App Store; or
+
+24.	Copy or store any Content offered on the Tiny Studios Site for other than your own use.
+You understand and agree that Tiny Studios may review and delete any application or other Content that in the sole judgment of Tiny Studios violates these Terms or which might be offensive, illegal, or that might violate the rights of, harm, or threaten the safety of other users or members of the Tiny Studios Site and/or other Users.
+
+In addition, you agree that all hyperlinks and other offers comprising the Service (e.g., hyperlinks provided in connection with Tiny Studios’s RSS feeds) may not be modified from the original form in which such hyperlinks and other offers are generally made available by Tiny Studios.
+
+6. CONTENT SUBMITTED TO TINY STUDIOS
+
+Tiny Studios does not claim ownership of the Content you place on your Tiny Studios application. By uploading, submitting or otherwise disclosing or distributing content of any kind on the Tiny Studios Site or otherwise through the Service, you:
+
+•	Grant to Tiny Studios, the fully assignable, non-exclusive, royalty-free right to use, reproduce, display, perform, adapt, and distribute such Content in any form solely for the purpose of providing the Services;
+
+•	Represent and warrant to Tiny Studios that you own or otherwise control all rights to such Content (including the ability to grant Tiny Studios this license) and that disclosure and use of such Content by Tiny Studios (including without limitation, publishing Content at the Tiny Studios website) will not infringe or violate the rights of any third party;
+
+•	Agree to allow Tiny Studios to use your name, likeness, and trademarks for the purposes of promoting Tiny Studios, the Service, and/or the Tiny Studios Site;
+
+•	Agree to allow Tiny Studios to place Tiny Studios attribution language in a prominent position on any application released to the Apple App Store;
+
+•	Agree not to defame or disparage Tiny Studios in any way; and
+
+•	Acknowledge that the Content may not be treated confidentially.
+You agree not to provide Tiny Studios with any confidential or proprietary information that you desire or are required to keep secret.
+
+You acknowledge that Tiny Studios does not pre-screen Content, but that Tiny Studios and its designees shall have the right (but not the obligation) in their sole discretion to remove or block access to any Content that is available via the Service. Without limiting the foregoing, Tiny Studios and its designees shall have the right to remove any Content that violates these Terms or is otherwise objectionable (in Tiny Studios’s sole discretion). You agree that you must evaluate, and bear all risks associated with, the use of any Content, including any reliance on the accuracy, completeness, or usefulness of such Content.
+
+7. PAYMENTS TRANSACTIONS
+
+Whenever you enter into a payments transaction on the Tiny Studios Site, you agree to provide Tiny Studios with accurate, complete, and current credit card information for a credit card that you are authorized to use. You agree that all transactions are non-cancelable and non-refundable.
+
+8. SUBSCRIPTIONS
+
+•	PAYMENT, REFUNDS, UPGRADING AND DOWNGRADING TERMS
+
+1.	A valid credit card is required for paying accounts. Free accounts are not required to provide a credit card number.
+
+2.	The Service is billed in advance on a monthly basis and is non-refundable. There will be no refunds or credits for partial months of service, upgrade/downgrade refunds, or refunds for months unused with an open account. In order to treat everyone equally, no exceptions will be made.
+
+3.	You agree to permit Tiny Studios to charge your credit card at the beginning of each month for any monthly fees and for any revenue share earned by Tiny Studios during the prior month.
+
+4.	All fees are exclusive of all taxes, levies, or duties imposed by taxing authorities, and you shall be responsible for payment of all such taxes, levies, or duties, excluding only United States (federal or state) taxes.
+
+5.	For any upgrade or downgrade in plan level, your credit card that you provided will automatically be charged the new rate on your next billing cycle.
+
+6.	Downgrading your Service may cause the loss of Content, features, or capacity of your Account. Tiny Studios, Inc. does not accept any liability for such loss.
+
+7.	Tiny Studios may change its prices upon thirty (30) days written notice.
+
+•	CANCELLATION AND TERMINATION
+
+1.	You are solely responsible for properly canceling your account. You can cancel your account at any time by sending an email request to info@tinystudios.com with the name of your account and a specific request to cancel the account.
+
+2.	All of your Content will be immediately deleted from the Service upon cancellation. This information can not be recovered once your account is cancelled.
+
+3.	If you cancel the Service before the end of your current paid up month, your cancellation will take effect immediately and you will not be charged again.
+
+4.	Tiny Studios, Inc. in its sole discretion, has the right to suspend or terminate your account and refuse any and all current or future use of the Service, or any other Tiny Studios, Inc. service, for any reason at any time. Such termination of the Service will result in the deactivation or deletion of your Account or your access to your Account, and the forfeiture and relinquishment of all Content in your Account. Tiny Studios, Inc. reserves the right to refuse service to anyone for any reason at any time.
+
+•	MODIFICATIONS TO THE SERVICE AND PRICES
+
+1.	Tiny Studios, Inc. reserves the right at any time and from time to time to modify or discontinue, temporarily or permanently, the Service (or any part thereof) with or without notice.
+
+2.	Tiny Studios, Inc. shall not be liable to you or to any third party for any modification, price change, suspension or discontinuance of the Service.
+
+9. INDEMNITY
+
+You agree to indemnify and hold Tiny Studios, and its subsidiaries, affiliates, officers, agents, co-branders or other partners, and employees, harmless from any claim or demand, including reasonable attorneys’ fees, made by any third party due to or arising out of (a) Content posted, uploaded, or otherwise transferred by you, (b) your use of the Service, (c) your connection to the Service, (d) your violation of these Terms, or (d) your violation of any rights of another.
+
+10. MODIFICATION AND TERMINATION
+
+You agree that Tiny Studios may, in its sole discretion and without notice, terminate your password, your use of the Service, the Tiny Studios Site or use of any other aspect of the Service, and remove and discard any Content within the Service or the Tiny Studios Site, for any reason, including, without limitation, for lack of use or if Tiny Studios believes that you have violated or acted inconsistently with the letter or spirit of these Terms. Tiny Studios may also, in its sole discretion and at any time, discontinue providing or modify the Service, or any part thereof, with or without notice. You agree that any termination of your access to the Service under any provision of these Terms may be effected without prior notice, and you acknowledge and agree that Tiny Studios may immediately deactivate or delete your pages on the Tiny Studios Site and all related information and files in your pages on the Tiny Studios Site and/or bar any further access to such files or the Service. Further, you agree that Tiny Studios shall not be liable to you or any third-party for any modification of the Service termination of your access to the
+
+11. LINKS
+
+The Service and the Tiny Studios Site may provide, or third parties may provide, links to other World Wide Web sites or resources. Because Tiny Studios has no control over such sites and resources, you acknowledge and agree that Tiny Studios is not responsible for the availability of such external sites or resources, and does not endorse and is not responsible or liable for any Content, advertising, products, or other materials on or available from such sites or resources. YOU FURTHER ACKNOWLEDGE AND AGREE THAT TINY STUDIOS SHALL NOT BE RESPONSIBLE OR LIABLE, DIRECTLY OR INDIRECTLY, FOR ANY DAMAGE OR LOSS CAUSED OR ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH SITE OR RESOURCE.
+
+12. TINY STUDIOS PROPRIETARY RIGHTS
+
+You agree that all Content and materials delivered via the Service or otherwise made available by Tiny Studios are protected by copyrights, trademarks, service marks, patents, trade secrets, or other proprietary rights and laws. Except as expressly authorized by Tiny Studios in writing, you agree not to sell, license, rent, modify, distribute, copy, reproduce, transmit, publicly display, publicly perform, publish, adapt, edit, or create derivative works from such materials or Content. However, you may print or download a reasonable number of copies of the materials or Content at the Tiny Studios Site for your internal business purposes; provided, however, that you retain all copyright and other proprietary notices contained therein. Systematic retrieval of data or other Content from the Tiny Studios Site to create or compile, directly or indirectly, a collection, database or directory without written permission from Tiny Studios is prohibited. Any third party that contacts our users for commercial reasons, including to sell them products or services, is in violation of these terms and each individual violation is subject to $3,000 in penalties per instance.
+
+Reproducing, copying, or distributing any Content, materials, or design elements on the Tiny Studios Site for any use or purpose not expressly permitted by these Terms is strictly prohibited without the express prior written permission of Tiny Studios. Any rights not expressly granted herein are reserved.
+
+You acknowledge and agree that the Service and any necessary software used in connection with the Service (“Software”) contain proprietary and confidential information that is protected by applicable intellectual property and other laws. Tiny Studios grants you a personal, non-transferable, and non-exclusive right and license to use the object code of its Software on a single computer; provided, however, that you do not (and do not allow any third party to) copy, modify, create a derivative work of, reverse engineer, reverse assemble, or otherwise attempt to discover any source code, sell, assign, sublicense, grant a security interest in, or otherwise transfer any right in the Software. You agree not to modify the Software in any manner or form, or to use modified versions of the Software, including (without limitation) for the purpose of obtaining unauthorized access to the Service. You agree not to access the Service by any means other than through the interface that is provided by Tiny Studios for use in accessing the Service. Tiny Studios hereby reserves all rights not otherwise expressly granted in this Section 15.
+
+13. DISCLAIMER OF WARRANTIES
+
+YOU EXPRESSLY UNDERSTAND AND AGREE THAT:
+
+1.	YOUR USE OF THE SERVICE IS AT YOUR SOLE RISK. THE SERVICE IS PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS. TINY STUDIOS EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+2.	TINY STUDIOS MAKES NO WARRANTY THAT (i) THE SERVICE WILL MEET YOUR REQUIREMENTS, (ii) THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE, (iii) THE RESULTS THAT MAY BE OBTAINED FROM THE USE OF THE SERVICE WILL BE ACCURATE OR RELIABLE, (iv) THE QUALITY OF ANY PRODUCTS, SERVICES, INFORMATION, OR OTHER MATERIAL PURCHASED OR OBTAINED BY YOU THROUGH THE SERVICE WILL MEET YOUR EXPECTATIONS, AND (V) ANY ERRORS IN THE SOFTWARE WILL BE CORRECTED.
+
+3.	ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SERVICE IS DONE AT YOUR OWN DISCRETION AND RISK AND THAT YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OF ANY SUCH MATERIAL.
+
+4.	NO ADVICE OR INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED BY YOU FROM TINY STUDIOS OR THROUGH OR FROM THE SERVICE SHALL CREATE ANY WARRANTY NOT EXPRESSLY STATED IN THE TERMS.
+
+READERS ARE ADVISED THAT TINY STUDIOS DOES NOT WARRANT THE SERVICES PROVIDED BY ANY SERVICE PROVIDER LISTED ON THE TINY STUDIOS SITE. IT IS UP TO THE PARTIES INVOLVED TO CHOOSE THE PROVIDER BEST SUITED FOR EACH CUSTOMER. TINY STUDIOS IS NOT INVOLVED IN THE SELECTION PROCESS.
+
+TINY STUDIOS HAS TO CONTROL OVER THE APPROVAL OF APPLICATIONS BY APPLE AND THEREFORE CANNOT GUARANTEE THE ACCEPTANCE OF YOUR APPLICATION. YOU ACKNOWLEDGE THAT TINY STUDIOS IS NOT LIABLE FOR ANY ACTIONS (OR FAILUTRE TO TAKE ACTION) BY APPLE.
+YOU SHOULD VERIFY ALL CLAIMS AND DO YOUR OWN RESEARCH BEFORE CHOOSING A SERVICE FROM A PROVIDER IN TINY STUDIOS’S NEWSLETTER OR THE TINY STUDIOS SITE.
+
+14. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL TINY STUDIOS (OR ITS AFFILIATES, LICENSORS, OR SUPPLIERS) BE LIABLE CONCERNING THE SUBJECT MATTER OF THESE TERMS, REGARDLESS OF THE FORM OF ANY CLAIM OR ACTION (WHETHER IN CONTRACT, NEGLIGENCE, STRICT LIABILITY, OR OTHERWISE), FOR ANY (A) MATTER BEYOND ITS REASONABLE CONTROL, (B) LOSS OR INACCURACY OF DATA OR CONTENT, LOSS, OR INTERRUPTION OF USE, OR COST OF PROCURING SUBSTITUTE TECHNOLOGY, GOODS OR SERVICES, (C) DIRECT OR INDIRECT, PUNITIVE, INCIDENTAL, RELIANCE, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF BUSINESS, REVENUES, PROFITS, OR GOODWILL, OR (D) AMOUNTS IN THE AGGREGATE GREATER THAN TEN DOLLARS ($10), EVEN IF TINY STUDIOS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THESE LIMITATIONS ARE INDEPENDENT FROM ALL OTHER PROVISIONS OF THIS AGREEMENT AND SHALL APPLY NOTWITHSTANDING THE FAILURE OF ANY REMEDY PROVIDED HEREIN.
+
+15. EXCLUSIONS AND LIMITATIONS
+
+SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES. ACCORDINGLY, SOME OF THE ABOVE LIMITATIONS OF SECTIONS 16 AND 17 MAY NOT APPLY TO YOU.
+
+16. NOTICE
+
+Notices to you may be made via either email or regular mail. The Service may also provide notices of changes to the Terms or other matters by displaying notices or links to notices to you generally on the Tiny Studios Site.
+
+17. COPYRIGHT DISPUTE POLICY
+
+Tiny Studios has adopted the following general policy toward copyright infringement in accordance with the Digital Millennium Copyright Act or DMCA (posted at http://www.lcweb.loc.gov/copyright/legislation/dmca.pdf). The address of Tiny Studios’s Designated Agent to Receive Notification of Claimed Infringement (“Designated Agent”) is provided at the bottom of this section.
+
+•	Tiny Studios Policy
+
+It is Tiny Studios’s policy to (i) block access to or remove material that it believes in good faith to be copyrighted material that has been illegally copied and distributed by any of our advertisers, affiliates, Content providers, members or users; and (ii) remove and discontinue service to repeat offenders.
+
+•	Procedure for Reporting Copyright Infringements
+
+If you believe that material or Content residing on or accessible through the Tiny Studios Site or Service infringes a copyright, please send a notice of copyright infringement containing the following information to the Designated Agent listed below (“Proper Bona Fide Infringement Notification”):
+
+1.	A physical or electronic signature of a person authorized to act on behalf of the owner of the copyright that has been allegedly infringed;
+
+2.	Identification of works or materials being infringed;
+
+3.	Identification of the material that is claimed to be infringing including information regarding the location of the infringing materials that the copyright owner seeks to have removed, with sufficient detail so that Tiny Studios is capable of finding and verifying its existence;
+
+4.	Contact information about the notifier including address, telephone number and, if available, email address;
+
+5.	A statement that the notifier has a good faith belief that the material is not authorized by the copyright owner, its agent, or the law; and
+
+6.	A statement made under penalty of perjury that the information provided is accurate and the notifying party is authorized to make the complaint on behalf of the copyright owner.
+
+•	Upon Receipt of a Bona Fide Infringement Notification
+
+Once Proper Bona Fide Infringement Notification is received by the Designated Agent, it is Tiny Studios’s policy:
+
+•	to remove or disable access to the infringing material;
+
+•	to notify the Content provider, member or user that it has removed or disabled access to the material; and
+
+•	that for repeat offenders, Tiny Studios will also terminate such Content provider’s, member’s or user’s access to the service.
+
+•	Procedure to Supply a Counter-Notice to the Designated Agent If the Content provider, member or user believes that the material that was removed or to which access was disabled is either not infringing, or the Content provider, member or user believes that it has the right to post and use such material from the copyright owner, the copyright owner’s agent, or pursuant to the law, the Content provider, member or user must send a counter-notice containing the following information to the Designated Agent listed below:
+
+1.	A physical or electronic signature of the Content provider, member or user;
+
+2.	Identification of the material that has been removed or to which access to has been disabled and the location at which the material appeared before it was removed or disabled;
+
+3.	A statement that the Content provider, member or user has a good faith belief that the material was removed or disabled as a result of mistake or a misidentification of the material; and
+
+4.	The Content provider’s, member’s or user’s name, address, telephone number, and, if available, email address and a statement that such person or entity consents to the jurisdiction of the Federal Court for the judicial district in which the Content provider’s, member’s or user’s address is located, or if the Content provider’s, member’s or user’s address is located outside the United States, for any judicial district in which Tiny Studios is located, and that such person or entity will accept service of process from the person who provided notification of the alleged infringement.
+
+•	Removal
+
+If a counter-notice is received by the Designated Agent, Tiny Studios may send a copy of the counter-notice to the original complaining party informing that person that it may replace the removed material or cease disabling it in 10 business days. Unless the copyright owner files an action seeking a court order against the Content provider, member or user, the removed material may be replaced or access to it restored in 10 to 14 business days or more after receipt of the counter-notice, at Tiny Studios’s discretion.
+
+•	Address for Designated Agent. Please contact Tiny Studios’s Designated Agent to Receive Notification of Claimed Infringement at the following address:
+
+•	Agent Name
+•	Copyright Agent, Tiny Studios Inc.
+•	1 Mountain Top, Sunrise Beach, TX 78644
+•	Phone: 877-LOL-ROFL
+•	Email to: hello@tinystudios.com
+
+18. GENERAL PROVISIONS
+
+These Terms (and the documents incorporated by reference herein) constitute the entire agreement between you and Tiny Studios and govern your use of the Service, superseding any prior agreements between you and Tiny Studios (including, but not limited to, any prior versions of these Terms). These Terms and the Service contemplated hereunder are personal to you, and are not assignable, transferable or sublicensable by you except with Tiny Studios’s prior written consent. Tiny Studios may assign, transfer, or delegate any of its rights and obligations hereunder without your consent. You also may be subject to additional terms and conditions that may apply when you use affiliate or other Tiny Studios services, third-party Content or third-party software. These Terms and the relationship between you and Tiny Studios shall be governed by the laws of the State of Washington without regard to its conflict of law provisions. You and Tiny Studios agree to submit to the personal and exclusive jurisdiction of the courts located within Seattle, Washington. The failure of Tiny Studios to exercise or enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. If any provision of these Terms is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavor to give effect to the parties’ intentions as reflected in the provision, and the other provisions of these Terms remain in full force and effect. You agree that regardless of any statute or law to the contrary, any claim or cause of action arising out of or related to use of the Service or these Terms must be filed within one (1) year after such claim or cause of action arose or be forever barred. The section titles in these Terms are for convenience only and have no legal or contractual effect.
+
+19. VENUE ONLY
+
+If you enter into correspondence or engage in commercial transactions with third parties in connection with your use of the Tiny Studios Service, such activity is solely between you and the applicable third party. Tiny Studios shall have no liability, obligation or responsibility for any such activity. You hereby release Tiny Studios from all claims arising from such activity.
+
+20. TRADEMARKS AND COPYRIGHTS
+
+Tiny Studios, the Tiny Studios logo, and the “Big Dreams, Tiny Apps” taglines are proprietary service marks of Tiny Studios Inc. ©2010-2011 Tiny Studios, Inc. All rights reserved.
+
+21. MANDATORY ARBITRATION
+
+ANY CLAIM, CONTROVERSY OR DISPUTE OF ANY KIND BETWEEN THE USER AND TINY STUDIOS AND/OR ANY OF ITS EMPLOYEES, AGENTS, AFFILIATES, OR OTHER REPRESENTATIVES, WHETHER SOUNDING IN CONTRACT, STATUTE OR TORT, INCLUDING FRAUD, MISREPRESENTATION, FRAUDULENT INDUCEMENT, OR ANY OTHER LEGAL OR EQUITABLE THEORY AND REGARDLESS OF THE DATE OF ACCRUAL OF SUCH CLAIM, CONTROVERSY, OR DISPUTE SHALL BE RESOLVED BY FINAL AND BINDING ARBITRATION AS PRESCRIBED IN THIS SECTION. THE FEDERAL ARBITRATION ACT, NOT STATE LAW, GOVERNS THE QUESTION OF WHETHER A CLAIM IS SUBJECT TO ARBITRATION. HOWEVER, NOTHING CONTAINED IN THIS ARBITRATION PROVISION SHALL PRECLUDE THE CUSTOMER FROM RESOLVING ANY CLAIM, CONTROVERSY OR DISPUTE IN SMALL CLAIMS COURT HE OR SHE WOULD OTHERWISE WOULD HAVE A RIGHT TO PURSUE.
+
+A single arbitrator engaged in the practice of law will conduct the arbitration. The arbitrator will be selected in accordance to the rules of JAMS or may be selected by agreement of the parties, who shall cooperate in good faith to select the arbitrator. The arbitration will be conducted by, and under the then applicable rules of the JAMS. Any required hearing fees and costs shall be paid by the parties as required by applicable rules or as required by applicable law, but the arbitrator shall have the power to apportion such costs as the arbitrator deems appropriate.
+
+THE ARBITRATOR’S DECISION AND AWARD WILL BE FINAL AND BINDING, AND JUDGMENT ON THE AWARD RENDERED BY THE ARBITRATOR MAY BE ENTERED IN ANY COURT WITH JURISDICTION. TO ENFORCE THE ARBITRATION AWARD, THE PREVAILING PARTY IN THE ARBITRATION SHALL BE ENTITLED TO INJUNCTIVE RELIEF IN ANY COURT OF COMPETENT JURISDICTION.
+
+If any party files a judicial or administrative action asserting a claim that is subject to arbitration and another party successfully stays such action or compels arbitration, the party filing that action must pay the other party’s costs and expenses incurred in seeking such stay or compelling arbitration, including attorney fees.
+
+THIS AGREEMENT IS GOVERNED BY AND MUST BE CONSTRUED UNDER THE LAWS OF THE STATE OF WASHINGTON, WITHOUT REGARD TO CHOICE OF LAW PRINCIPLES AND YOU AGREE TO SUBMIT YOURSELF TO THE PERSONAL JURISDICTION OF THE COURTS IN THE STATE OF WASHINGTON.
+
+22. BREACH OF TERMS OF SERVICE
+
+By using the Tiny Studios Site and the Service, you agree that damages shall be an inadequate remedy in the event you breach these Terms and any such breach will cause Tiny Studios great and irreparable injury and damage. Accordingly, you agree that Tiny Studios shall be entitled, without waiving any additional rights or remedies otherwise available to Tiny Studios at law or in equity or by statute, to injunctive relief in the event of a breach or intended or threatened breach by you.
+
+23. VIOLATIONS
+
+Please report any violations of the Terms to us at report@tinystudios.com.

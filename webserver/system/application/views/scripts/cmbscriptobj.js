@@ -1,0 +1,5 @@
+function CMBScriptObj(fullUrl){this.fullUrl=fullUrl;this.noCacheIE='&noCacheIE='+(new Date()).getTime();this.headLoc=document.getElementsByTagName("head").item(0);this.scriptId='cmbScrptId'+CMBScriptObj.scriptCounter++;}
+CMBScriptObj.scriptCounter=1;CMBScriptObj.prototype.buildScriptTag=function(){this.scriptObj=document.createElement("script");this.scriptObj.setAttribute("type","text/javascript");this.scriptObj.setAttribute("charset","utf-8");this.scriptObj.setAttribute("src",this.fullUrl+this.noCacheIE);this.scriptObj.setAttribute("id",this.scriptId);}
+CMBScriptObj.prototype.removeScriptTag=function(){this.headLoc.removeChild(this.scriptObj);}
+CMBScriptObj.prototype.addScriptTag=function(){this.headLoc.appendChild(this.scriptObj);}
+CMBScriptObj.prototype.request=function(){this.buildScriptTag();this.addScriptTag();};

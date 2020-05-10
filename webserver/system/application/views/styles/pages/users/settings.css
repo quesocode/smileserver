@@ -1,0 +1,152 @@
+.setting
+{
+     margin-bottom: 20px;
+}
+
+
+.account_type.active .changepw
+{
+     display: none;
+}
+.changepw
+{
+     margin-top: 10px;
+}
+.currentpw a
+{
+     font-size: 11px;
+     outline: none;
+}
+.setting_desc
+{
+     padding: 8px 0;
+     border-bottom: #eee 2px solid;
+     margin-bottom: 15px;
+}
+.setting_desc p
+{
+     font-size: 11px;
+     color: #444;
+     line-height: 18px;
+}
+#social_settings .account_type h3
+{
+     font-size: 12px;
+     font-weight: bold;
+     color: #555;
+     text-shadow: 1px 1px #fff;
+
+     background: #ddd;
+
+     display: block;
+     float: left;
+
+     padding: 0px 8px 0 8px;
+
+     -moz-border-radius-topright: 6px;
+     -webkit-border-top-right-radius: 6px;
+     -moz-border-radius-topleft: 6px;
+     -webkit-border-top-left-radius: 6px;
+     
+}
+#social_settings .account_type.active h3
+{
+
+     color: #fff;
+
+     text-shadow: 1px 1px #708B1F;
+
+     background: #A4CC35;
+     
+
+     
+}
+.account_settings
+{
+     padding: 15px;
+     border: 2px solid #ddd;
+     margin-bottom: 15px;
+     -moz-border-radius-topright: 10px;
+       -webkit-border-top-right-radius: 10px;
+     -moz-border-radius-bottomright: 10px;
+       -webkit-border-bottom-right-radius: 10px;
+       -moz-border-radius-bottomleft: 10px;
+       -webkit-border-bottom-left-radius: 10px;
+     
+}
+.account_type.active .account_settings
+{
+     padding: 15px;
+     border: 2px solid #A4CC35;
+     margin-bottom: 15px;
+     -moz-border-radius-topright: 10px;
+       -webkit-border-top-right-radius: 10px;
+     -moz-border-radius-bottomright: 10px;
+       -webkit-border-bottom-right-radius: 10px;
+       -moz-border-radius-bottomleft: 10px;
+       -webkit-border-bottom-left-radius: 10px;
+}
+#settings h3
+{
+     font-weight: bold;
+     color: #ccc;
+}
+
+.mugshot
+{
+     float: right;
+     height: 50px;
+     width: 50px;
+     
+}
+
+button[type=submit]
+{
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  
+  background: #0098d5;
+  border: none;
+  text-shadow: 1px 1px #0074A5;
+  text-decoration: none;
+  outline: none;
+  -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    cursor: pointer;
+  margin-top: 10px;
+
+}
+
+button[type=submit]:hover
+{
+  background: black;
+  text-shadow: 1px 1px #000;
+}
+.account_type.active button[type=submit]
+{
+     background: #bbb;
+     text-shadow: #555 1px 1px;
+}
+.account_type.inactive button[type=submit]
+{
+     background: #A4CC35;
+     text-shadow: #3E5311 1px 1px;
+}
+
+.accountloader
+{
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  float: left;
+  background: #ccc;
+  border: none;
+  font-size: 11px;
+  text-shadow: 1px 1px #777;
+  text-decoration: none;
+  outline: none;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  margin-top: 10px;
+}

@@ -1,0 +1,146 @@
+/* CSS RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, hr{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: top;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*---STRUCTURE---*/
+body, html {height: 100%; margin: 0; padding: 0;}
+body {background: #e1e1e1; font-family: Helvetica, Arial, sans-serif;}
+
+#wrapper {float: left; position: relative; width: 100%; height: 100%;}
+
+#overlay {float: left; position:absolute; z-index: 110; background: rgba(15,15,15,.8); width: 100%; height: 100%; display: none;}
+
+header {float: left; display: block; clear: both; width: 100%; height: 44px; background: url(images/header.jpg) repeat-x; line-height: 44px; text-align: center; color: #fff; font-weight: bold; font-size: 24px;}
+
+#refreshBtn { position: absolute; right: 5px; top:4px; width: 35px; height: 32px; text-indent: -9999px; background: url(/images/refresh.jpg) no-repeat;}
+
+#gallery {margin:0 auto;top:30px; position: relative; display: block; width: 95%; height: auto; padding: 20px 0 0 10px;}
+
+.photoThumb {float: left; position: relative; width: auto; height: auto; padding: 10px; margin: 0 10px 20px 0; background: #fff;}
+
+.control {float: left; position: absolute; z-index: 100; background: rgba(255,255,255,.8); width: 100%; height: 150px; display: none;}
+
+#topControls {top:0;}
+
+	#goBack {float: left; position: relative; width: 92px; height: 54px; text-indent: -9999px; background: url(/images/back_arrow_big.png) no-repeat; margin: 35px 0 0 20px;}
+	
+#bottomControls {bottom: 0; text-align: center;}
+	
+	#controlWrapper {margin: 0 auto; position: relative; width: 600px; height: 150px;}
+	
+	#email {float: left; display: inline; width: 130px; height: 130px; text-indent: -9999px; background: url(/images/email_icon.png) no-repeat; margin: 10px 100px 0 0;}
+	
+	#mms {float: left; position: relative; width: 130px; height: 130px; text-indent: -9999px; background: url(/images/mms_icon.png) no-repeat;margin: 10px 100px 0 0;}
+	
+	#tweet {float: left; position: relative; width: 130px; height: 130px; text-indent: -9999px; background: url(/images/tweet_icon.png) no-repeat;margin: 10px 0 0 0;}
+
+#singlePhoto {float: left; position: absolute; z-index: 0; width: 100%; height: 100%; text-align: center;}
+
+#singlePhoto img {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+  
+   margin-top: -300px; /* Half the height */
+   margin-left: -600px; /* Half the width */
+}
+
+.modal {position: absolute; z-index: 120; margin:0 auto; top: 100px; width: 540px; height: 565px; left:50%; margin-left: -270px; background: #e1e1e1; display: none; border-radius: 10px; color: #fff; text-align: center; font-size: 24px; line-height: 44px;}
+
+#tweetBox.modal {background: #000;}
+
+.modalHeader {float: left; position: relative; width: 540px; height: 44px; background: url(/images/header.jpg) repeat-x; border-top-left-radius: 10px; border-top-right-radius: 10px;}
+
+.close {float: left; position: absolute; width:49px; height: 29px; top: 7px; left: 10px}
+	
+#closeBtn {float:left; width: 49px; height: 29px; text-indent: -9999px; background: url(/images/close-btn.png) no-repeat;}
+
+.buttonHolder {margin: 0 auto; position: relative; width: 510px; padding: 10px;}
+
+a.addNumber {background: url(/images/orange_bg_star.png); float: left; position: relative; width: 165px; height: 85px; border-radius: 10px; line-height: 85px; color: #fff; font-weight: bold; font-size: 24px; font-family: Courier New; font-size: 36px; text-shadow: black 0.1em 0.1em 0; text-decoration: none; margin: 0 0 5px 5px;}
+
+a.addExtension {background: url(/images/orange_bg_star.png); float: left; position: relative; width: 165px; height: 85px; border-radius: 10px; line-height: 85px; color: #fff; font-weight: bold; font-family: Courier New; font-size: 18px; text-shadow: black 0.1em 0.1em 0; text-decoration: none; margin: 0 0 5px 5px;}
+
+.dialpad {background: url(/images/orange_bg_star.png); float: left; position: relative; width: 165px; height: 85px;  line-height: 85px; color: #fff; font-weight: bold; font-size: 24px; font-family: Courier New; font-size: 36px; text-shadow: black 0.1em 0.1em 0; text-decoration: none; margin: 0 0 5px 5px; border: none;}
+
+a.addNumber:active {background: url(/images/green_bg_star.png);}
+
+/* a.addNumber:first-child {margin: 0 0 10px 0;} */
+
+input#mmsInput {margin: 0 auto; background: none; border: 2px solid #000; border-radius: 15px; width: 510px; height: 90px; margin: 20px 0; line-height: 90px; text-align: center; font-family: Courier New; color: #000; font-size: 48px; font-weight: bold;}
+
+#emailInputWrapper, .twitterInputWrapper {float: left; position: relative; left: 15px; background: none; background: #fff; border-radius: 15px; width: 510px; height: 90px; margin: 20px 0;}
+
+#emailInputWrapper #clearBtn, .twitterInputWrapper #clearBtn {float: right; position: relative; width: 15px; height: 15px; text-indent: -9999px; background: url(/images/cross2x.png) no-repeat; border: 0px; margin: 40px 15px 0px 0; z-index: 110;}
+
+#emailSubmit {margin: 0 auto; position: relative; width: 510px; height: 90px; padding: 0; text-align: center; background: url(/images/yellow_bg_star.png) repeat-x; line-height: 90px; color: #fff; font-weight: bold; font-family: Courier New; font-size: 36px; text-shadow: black 0.1em 0.1em 0; text-decoration: none; margin: 20px 0; border: none; border-radius: 10px; }
+
+#emailInputWrapper #clearBtn:active {background: url(/images/cross2x-black.png) no-repeat;}
+
+input#emailInput, input.twitterInput {float left; position: relative; width: 430px; height: 70px; margin: 10px 0; line-height: 70px; text-align: center; font-family: Courier New; color: #000; font-size: 36px; font-weight: bold; border: 0px; background: none; z-index: 110;}
+
+input.twitterInput {text-align: left;}
+
+small {float: left; position: relative; width: 540px; font-size: 14px; color: #ccc; text-align: center}
+
+
+/*---TYPOOGRAPHY---*/
+
+
+
+
+/*---NAVIGATION---*/
+
+
+
+
+/*---MISC---*/

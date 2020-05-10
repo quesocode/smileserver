@@ -1,0 +1,61 @@
+
+
+
+.account_type.active .changepw
+{
+     display: none;
+}
+.changepw
+{
+     margin-top: 10px;
+}
+.currentpw a
+{
+     font-size: 11px;
+     outline: none;
+}
+.setting_desc
+{
+     padding: 8px 0;
+     border-bottom: #eee 2px solid;
+     margin-bottom: 15px;
+}
+.setting_desc p
+{
+     font-size: 11px;
+     color: #444;
+     line-height: 18px;
+}
+
+
+#profile h3
+{
+     font-weight: bold;
+     color: #ccc;
+}
+
+
+
+button[type=submit]
+{
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  
+  background: #0098d5;
+  border: none;
+  text-shadow: 1px 1px #0074A5;
+  text-decoration: none;
+  outline: none;
+  -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    cursor: pointer;
+  margin-top: 10px;
+
+}
+
+button[type=submit]:hover
+{
+  background: black;
+  text-shadow: 1px 1px #000;
+}

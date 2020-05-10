@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Upload Form</title>
+</head>
+<body>
+
+<?php echo $error;?>
+
+<?php echo form_open_multipart('mobile/send');?>
+
+<div>
+<label>Number</label>
+<input type='text' name='number' value='7135023755' /> 
+</div>
+
+<div>
+<label>Carrier</label>
+<select name='carrier'>
+     <option value=''>(unknown - lookup)</option>
+     <option value='mms.att.net'>AT&T</option>
+     <option value='vzwpix.com'>Verizon</option>
+     <option value='vmpix.com'>Virgin Mobile</option>
+     <option value='tmomail.net'>T-Mobile</option>
+     <option value='pm.sprint.com'>Sprint</option>
+     <option value='mms.mycricket.com'>Cricket</option>
+     <option value='mms.uscc.net'>US Cellular</option>
+     <option value='mypixmessages.com'>Straight Talk</option>
+</select>
+</div>
+<div>
+<label>Message</label>
+<textarea name='message'></textarea>
+</div>
+<div>
+<label>File</label>
+<input type="file" name="file" size="20" />
+</div>
+<br /><br />
+
+<input type="hidden" name="username" value="smilebooth" />
+<input type="submit" value="upload" />
+
+</form>
+
+</body>
+</html>

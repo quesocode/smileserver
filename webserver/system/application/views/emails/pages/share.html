@@ -1,0 +1,104 @@
+<?php if($logged) { ?>
+<form name=plug_frm id=plug_frm method=post action='/plug/'>
+<?php } ?>
+
+<div id=drawer>
+     <div class=inside>
+          <div class=insidecontent>
+          
+               <!-- main plug link -->
+               <div id=plugdiv class=d>
+                    <a href='#plug' title='Plug it' id=plug><span>Plug it</span></a>
+               </div>
+               
+               <?php if($logged) { ?>
+               
+               
+               <div class='connections d'>
+                    
+                         <?php 
+                         
+                         $i = 1; $l = count($user->Connections);
+                         
+                         foreach($user->Connections as $type=>$connection) { ?>
+                         
+                         <div class='connection cd<?php echo ($i == $l) ? ' cl' : NULL; ?>' id='<?php echo $type; ?>'>
+                              <input type=checkbox name='connection[<?php echo $connection->id; ?>]' checked='checked' value='<?php echo $connection->account_type; ?>' />
+                              <img src='<?php echo isset($connection->mugshot_url) && $connection->mugshot_url ? $connection->mugshot_url : '/images/nomug_'.$connection->account_type.'.png'; ?>' width=30 height=30 title='<?php echo $connection->displayname; ?>' class=mug />
+                              <p><strong><?php echo $connection->displayname; ?></strong> <em><?php echo $connection->account_type; ?></em></p>
+                              
+                         </div>
+                         
+                         <?php $i++; } ?>
+                    
+               </div>
+               <div id='user_settings' class="d l">
+                    
+                    <a href="/settings">Settings</a>
+                    <a href="/logout?r=<?php echo $_SERVER['REQUEST_URI']; ?>">Logout</a>
+                    
+               </div>
+               
+               
+               <?php } else { ?>
+               
+               <!-- login form -->
+               
+               <div id=login  class='d loggedout'>
+                    <h4><a href="" class=active id=loginbtn>Login</a> / <a href="/" id=signupbtn class=inactive>Sign Up</a></h4>
+                    <form id=login_frm name=login_frm method=POST action='/login/json/'>
+                         <div id=fields>
+                              <fieldset>
+                                   <label for=username>Email</label>
+                                   <input type=text id=email name=email />
+                              </fieldset>
+                              <fieldset>
+                                   <label for=password>Password</label>
+                                   <input type=password id=password name=password />
+                              </fieldset>
+                         </div>
+                         <div id=btn>
+                              <fieldset>
+                                   <button type=submit><span>ok</span></button>
+                              </fieldset>   
+                         </div>
+                    </form>
+               </div>
+               
+               <!-- user not logged in -->
+               <div id=instructions class='d l'>
+                    <h4>What is "swamped"?</h4>
+                    <p>Swamped is an online tool that helps you get your web stuff out there.</p>
+                    
+                    <!--
+<h4>What is "swamped"?</h4>
+                    <p>Swamped is an online tool that helps you get your web stuff out there.</p>
+-->
+               </div>
+               
+               <?php } ?>
+               
+          
+          </div>
+     </div>
+</div>
+<div id=cntbg></div>
+<div id=sharedcontent>
+     <div class=inside>
+          <div class=insidecontent>
+               <?php echo $content; ?>
+          </div>
+     </div>
+</div>
+<?php if($logged) { ?>
+
+     <input type=hidden name=user value='<?php echo $user->id; ?>' />
+     <input type=hidden name=update value='<?php echo $update['id']; ?>' />
+     <input type=hidden name=update_hash value='<?php echo $update['hash']; ?>' />
+     
+     <?php if(isset($update['tweet']) && $update['tweet']) { ?>
+     <input type=hidden name=tweet value='<?php echo urlencode($update['tweet']); ?>' />
+     <?php } ?>
+
+</form>
+<?php } ?>

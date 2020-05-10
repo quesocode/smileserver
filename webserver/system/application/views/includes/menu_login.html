@@ -1,0 +1,65 @@
+<div id=menu_wrp class=wrp>
+  <div id=menu>
+    <div class="container_24">
+      <div class="grid_12 alpha">
+        <ul>
+          <li><a href='/' title='Home' id='logo'><span><?php echo isset($menu_title) ? $menu_title : 'swamped'; ?></span></a></li>
+          
+        </ul>
+        <div class=clear></div>
+      </div>
+      <div class="grid_12 omega">
+        
+        <?php if(isset($logged) && $logged) { ?>
+          <ul>
+               <li>
+                 <a href='/logout/' title='Logout' id=logout>Logout</a>
+                 <a href='/settings/<?php echo '?r='.$_SERVER['REQUEST_URI']; ?>' title='Settings' id=logout>Settings</a>
+               </li>
+          </ul>
+          <?php } else { ?>
+          <form action="/login/json/" method="post" name="login" id="login_frm">
+            <div class="fields">
+                
+                    
+     
+                    <fieldset id='topemail'>
+                         <label for="login_email">email</label>
+                        
+                            <input type="text" name="email" id="login_email" />
+                        
+                    </fieldset>
+                
+     
+                
+                    
+     
+                    <fieldset id='toppw'>
+                         <label for="login_password">password</label>
+                        
+                            <input type="password" name="password" id='login_password'  autocomplete=off />
+                        
+                    </fieldset>
+                
+                    
+                     <fieldset id='topbtn'>
+                         <button type=submit><span>Sign In</span></button>
+                     </fieldset>
+            
+                
+                    
+                
+            </div>
+     
+            
+        </form>
+          <?php } ?>
+          
+          
+        
+      </div>
+      <div class=clear></div>
+    </div>
+  </div>
+</div>
+<div class=clear></div>
